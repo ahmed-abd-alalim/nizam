@@ -4,10 +4,10 @@
   "description": "A Smart command-line interface with no presets for creating a modern architecture",
   "type": "module",
   "bin": {
-    "start-bango": "dist/bin/start-bango.js"
+    "start-bango": "dist/bin/__main__.js"
   },
   "scripts": {
-    "dev": "ts-node src/bin/start-bango.ts",
+    "dev": "ts-node src/bin/__main__.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
