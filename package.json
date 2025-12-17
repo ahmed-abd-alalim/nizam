@@ -4,7 +4,7 @@
   "description": "A Smart command-line interface with no presets for creating a modern architecture",
   "type": "module",
   "bin": {
-    "start-bango": "dist/bin/__main__.js"
+    "bango": "dist/bin/__main__.js"
   },
   "scripts": {
     "dev": "ts-node src/bin/__main__.ts",
@@ -14,6 +14,10 @@
   "keywords": [],
   "author": "Ahmed Abd Alalim",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmed-abd-alalim/bango.git"
+  },
   "devDependencies": {
     "@types/node": "^25.0.3",
     "ts-node": "^10.9.2",
