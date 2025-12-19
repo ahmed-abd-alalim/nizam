@@ -1,18 +1,16 @@
-import type { operation_state_type } from "../assets/type.js";
 import { ensureDir } from "../utils/fs.js";
 import { extractMainMessage } from "../utils/filter_error_message.js";
+import { useContext } from "../core/context/runtime.js";
 
-export async function CreatFolder(
-  params: string
-): Promise<operation_state_type> {
-  const operation_state = { status: "", error_message: "" };
+export async function CreatFolder() {
+  const ctx = useContext();
 
   try {
-    await ensureDir(params);
-    operation_state.status = "success";
+    await ensureDir(ctx.full_project_path);
+    ctx.operation_state.creat_project_folder.status = "success";
   } catch (err: any) {
-    operation_state.status = "fatal";
-    operation_state.error_message = extractMainMessage(err);
+    ctx.operation_state.creat_project_folder.status = "fatal";
+    ctx.operation_state.creat_project_folder.error_message =
+      extractMainMessage(err);
   }
-  return operation_state;
 }

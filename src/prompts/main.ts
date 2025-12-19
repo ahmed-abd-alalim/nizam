@@ -1,53 +1,69 @@
 import { input, select, confirm, Separator } from "@inquirer/prompts";
 import chalk from "chalk";
-import type { user_options_type } from "../assets/type.js";
-
-export async function getPrompts(): Promise<user_options_type> {
+import { useContext } from "../core/context/runtime.js";
+export async function getPrompts() {
   const user_options = [];
+  const ctx = useContext();
+  const question_theme = {
+    prefix: {
+      idle: `${chalk.yellowBright("[")}${chalk.blueBright(
+        "?"
+      )}${chalk.yellowBright("]")}`,
+      done: `${chalk.yellowBright("[")}${chalk.greenBright(
+        "✔"
+      )}${chalk.yellowBright("]")}`,
+    },
+    style: {
+      message: (text: any) => chalk.blueBright(text),
+      answer: (text: any) => chalk.greenBright(text),
+    },
+  };
 
   user_options.push([
     "project_path",
     await input({
-      message: chalk.cyanBright.bold(
-        "\n[?] Project path (full path or . for current folder):"
-      ),
+      message: "Project path (full path or . for current folder):",
       default: ".",
+      theme: question_theme,
     }),
   ]);
 
   user_options.push([
     "project_name",
     await input({
-      message: chalk.cyanBright.bold("\n[?] Enter your project name:"),
+      message: "Enter your project name:",
       default: "bango-app",
+      theme: question_theme,
     }),
   ]);
 
   user_options.push([
     "js_framework",
     await select({
-      message: chalk.greenBright("\n[?] Select a js framework:"),
+      message: "Select a js framework:",
       choices: [
         new Separator(chalk.gray("--- Popular Options ---")),
         "React + vite + js",
         "React + vite + ts",
       ],
       pageSize: 5,
+      theme: question_theme,
     }),
   ]);
 
   user_options.push([
-    "aliases",
+    "add_aliase",
     await confirm({
-      message: chalk.blueBright("\n[?] Do you want add @ aliase?"),
+      message: "Do you want add @ aliase?",
       default: false,
+      theme: question_theme,
     }),
   ]);
 
   user_options.push([
     "CSS_framework",
     await select({
-      message: chalk.greenBright("\n[?] Select a CSS framework:"),
+      message: "Select a CSS framework:",
       choices: [
         new Separator(chalk.gray("--- Popular Options ---")),
         "Tailwind",
@@ -55,16 +71,18 @@ export async function getPrompts(): Promise<user_options_type> {
         "None",
       ],
       pageSize: 5,
+      theme: question_theme,
     }),
   ]);
 
   user_options.push([
     "react_router",
     await confirm({
-      message: chalk.blueBright("\n[?] Do you want React Router?"),
+      message: "Do you want React Router?",
       default: false,
+      theme: question_theme,
     }),
   ]);
 
-  return Object.fromEntries(user_options);
+  ctx.user_options = Object.fromEntries(user_options);
 }

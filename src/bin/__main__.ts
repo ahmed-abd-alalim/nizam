@@ -2,18 +2,26 @@
 
 import { start, getPrompts, help, exit } from "../prompts/index.js";
 import { installProject } from "../core/installer.js";
+import { createContext } from "../core/context/create.js";
+import { startProject } from "../core/context/runtime.js";
 
 async function main() {
+  // create Context
+  const ctx = createContext();
+  startProject(ctx);
+
   try {
+    // ?? check internet
+
     // start Bango
     console.clear();
-    const option = await start();
+    await start();
 
     // take action on what come from user option
-    if (option === "Start") {
-      const user_options = await getPrompts();
-      await installProject(user_options);
-    } else if (option === "Help") {
+    if (ctx.start_menu_options === "Start") {
+      await getPrompts();
+      await installProject();
+    } else if (ctx.start_menu_options === "Help") {
       help();
     } else {
       exit();

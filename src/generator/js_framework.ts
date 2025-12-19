@@ -1,42 +1,22 @@
-import type { operation_state_type } from "../assets/type.js";
 import { extractMainMessage } from "../utils/filter_error_message.js";
-import { installDeps } from "../utils/npm.js";
-import { execa } from "execa";
+import { installDeps,install } from "../utils/npm.js";
+import { useContext } from "../core/context/runtime.js";
+import appData from "../assets/config.json" with { type: 'json' };;
 
-export async function JSFramework(
-  path_params: string,
-  name_params: string
-): Promise<operation_state_type> {
-  const operation_state = { status: "", error_message: "" };
-  let pkg_command;
+export async function JSFramework() {
+  const ctx = useContext();
   let pkg = "npx";
 
   try {
-    if (name_params.includes("js")) {
-      pkg_command = [
-        "degit",
-        "vitejs/vite/packages/create-vite/template-react",
-        path_params,
-      ];
-      await installDeps(pkg, pkg_command);
+    if (ctx.user_options.js_framework.includes("js")) {
+      await installDeps(pkg, [appData.pkg_terminal_command.js_framework.js]);
     } else {
-      pkg_command = [
-        "degit",
-        "vitejs/vite/packages/create-vite/template-react-ts",
-        path_params,
-      ];
-      await installDeps(pkg, pkg_command);
+      await installDeps(pkg, [appData.pkg_terminal_command.js_framework.ts]);
     }
-
-    await execa("npm", ["install"], {
-      cwd: path_params,
-      stdio: "ignore",
-    });
-
-    operation_state.status = "success";
+    // install()
+    ctx.operation_state.js_framework.status = "success";
   } catch (err: any) {
-    operation_state.status = "fatal";
-    operation_state.error_message = extractMainMessage(err);
+    ctx.operation_state.js_framework.status = "fatal";
+    ctx.operation_state.js_framework.error_message = extractMainMessage(err);
   }
-  return operation_state;
 }
