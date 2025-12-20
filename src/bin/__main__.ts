@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { start, getPrompts, help, exit } from "../prompts/index.js";
+import { intro, start, getPrompts, help, exit } from "../ui/index.js";
 import { installProject } from "../core/installer.js";
 import { createContext } from "../core/context/create.js";
 import { startProject } from "../core/context/runtime.js";
@@ -13,8 +13,9 @@ async function main() {
   try {
     // ?? check internet
 
-    // start Bango
+    // start nizam
     console.clear();
+    await intro();
     await start();
 
     // take action on what come from user option

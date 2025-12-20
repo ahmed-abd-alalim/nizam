@@ -1,10 +1,10 @@
 {
-  "name": "bango",
+  "name": "nizam",
   "version": "1.0.0",
   "description": "A Smart command-line interface with no presets for creating a modern architecture",
   "type": "module",
   "bin": {
-    "bango": "dist/bin/__main__.js"
+    "nizam": "dist/bin/__main__.js"
   },
   "scripts": {
     "dev": "ts-node src/bin/__main__.ts",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmed-abd-alalim/bango.git"
+    "url": "https://github.com/ahmed-abd-alalim/nizam.git"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",

@@ -28,7 +28,7 @@ export interface execution_context_type {
   internet_conection: boolean;
   start_menu_options: string;
   full_project_path: string;
-  bango_templates_path: string;
+  nizam_templates_path: string;
   user_options: user_options_type;
   operation_state: operation_state_type;
 }

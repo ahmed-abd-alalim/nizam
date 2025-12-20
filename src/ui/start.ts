@@ -20,7 +20,7 @@ export async function start() {
   const run = await select({
     message: `
 ${chalk.bold.green("###################")}
-${chalk.yellowBright("Welcome In Bango")}
+${chalk.yellowBright("Welcome In Nizam")}
 ${chalk.bold.green("###################")}`,
     choices: ["Start", "Help", "Exit"],
     theme: question_theme,

@@ -5,13 +5,13 @@ import { useContext } from "../core/context/runtime.js";
 export async function CreatVSCFolder() {
   const {
     full_project_path,
-    bango_templates_path,
+    nizam_templates_path,
     user_options,
     operation_state,
   } = useContext();
   const vsc_path = `${full_project_path}\\.vscode`;
   const vsc_setting_path = `${vsc_path}\\settings.json`;
-  const vsc_settings_templates = `${bango_templates_path}\\vscode\\settings.template`;
+  const vsc_settings_templates = `${nizam_templates_path}\\vscode\\settings.template`;
 
   try {
     await ensureDir(vsc_path);

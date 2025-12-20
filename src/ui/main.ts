@@ -33,7 +33,7 @@ export async function getPrompts() {
     "project_name",
     await input({
       message: "Enter your project name:",
-      default: "bango-app",
+      default: "nizam-app",
       theme: question_theme,
     }),
   ]);
