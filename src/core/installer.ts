@@ -1,7 +1,8 @@
-import path from "path";
 import { useContext } from "./context/runtime.js";
+import { getRequiredPaths } from "../utils/get_required_paths.js";
 import {
   CreatFolder,
+  CreatVSCFolder,
   JSFramework,
   // CSSFramework,
   // ReactRouter,
@@ -9,10 +10,9 @@ import {
 
 export async function installProject() {
   const ctx = useContext();
-  const operation_list = ctx.user_options;
 
-  const project_Path = path.resolve(process.cwd(), operation_list.project_path);
-  ctx.full_project_path = `${project_Path}\\${operation_list.project_name}`;
+  // get all path that's i will use
+  getRequiredPaths();
 
   // creat folder operation
   await CreatFolder();
@@ -26,7 +26,8 @@ export async function installProject() {
     process.exit(0);
   }
 
-  // 3- npm  or  yarn   ###and edit in js-fram-> install
+  // creact .vscode folder
+  await CreatVSCFolder();
 
   // 4- clean new app
 

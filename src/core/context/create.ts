@@ -5,10 +5,11 @@ export function createContext(): execution_context_type {
     internet_conection: false,
     start_menu_options: "",
     full_project_path: "",
+    bango_templates_path: "",
     user_options: {
       project_path: "",
       project_name: "",
-      pkg_name: "",
+      pkg_manager: "",
       js_framework: "",
       clean_app: false,
       add_aliase: false,

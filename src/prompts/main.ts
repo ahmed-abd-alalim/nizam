@@ -38,6 +38,23 @@ export async function getPrompts() {
   ]);
 
   user_options.push([
+    "pkg_manager",
+    await select({
+      message: "Choose a package manager:",
+      choices: [
+        new Separator(chalk.gray("--- Popular Options ---")),
+        "npm",
+        "bun",
+        "pnpm",
+        "yarn",
+      ],
+      default: "npm",
+      pageSize: 5,
+      theme: question_theme,
+    }),
+  ]);
+
+  user_options.push([
     "js_framework",
     await select({
       message: "Select a js framework:",
