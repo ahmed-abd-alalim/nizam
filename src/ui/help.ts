@@ -1,5 +1,19 @@
 import chalk from "chalk";
+import { input } from "@inquirer/prompts";
 
-export function help() {
+export async function help() {
   console.log(`Help Menu for every question in nizam`);
+
+  let back = false;
+  while (!back) {
+    await input({
+      message: `
+      \n\n[${chalk.redBright("!")}] Press the ${chalk.bgRedBright(
+        "Enter key"
+      )} to return to the home menu.
+    `,
+    });
+
+    back = true;
+  }
 }

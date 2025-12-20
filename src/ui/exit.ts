@@ -1,7 +1,7 @@
-import chalk from "chalk";
+import { say } from "./say.js";
 
-export function exit() {
-  console.clear();
-  console.log(chalk.redBright("Goodbye! 👋"));
+export async function exit(exit_message: string) {
+  await say(exit_message);
+  await new Promise((r) => setTimeout(r, 1000));
   process.exit(0);
 }

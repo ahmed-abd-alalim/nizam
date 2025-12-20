@@ -15,13 +15,8 @@ export async function start() {
     },
   };
 
-  console.clear();
-
   const run = await select({
-    message: `
-${chalk.bold.green("###################")}
-${chalk.yellowBright("Welcome In Nizam")}
-${chalk.bold.green("###################")}`,
+    message: "",
     choices: ["Start", "Help", "Exit"],
     theme: question_theme,
   });

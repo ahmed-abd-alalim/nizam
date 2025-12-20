@@ -35,6 +35,8 @@ export async function installProject() {
     await CleanFiles();
   }
 
+  //3- ##### check what pkg name thats is inter is heer or now (npx - what input )
+
   // 4- add start default folder
 
   // 5- add aliase @
