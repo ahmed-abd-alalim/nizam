@@ -17,6 +17,7 @@ export interface one_operation_state_type {
 export interface operation_state_type {
   creat_project_folder: one_operation_state_type;
   js_framework: one_operation_state_type;
+  creat_vsc_folder: one_operation_state_type;
   clean_app: one_operation_state_type;
   add_aliase: one_operation_state_type;
   CSS_framework: one_operation_state_type;

@@ -5,10 +5,10 @@ export async function installDeps(
   npx_params: string,
   pkg_command_params: string[]
 ) {
-  const ctx = useContext();
+  const { full_project_path } = useContext();
   try {
     await execa(npx_params, pkg_command_params, {
-      cwd: ctx.full_project_path,
+      cwd: full_project_path,
       shell: true,
       stdio: "ignore",
     });
@@ -18,10 +18,10 @@ export async function installDeps(
 }
 
 export async function install() {
-  const ctx = useContext();
+  const { full_project_path } = useContext();
   try {
     await execa("npm", ["install"], {
-      cwd: ctx.full_project_path,
+      cwd: full_project_path,
       stdio: "ignore",
     });
   } catch (err: any) {

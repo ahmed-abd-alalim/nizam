@@ -1,6 +1,7 @@
 import { input, select, confirm, Separator } from "@inquirer/prompts";
 import chalk from "chalk";
 import { useContext } from "../core/context/runtime.js";
+
 export async function getPrompts() {
   const user_options = [];
   const ctx = useContext();
@@ -64,6 +65,15 @@ export async function getPrompts() {
         "React + vite + ts",
       ],
       pageSize: 5,
+      theme: question_theme,
+    }),
+  ]);
+
+  user_options.push([
+    "clean_app",
+    await confirm({
+      message: "Clean default Vite + React files?",
+      default: false,
       theme: question_theme,
     }),
   ]);

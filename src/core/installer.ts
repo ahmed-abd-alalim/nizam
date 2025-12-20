@@ -4,32 +4,38 @@ import {
   CreatFolder,
   CreatVSCFolder,
   JSFramework,
+  CleanFiles,
   // CSSFramework,
   // ReactRouter,
 } from "../generator/index.js";
 
 export async function installProject() {
-  const ctx = useContext();
+  const { operation_state, user_options } = useContext();
 
   // get all path that's i will use
   getRequiredPaths();
 
   // creat folder operation
   await CreatFolder();
-  if (ctx.operation_state.creat_project_folder.status === "fatal") {
+  if (operation_state.creat_project_folder.status === "fatal") {
     process.exit(0);
   }
 
   // JS Framework operation
   await JSFramework();
-  if (ctx.operation_state.js_framework.status === "fatal") {
+  if (operation_state.js_framework.status === "fatal") {
     process.exit(0);
   }
 
   // creact .vscode folder
   await CreatVSCFolder();
 
-  // 4- clean new app
+  // clean new app
+  if (user_options.clean_app) {
+    await CleanFiles();
+  }
+
+  // 4- add start default folder
 
   // 5- add aliase @
 

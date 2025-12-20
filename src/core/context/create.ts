@@ -1,6 +1,8 @@
 import { execution_context_type } from "../../assets/type.js";
 
 export function createContext(): execution_context_type {
+  const one_operation_state = { status: "", error_message: "" };
+
   return {
     internet_conection: false,
     start_menu_options: "",
@@ -17,12 +19,13 @@ export function createContext(): execution_context_type {
       react_router: false,
     },
     operation_state: {
-      creat_project_folder: { status: "", error_message: "" },
-      js_framework: { status: "", error_message: "" },
-      clean_app: { status: "", error_message: "" },
-      add_aliase: { status: "", error_message: "" },
-      CSS_framework: { status: "", error_message: "" },
-      react_router: { status: "", error_message: "" },
+      creat_project_folder: one_operation_state,
+      js_framework: one_operation_state,
+      creat_vsc_folder: one_operation_state,
+      clean_app: one_operation_state,
+      add_aliase: one_operation_state,
+      CSS_framework: one_operation_state,
+      react_router: one_operation_state,
     },
   };
 }
