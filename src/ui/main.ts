@@ -70,15 +70,6 @@ export async function getPrompts() {
   ]);
 
   user_options.push([
-    "clean_app",
-    await confirm({
-      message: "Clean default Vite + React files?",
-      default: false,
-      theme: question_theme,
-    }),
-  ]);
-
-  user_options.push([
     "add_aliase",
     await confirm({
       message: "Do you want add @ aliase?",
@@ -102,14 +93,14 @@ export async function getPrompts() {
     }),
   ]);
 
-  user_options.push([
-    "react_router",
-    await confirm({
-      message: "Do you want React Router?",
-      default: false,
-      theme: question_theme,
-    }),
-  ]);
+  // user_options.push([
+  //   "react_router",
+  //   await confirm({
+  //     message: "Do you want React Router?",
+  //     default: false,
+  //     theme: question_theme,
+  //   }),
+  // ]);
 
   ctx.user_options = Object.fromEntries(user_options);
 }

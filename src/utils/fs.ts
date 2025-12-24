@@ -1,9 +1,11 @@
 import fs from "fs-extra";
 
-export const outputJson = fs.outputJson;
+export const rename = fs.rename;
 export const ensureDir = fs.ensureDir;
-export const copy = fs.copy;
-export const writeFile = fs.writeFile;
+export const ensureFile = fs.ensureFile;
 export const readFile = fs.readFile;
+export const writeFile = fs.writeFile;
+export const remove = fs.remove;
+export const emptyDir = fs.emptyDir;
 export const readJson = fs.readJson;
-export const writeJson = fs.writeJson;
+export const outputJson = fs.outputJson;

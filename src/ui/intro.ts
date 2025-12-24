@@ -1,5 +1,6 @@
 import chalk from "chalk";
 import ora from "ora";
+import app_info from "../assets/config.json" with { type: 'json' };
 
 export async function intro() {
   console.clear();
@@ -13,7 +14,9 @@ export async function intro() {
 ▓▓▓▒   ▒▓▓▒ ▒▓▓▓    ░▓▓▓▒     ▓▓▒   ▓▓▓▓ ▒▓▓▓  ▒▓▓▓  ▒▓▓▓
 ▓▓▓▒   ▒▓▓▒ ▒▓▓▓   ░▓▓▓░     ▓▓▓░   ▓▓▓▓ ▒▓▓▓  ▒▓▓▓  ▒▓▓▓
 ▓▓▓▒   ▒▓▓▒ ▒▓▓▓  ▒▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓  ▒▓▓▓  ▒▓▓▓
-▒▒▒░   ▒▒▒▒ ░▒▒▒ ░▒▒▒▒▒▒▒▒▒▒   ░▒   ▒▒▒▒ ░▒▒▒  ░▒▒▒  ░▒▒▒
+▒▒▒░   ▒▒▒▒ ░▒▒▒ ░▒▒▒▒▒▒▒▒▒▒   ░▒   ▒▒▒▒ ░▒▒▒  ░▒▒▒  ░▒▒▒  ${chalk.redBright.bold(
+    `v${app_info.app_info.version}`
+  )}
                                                          
 `);
 
@@ -26,7 +29,9 @@ export async function intro() {
 ░▓▓▓  ░▓▓▒ ░▓▓▒    ▒▓▓▒     ░▒  ▒▓▓▒ ▒▓▓  ▒▓▓░ ▒▓▓░
 ░▓▓▓  ░▓▓▒ ░▓▓▒   ▒▓▓▒    ▒▓▓   ▒▓▓▒ ▒▓▓  ▒▓▓░ ▒▓▓░
 ░▓▓▓  ░▓▓▒ ░▓▓▒  ▒▓▓▓▓▓▓▓ ▒▓▓▒ ▒▓▓▓▒ ▒▓▓  ▒▓▓░ ▒▓▓░
-░▒▒▒  ░▒▒▒ ░▒▒▒ ▒▒▒▒▒▒▒▒▒  ▒▒▒▒ ▒▒▒░ ▒▒▒  ▒▒▒░ ▒▒▒░
+░▒▒▒  ░▒▒▒ ░▒▒▒ ▒▒▒▒▒▒▒▒▒  ▒▒▒▒ ▒▒▒░ ▒▒▒  ▒▒▒░ ▒▒▒░  ${chalk.redBright.bold(
+    `v${app_info.app_info.version}`
+  )}
                                                    
 `);
 
@@ -37,7 +42,9 @@ export async function intro() {
 ▓▓▓  ▒▓▓░░▓▓░   ▒▓▓▒     ▒░▓▓▓░▓▓▓ ░▓▓▒ ▓▓▓
 ▓▓▓  ▒▓▓░░▓▓░  ▒▓▓░   ▒▓▒  ▓▓▓░▓▓▓ ░▓▓▒ ▓▓▓
 ▓▓▓  ▒▓▓░░▓▓░ ▒▓▓▓▓▓▓ ▓▓▓▒▒▓▓▓░▓▓▓ ░▓▓▒ ▓▓▓
-▒▒▒  ░▒▒░░▒▒ ▒▒▒▒▒▒▒▒  ░▒  ▒▒▒ ▒▒▒ ░▒▒░ ▒▒▒
+▒▒▒  ░▒▒░░▒▒ ▒▒▒▒▒▒▒▒  ░▒  ▒▒▒ ▒▒▒ ░▒▒░ ▒▒▒  ${chalk.redBright.bold(
+    `v${app_info.app_info.version}`
+  )}
                                            
 `);
 

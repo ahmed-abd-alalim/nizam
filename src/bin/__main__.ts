@@ -32,12 +32,11 @@ async function main() {
           console.clear();
           sectionBox("Start");
           await getPrompts();
+          console.clear();
+          sectionBox("Maker");
           await installProject();
-          await exit(
-            `We hope you achieved what you wanted. Goodbye ${
-              os.userInfo().username
-            }.`
-          );
+          await new Promise((r) => setTimeout(r, 1000));
+          process.exit(0);
         case "Help":
           console.clear();
           sectionBox("Help");

@@ -1,4 +1,8 @@
 {
+  "app_info": {
+    "name": "nizam",
+    "version": "1.0.0"
+  },
   "pkg_terminal_command": {
     "js_framework": {
       "js": "degit vitejs/vite/packages/create-vite/template-react",

@@ -13,7 +13,6 @@ export function createContext(): execution_context_type {
       project_name: "",
       pkg_manager: "",
       js_framework: "",
-      clean_app: false,
       add_aliase: false,
       CSS_framework: "",
       react_router: false,

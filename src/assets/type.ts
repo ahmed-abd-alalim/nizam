@@ -3,7 +3,6 @@ export interface user_options_type {
   project_name: string;
   pkg_manager: string;
   js_framework: string;
-  clean_app: boolean;
   add_aliase: boolean;
   CSS_framework: string;
   react_router: boolean;
