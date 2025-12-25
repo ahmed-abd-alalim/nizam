@@ -78,20 +78,20 @@ export async function getPrompts() {
     }),
   ]);
 
-  // user_options.push([
-  //   "CSS_framework",
-  //   await select({
-  //     message: "Select a CSS framework:",
-  //     choices: [
-  //       new Separator(chalk.gray("--- Popular Options ---")),
-  //       "Tailwind",
-  //       "Bootstrap",
-  //       "None",
-  //     ],
-  //     pageSize: 5,
-  //     theme: question_theme,
-  //   }),
-  // ]);
+  user_options.push([
+    "CSS_framework",
+    await select({
+      message: "Select a CSS framework:",
+      choices: [
+        new Separator(chalk.gray("--- Popular Options ---")),
+        "Tailwind",
+        "Bootstrap",
+        "None",
+      ],
+      pageSize: 5,
+      theme: question_theme,
+    }),
+  ]);
 
   // user_options.push([
   //   "react_router",
