@@ -14,8 +14,8 @@ ${title_params && `### ${title_params}`}
 
 ${dec_params && `#### ${dec_params}`}
 
-\`\`\` 
-${code_params && `${code_params}`}
+\`\`\`bash 
+${code_params && code_params}
 \`\`\`
   ---
   `;

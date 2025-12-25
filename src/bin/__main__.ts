@@ -35,7 +35,6 @@ async function main() {
           console.clear();
           sectionBox("Maker");
           await installProject();
-          await new Promise((r) => setTimeout(r, 1000));
           process.exit(0);
         case "Help":
           console.clear();

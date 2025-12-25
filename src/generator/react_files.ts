@@ -10,6 +10,7 @@ import {
   pathExists,
 } from "../utils/fs.js";
 import { useContext } from "../core/context/runtime.js";
+import { nizamDocEditor } from "../utils/nizam_doc_editor.js";
 
 export async function ReactFiles() {
   const {
@@ -100,6 +101,18 @@ export async function ReactFiles() {
     await ensureFile(main_react_path);
     await writeFile(main_react_path, main_react_text, "utf8");
 
+    await nizamDocEditor(
+      user_options.js_framework,
+      "Here’s the clear, correct way to run & build a React app using Vite",
+      `Run (Development mode)
+npm run dev
+
+You’ll see something like:
+Local: http://localhost:5173/
+
+Build (Production)
+npm run build`
+    );
     operation_state.clean_app.status = "success";
   } catch (err: any) {
     operation_state.clean_app.status = "fatal";

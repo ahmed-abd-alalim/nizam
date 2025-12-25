@@ -85,7 +85,7 @@ export async function Aliase() {
       });
     }
 
-    nizamDocEditor(
+    await nizamDocEditor(
       "aliase (@)",
       "you can use it inside code to move between folder fast",
       "import {  } from '@/';"
