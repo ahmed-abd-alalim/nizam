@@ -20,7 +20,7 @@ async function main() {
 
   try {
     // start nizam
-    await intro();
+    // await intro();
 
     while (true) {
       // take action on what come from user option

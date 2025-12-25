@@ -7,6 +7,7 @@ import {
   JSFramework,
   ReactFiles,
   CreatVSCFolder,
+  Aliase,
   // CSSFramework,
   // ReactRouter,
 } from "../generator/index.js";
@@ -43,6 +44,13 @@ export async function installProject() {
       operation_des: "creat .vscode folder",
       operation_is_need: false,
       operation_targit: true,
+    },
+    {
+      operation_name: "add_aliase",
+      operation_fun: Aliase,
+      operation_des: "make aliase @",
+      operation_is_need: false,
+      operation_targit: user_options.add_aliase,
     },
   ];
 

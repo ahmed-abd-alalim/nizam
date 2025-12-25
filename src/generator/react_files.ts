@@ -7,6 +7,7 @@ import {
   remove,
   readFile,
   rename,
+  pathExists,
 } from "../utils/fs.js";
 import { useContext } from "../core/context/runtime.js";
 
@@ -19,7 +20,7 @@ export async function ReactFiles() {
   } = useContext();
   const old_gitignore_path = `${full_project_path}\\_gitignore`;
   const new_gitignore_path = `${full_project_path}\\.gitignore`;
-  const nizam_Instructions_path = `${full_project_path}\\NIZAM_DOCS.md`;
+  const nizam_Instructions_path = `${full_project_path}\\NIZAM_DOC.md`;
   const nizam_Instructions_templates = `${nizam_templates_path}\\NIZAM_DOC.template`;
   const README_path = `${full_project_path}\\README.md`;
   const index_css_path = `${full_project_path}\\src\\index.css`;
@@ -50,7 +51,8 @@ export async function ReactFiles() {
 
   try {
     // fixed _gitignore file name
-    await rename(old_gitignore_path, new_gitignore_path);
+    if (await pathExists(old_gitignore_path))
+      await rename(old_gitignore_path, new_gitignore_path);
 
     // make nizam Instructions file
     const nizam_Instructions_text = await readFile(
