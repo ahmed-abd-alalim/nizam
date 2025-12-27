@@ -4,12 +4,10 @@ import { operations } from "../ui/operations.js";
 import { operation_state_type } from "../assets/type.js";
 import {
   CreatFolder,
-  JSFramework,
-  ReactFiles,
   CreatVSCFolder,
   Aliase,
-  // CSSFramework,
-  // ReactRouter,
+  JSFramework,
+  CSSFramework,
 } from "../generator/index.js";
 
 export async function installProject() {
@@ -27,16 +25,9 @@ export async function installProject() {
       // enaple install pkg
       operation_name: "js_framework",
       operation_fun: JSFramework,
-      operation_des: `download ${user_options.js_framework}`,
+      operation_des: `install ${user_options.js_framework}`,
       operation_is_need: true,
       operation_targit: user_options.js_framework,
-    },
-    {
-      operation_name: "clean_app",
-      operation_fun: ReactFiles,
-      operation_des: "clean app folder",
-      operation_is_need: true,
-      operation_targit: true,
     },
     {
       operation_name: "creat_vsc_folder",
@@ -51,6 +42,13 @@ export async function installProject() {
       operation_des: "make aliase @",
       operation_is_need: false,
       operation_targit: user_options.add_aliase,
+    },
+    {
+      operation_name: "CSS_framework",
+      operation_fun: CSSFramework,
+      operation_des: `install ${user_options.CSS_framework}`,
+      operation_is_need: false,
+      operation_targit: user_options.CSS_framework,
     },
   ];
 
@@ -68,6 +66,8 @@ export async function installProject() {
       process.exit(0);
     }
   }
+
+  //@@@ clean all tage i all file after finished
 
   // ##-nizam@mark-##: name of section
 

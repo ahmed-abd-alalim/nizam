@@ -1,4 +1,3 @@
-import { extractMainMessage } from "../utils/filter_error_message.js";
 import {
   ensureFile,
   writeFile,
@@ -8,14 +7,15 @@ import {
   readFile,
   rename,
   pathExists,
-} from "../utils/fs.js";
-import { useContext } from "../core/context/runtime.js";
-import { nizamDocEditor } from "../utils/nizam_doc_editor.js";
+} from "../../../utils/fs.js";
+import { useContext } from "../../../core/context/runtime.js";
+import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
+import appData from "../../../assets/config.json" with { type: 'json' };
+
 
 export async function ReactFiles() {
   const {
     full_project_path,
-    operation_state,
     user_options,
     nizam_templates_path,
   } = useContext();
@@ -33,22 +33,22 @@ export async function ReactFiles() {
   const app_react_path = `${full_project_path}\\src\\app.${
     user_options.js_framework.includes("js") ? "jsx" : "tsx"
   }`;
-  const app_react_templates = `${nizam_templates_path}\\${
+  const app_react_templates = `${nizam_templates_path}\\react\\${
     user_options.js_framework.includes("js") ? "js" : "ts"
-  }\\react\\app.template`;
+  }\\app.template`;
   const vite_config_path = `${full_project_path}\\vite.config.${
     user_options.js_framework.includes("js") ? "js" : "ts"
   }`;
-  const vite_config_templates = `${nizam_templates_path}\\${
+  const vite_config_templates = `${nizam_templates_path}\\react\\${
     user_options.js_framework.includes("js") ? "js" : "ts"
-  }\\react\\vite.config.template`;
+  }\\vite.config.template`;
 
   const main_react_path = `${full_project_path}\\main.${
     user_options.js_framework.includes("js") ? "js" : "ts"
   }`;
-  const main_react_templates = `${nizam_templates_path}\\${
+  const main_react_templates = `${nizam_templates_path}\\react\\${
     user_options.js_framework.includes("js") ? "js" : "ts"
-  }\\react\\main.template`;
+  }\\main.template`;
 
   try {
     // fixed _gitignore file name
@@ -104,18 +104,26 @@ export async function ReactFiles() {
     await nizamDocEditor(
       user_options.js_framework,
       "Here’s the clear, correct way to run & build a React app using Vite",
-      `Run (Development mode)
+      `
+Run (Development mode)
+\`\`\`bash 
 npm run dev
+\`\`\`
 
 You’ll see something like:
+\`\`\`bash 
 Local: http://localhost:5173/
+\`\`\`
 
 Build (Production)
-npm run build`
+\`\`\`bash 
+npm run build
+\`\`\`
+
+> [!TIP]
+> React Documentation: [${appData.pkg_documentation.js_framework.react.des}](${appData.pkg_documentation.js_framework.react.link})`
     );
-    operation_state.clean_app.status = "success";
   } catch (err: any) {
-    operation_state.clean_app.status = "fatal";
-    operation_state.clean_app.error_message = extractMainMessage(err);
+   throw err
   }
 }

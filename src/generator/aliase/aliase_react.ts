@@ -1,12 +1,11 @@
-import { extractMainMessage } from "../utils/filter_error_message.js";
-import { readJson, readFile, outputJson, writeFile } from "../utils/fs.js";
-import { useContext } from "../core/context/runtime.js";
+import { readJson, readFile, outputJson, writeFile } from "../../utils/fs.js";
+import { useContext } from "../../core/context/runtime.js";
 import stripJsonComments from "strip-json-comments";
-import { nizamDocEditor } from "../utils/nizam_doc_editor.js";
+import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
+import appData from "../../assets/config.json" with { type: 'json' };
 
-export async function Aliase() {
+export async function AliaseReact() {
   const {
-    operation_state,
     full_project_path,
     user_options,
     nizam_templates_path,
@@ -41,7 +40,7 @@ export async function Aliase() {
 
   const tsconfig_app_path = `${full_project_path}\\tsconfig.app.json`;
   const jsconfig_app_path = `${full_project_path}\\jsconfig.json`;
-  const jsconfig_app_template = `${nizam_templates_path}\\js\\react\\jsconfig.template`;
+  const jsconfig_app_template = `${nizam_templates_path}\\react\\js\\jsconfig.template`;
   const vite_config_path = `${full_project_path}\\vite.config.${
     user_options.js_framework.includes("js") ? "js" : "ts"
   }`;
@@ -88,11 +87,15 @@ export async function Aliase() {
     await nizamDocEditor(
       "aliase (@)",
       "you can use it inside code to move between folder fast",
-      "import {  } from '@/';"
+      `
+\`\`\`bash 
+import {  } from '@/'; 
+\`\`\`
+
+> [!TIP]
+> Aliase Documentation: [${appData.pkg_documentation.aliases.des}](${appData.pkg_documentation.aliases.link})`
     );
-    operation_state.js_framework.status = "success";
   } catch (err: any) {
-    operation_state.js_framework.status = "fatal";
-    operation_state.js_framework.error_message = extractMainMessage(err);
+    throw err
   }
 }

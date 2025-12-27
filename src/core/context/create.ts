@@ -21,7 +21,6 @@ export function createContext(): execution_context_type {
       creat_project_folder: one_operation_state,
       js_framework: one_operation_state,
       creat_vsc_folder: one_operation_state,
-      clean_app: one_operation_state,
       add_aliase: one_operation_state,
       CSS_framework: one_operation_state,
       react_router: one_operation_state,

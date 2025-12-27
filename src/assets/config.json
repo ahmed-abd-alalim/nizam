@@ -5,8 +5,38 @@
   },
   "pkg_terminal_command": {
     "js_framework": {
-      "js": "degit vitejs/vite/packages/create-vite/template-react",
-      "ts": "degit vitejs/vite/packages/create-vite/template-react-ts"
+      "react": {
+        "js": "degit vitejs/vite/packages/create-vite/template-react",
+        "ts": "degit vitejs/vite/packages/create-vite/template-react-ts"
+      }
+    },
+    "css_framework": {
+      "react": {
+        "bootstrap": "install bootstrap",
+        "tailwind": "install tailwindcss @tailwindcss/vite"
+      }
+    }
+  },
+  "pkg_documentation": {
+    "aliases": {
+      "des": "geeksforgeeks - aliases",
+      "link": "https://www.geeksforgeeks.org/reactjs/how-to-setup-path-aliases-in-vite-react/"
+    },
+    "js_framework": {
+      "react": {
+        "des": "react - learn",
+        "link": "https://react.dev/learn"
+      }
+    },
+    "css_framework": {
+      "bootstrap": {
+        "des": "bootstrap - docs",
+        "link": "https://getbootstrap.com/docs"
+      },
+      "tailwindcss": {
+        "des": "tailwindcss - docs",
+        "link": "https://tailwindcss.com/docs"
+      }
     }
   }
 }

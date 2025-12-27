@@ -20,6 +20,14 @@ export async function getPrompts() {
     },
   };
 
+  const check_is_Ok = async (qu_title: string) => {
+    return await confirm({
+      message: `Do you want use ${qu_title}?`,
+      default: false,
+      theme: question_theme,
+    });
+  };
+
   user_options.push([
     "project_path",
     await input({
@@ -78,20 +86,21 @@ export async function getPrompts() {
     }),
   ]);
 
-  user_options.push([
-    "CSS_framework",
-    await select({
-      message: "Select a CSS framework:",
-      choices: [
-        new Separator(chalk.gray("--- Popular Options ---")),
-        "Tailwind",
-        "Bootstrap",
-        "None",
-      ],
-      pageSize: 5,
-      theme: question_theme,
-    }),
-  ]);
+  if (await check_is_Ok("CSS framework")) {
+    user_options.push([
+      "CSS_framework",
+      await select({
+        message: "Select a CSS framework:",
+        choices: [
+          new Separator(chalk.gray("--- Popular Options ---")),
+          "Bootstrap",
+          "Tailwindcss",
+        ],
+        pageSize: 5,
+        theme: question_theme,
+      }),
+    ]);
+  }
 
   // user_options.push([
   //   "react_router",
