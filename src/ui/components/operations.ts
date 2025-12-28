@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import ora from "ora";
-import { useContext } from "../core/context/runtime.js";
-import { operation_state_type } from "../assets/type.js";
+import { useContext } from "../../core/context/runtime.js";
+import { operation_state_type } from "../../assets/type.js";
 
 export async function operations(
   opration_fun: () => Promise<void>,

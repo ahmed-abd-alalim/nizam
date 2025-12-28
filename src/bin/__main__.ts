@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
 import {
-  intro,
   sectionBox,
-  start,
-  getPrompts,
-  help,
+  intro,
   exit,
+  Core,
+  Custom,
+  help,
+  HomeMenu,
+  Search,
 } from "../ui/index.js";
 import os from "os";
 import { installProject } from "../core/installer.js";
@@ -26,16 +28,31 @@ async function main() {
       // take action on what come from user option
       console.clear();
       sectionBox("Home Menu");
-      await start();
+      await HomeMenu();
+
       switch (ctx.start_menu_options) {
-        case "Start":
+        case "Search Mode":
           console.clear();
-          sectionBox("Start");
-          await getPrompts();
+          sectionBox("Search Mode");
+          await Search();
+          await Core();
           console.clear();
+
           sectionBox("Maker");
           await installProject();
           process.exit(0);
+          break;
+        case "Custom Mode":
+          console.clear();
+          sectionBox("Custom Mode");
+          await Core();
+          await Custom();
+          console.clear();
+
+          sectionBox("Maker");
+          await installProject();
+          process.exit(0);
+          break;
         case "Help":
           console.clear();
           sectionBox("Help");

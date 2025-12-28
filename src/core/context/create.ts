@@ -15,7 +15,6 @@ export function createContext(): execution_context_type {
       js_framework: "",
       add_aliase: false,
       CSS_framework: "",
-      react_router: false,
     },
     operation_state: {
       creat_project_folder: one_operation_state,
@@ -23,7 +22,6 @@ export function createContext(): execution_context_type {
       creat_vsc_folder: one_operation_state,
       add_aliase: one_operation_state,
       CSS_framework: one_operation_state,
-      react_router: one_operation_state,
     },
   };
 }

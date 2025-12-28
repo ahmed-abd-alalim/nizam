@@ -1,4 +1,4 @@
-import { say } from "./say.js";
+import { say } from "../index.js";
 
 export async function exit(exit_message: string) {
   await say(exit_message);

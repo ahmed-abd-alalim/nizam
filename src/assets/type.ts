@@ -5,7 +5,6 @@ export interface user_options_type {
   js_framework: string;
   add_aliase: boolean;
   CSS_framework: string;
-  react_router: boolean;
 }
 
 export interface one_operation_state_type {
@@ -19,7 +18,6 @@ export interface operation_state_type {
   creat_vsc_folder: one_operation_state_type;
   add_aliase: one_operation_state_type;
   CSS_framework: one_operation_state_type;
-  react_router: one_operation_state_type;
 }
 
 export interface execution_context_type {

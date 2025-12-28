@@ -1,8 +1,8 @@
 import { select } from "@inquirer/prompts";
 import chalk from "chalk";
-import { useContext } from "../core/context/runtime.js";
+import { useContext } from "../../core/context/runtime.js";
 
-export async function start() {
+export async function HomeMenu() {
   const ctx = useContext();
   const question_theme = {
     prefix: {
@@ -17,7 +17,7 @@ export async function start() {
 
   const run = await select({
     message: "",
-    choices: ["Start", "Help", "Exit"],
+    choices: ["Search Mode", "Custom Mode", "Help", "Exit"],
     theme: question_theme,
   });
 

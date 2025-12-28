@@ -1,8 +1,12 @@
-export { intro } from "./intro.js";
-export { sectionBox } from "./section_box.js";
-export { start } from "./start.js";
-export { getPrompts } from "./main.js";
-export { help } from "./help.js";
-export { operations } from "./operations.js";
-export { exit } from "./exit.js";
-export { say } from "./say.js";
+export { operations } from "./components/operations.js";
+export { say } from "./components/say.js";
+
+export { sectionBox } from "./layouts/section_box.js";
+export { intro } from "./layouts/intro.js";
+export { exit } from "./layouts/exit.js";
+
+export { Core } from "./pages/core.js";
+export { Custom } from "./pages/custom.js";
+export { help } from "./pages/help.js";
+export { HomeMenu } from "./pages/home_menu.js";
+export { Search } from "./pages/search.js";
