@@ -18,9 +18,9 @@ export async function installDeps(
 }
 
 export async function install() {
-  const { full_project_path } = useContext();
+  const { full_project_path, user_options } = useContext();
   try {
-    await execa("npm", ["install"], {
+    await execa(user_options.pkg_manager, ["install"], {
       cwd: full_project_path,
       stdio: "ignore",
     });

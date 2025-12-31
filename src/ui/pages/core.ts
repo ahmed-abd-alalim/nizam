@@ -23,11 +23,8 @@ export async function Core() {
 
   const nizam_choices = {
     pkg_manager: [
-      new Separator(chalk.gray("--- Popular Options ---")),
-      "npm",
-      "bun",
-      "pnpm",
-      "yarn",
+      new Separator(chalk.gray("--- Available to you ---")),
+      ...ctx.pkg_is_installed,
     ],
   };
 

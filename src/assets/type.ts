@@ -25,6 +25,7 @@ export interface execution_context_type {
   start_menu_options: string;
   full_project_path: string;
   nizam_templates_path: string;
+  pkg_is_installed: string[];
   user_options: user_options_type;
   operation_state: operation_state_type;
 }

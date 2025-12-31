@@ -11,6 +11,7 @@ import {
   Search,
 } from "../ui/index.js";
 import os from "os";
+import chalk from "chalk";
 import { installProject } from "../core/installer.js";
 import { createContext } from "../core/context/create.js";
 import { startProject } from "../core/context/runtime.js";
@@ -22,7 +23,7 @@ async function main() {
 
   try {
     // start nizam
-    // await intro();
+    await intro();
 
     while (true) {
       // take action on what come from user option
@@ -60,18 +61,22 @@ async function main() {
           break;
         case "Exit":
           console.clear();
-          await exit(`See you soon... ${os.userInfo().username}`);
+          await exit(
+            `See you soon... ${
+              os.userInfo().username ? os.userInfo().username : "pop"
+            }`
+          );
       }
     }
   } catch (err: any) {
     if (err.name === "ExitPromptError") {
       await exit(
         `C+c Really!! Are you serious ${
-          os.userInfo().username
+          os.userInfo().username ? os.userInfo().username : "pop"
         } !! Do you really mean that!!!`
       );
     }
-    console.error(err);
+    console.error(chalk.red(err));
     process.exit(1);
   }
 }
