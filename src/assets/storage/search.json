@@ -1,0 +1,30 @@
+[
+  {
+    "name": "React - vite - js & Bootstrap",
+    "value": {
+      "js_framework": "React + vite + js",
+      "CSS_framework": "Bootstrap"
+    }
+  },
+  {
+    "name": "React - vite - ts & Bootstrap",
+    "value": {
+      "js_framework": "React + vite + ts",
+      "CSS_framework": "Bootstrap"
+    }
+  },
+  {
+    "name": "React - vite - js & Tailwindcss",
+    "value": {
+      "js_framework": "React + vite + js",
+      "CSS_framework": "Tailwindcss"
+    }
+  },
+  {
+    "name": "React - vite - ts & Tailwindcss",
+    "value": {
+      "js_framework": "React + vite + ts",
+      "CSS_framework": "Tailwindcss"
+    }
+  }
+]

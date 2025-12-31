@@ -1,5 +1,5 @@
 import { useContext } from "./context/runtime.js";
-import { getRequiredPaths } from "../utils/get_required_paths.js";
+import { CorePaths } from "../assets/path/core.js";
 import { operations } from "../ui/index.js";
 import { operation_state_type } from "../assets/type.js";
 import {
@@ -53,7 +53,7 @@ export async function installProject() {
   ];
 
   // get all path that's i will use
-  getRequiredPaths();
+  CorePaths();
 
   for (const _ of operation_data) {
     if (!_.operation_targit) continue;
@@ -73,14 +73,7 @@ export async function installProject() {
 
   // 5- add aliase @
 
-  //3- ##### check what pkg name thats is inter is heer or now (npx - what input )
-
   // 4- add start default (folder struchers) folders
-
-  // 6- operation_state.push([
-  //   "CSS Framework",
-  //   CSSFramework(operation_list.CSS_framework),
-  // ]);
 
   // 7- operation_state.push([
   //   "React Router",

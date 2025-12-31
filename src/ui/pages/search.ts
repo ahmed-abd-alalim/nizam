@@ -2,6 +2,7 @@ import { search } from "@inquirer/prompts";
 import chalk from "chalk";
 import { useContext } from "../../core/context/runtime.js";
 import Fuse from "fuse.js";
+import searchData from '../../assets/storage/search.json'  with { type: 'json' };
 
 interface user_option_type {
   js_framework: string;
@@ -26,36 +27,7 @@ export async function Search() {
     },
   };
 
-  const search_data = [
-    {
-      name: "React - vite - js & Bootstrap",
-      value: {
-        js_framework: "React + vite + js",
-        CSS_framework: "Bootstrap",
-      },
-    },
-    {
-      name: "React - vite - ts & Bootstrap",
-      value: {
-        js_framework: "React + vite + ts",
-        CSS_framework: "Bootstrap",
-      },
-    },
-    {
-      name: "React - vite - js & Tailwindcss",
-      value: {
-        js_framework: "React + vite + js",
-        CSS_framework: "Tailwindcss",
-      },
-    },
-    {
-      name: "React - vite - ts & Tailwindcss",
-      value: {
-        js_framework: "React + vite + ts",
-        CSS_framework: "Tailwindcss",
-      },
-    },
-  ];
+  const search_data = searchData;
 
   const search_data_name: string[] = search_data.map((i) => i.name);
 

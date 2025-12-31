@@ -1,8 +1,8 @@
 import path from "path";
 import { fileURLToPath } from "url";
-import { useContext } from "../core/context/runtime.js";
+import { useContext } from "../../core/context/runtime.js";
 
-export function getRequiredPaths() {
+export function CorePaths() {
   const ctx = useContext();
 
   // get full project path
