@@ -40,7 +40,7 @@ async function main() {
 
           sectionBox("Maker");
           await installProject();
-          process.exitCode = 0;
+          process.exit(0);
 
         case "Custom Mode":
           console.clear();
@@ -51,7 +51,7 @@ async function main() {
 
           sectionBox("Maker");
           await installProject();
-          process.exitCode = 0;
+          process.exit(0);
 
         case "Help":
           console.clear();

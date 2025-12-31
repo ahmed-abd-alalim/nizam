@@ -1,21 +1,15 @@
 import { ensureDir, readJson, outputJson } from "../../utils/fs.js";
 import { extractMainMessage } from "../../utils/filter_error_message.js";
 import { useContext } from "../../core/context/runtime.js";
+import PathBox from "../../assets/path/path_react.js";
 
 export async function CreatVSCFolder() {
-  const {
-    full_project_path,
-    nizam_templates_path,
-    user_options,
-    operation_state,
-  } = useContext();
-  const vsc_path = `${full_project_path}\\.vscode`;
-  const vsc_setting_path = `${vsc_path}\\settings.json`;
-  const vsc_settings_templates = `${nizam_templates_path}\\vscode\\settings.template`;
+  const { user_options, operation_state } = useContext();
+  const path_box = PathBox();
 
   try {
-    await ensureDir(vsc_path);
-    let data = await readJson(vsc_settings_templates);
+    await ensureDir(path_box.vsc_path);
+    let data = await readJson(path_box.vsc_settings_templates);
 
     if (user_options.js_framework.includes("ts")) {
       data = {
@@ -34,7 +28,7 @@ export async function CreatVSCFolder() {
       };
     }
 
-    await outputJson(vsc_setting_path, data, { spaces: 2 });
+    await outputJson(path_box.vsc_setting_path, data, { spaces: 2 });
 
     operation_state.creat_vsc_folder.status = "success";
   } catch (err: any) {

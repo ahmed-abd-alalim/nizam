@@ -1,1 +1,127 @@
-add perfect step like :root and media quary for all screen
+
+
+/*-----------------------------------*\
+  #index.css
+\*-----------------------------------*/
+
+/**
+ * nizam say: Have fun 😊
+ */
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+:root {
+
+  /**
+   * colors
+   */
+  --color-name: value;
+
+  /**
+   * typography
+   */
+  --ff-name: value;
+
+  --fs-num: value;
+
+  --fw-size: value;
+
+  /**
+   * shadow
+   */
+  --shadow: value;
+
+  /**
+   * radius
+   */
+  --radius-num: value;
+
+  /**
+   * transition
+   */
+  --transition-name: value;
+}
+
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li { list-style: none; }
+a,
+img,
+span,
+button,
+ion-icon { display: block; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img { height: auto; }
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+input,
+table { width: 100%; }
+button { cursor: pointer; }
+ion-icon { pointer-events: none; }
+html {
+  font-family: var(--ff-name);
+  font-size: value;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: var(--color-name);
+  color: var(--color-name);
+  font-size: value;
+  line-height: value;
+}
+
+/**
+* scrollbar
+*/
+ /*
+body.active { overflow-y: hidden; }
+:focus-visible { outline-offset: value; }
+::-webkit-scrollbar { width: value; }
+::-webkit-scrollbar-track { background-color: var(--color-name); }
+::-webkit-scrollbar-thumb { background-color: var(--color-name); }
+::-webkit-scrollbar-thumb:hover { background-color: var(--color-name); }
+*/
+
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+@media (min-width: 640px) { 
+    /* Mobile */
+}
+
+@media (min-width: 768px) { 
+    /* tablets */
+}
+
+@media (min-width: 1024px) {
+    /* laptops */
+ }
+
+@media (min-width: 1280px) {
+    /* desktops */
+ }
+
+@media (min-width: 1536px) {
+    /* large monitors */
+ }

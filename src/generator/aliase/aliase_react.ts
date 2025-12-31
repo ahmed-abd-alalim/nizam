@@ -3,13 +3,12 @@ import { useContext } from "../../core/context/runtime.js";
 import stripJsonComments from "strip-json-comments";
 import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
 import appData from "../../assets/config.json" with { type: 'json' };
+import { UsingMark } from "../../utils/using_mark.js";
+import PathBox from "../../assets/path/path_react.js";
 
 export async function AliaseReact() {
-  const {
-    full_project_path,
-    user_options,
-    nizam_templates_path,
-  } = useContext();
+  const { user_options } = useContext();
+  const path_box = PathBox()
 
   const vite_config_file_data = [
     {
@@ -38,34 +37,24 @@ export async function AliaseReact() {
     },
   ];
 
-  const tsconfig_app_path = `${full_project_path}\\tsconfig.app.json`;
-  const jsconfig_app_path = `${full_project_path}\\jsconfig.json`;
-  const jsconfig_app_template = `${nizam_templates_path}\\react\\js\\jsconfig.template`;
-  const vite_config_path = `${full_project_path}\\vite.config.${
-    user_options.js_framework.includes("js") ? "js" : "ts"
-  }`;
-
   try {
-    let vite_config_content = await readFile(vite_config_path, "utf8");
-
-    vite_config_file_data.forEach((_) => {
-      vite_config_content = vite_config_content.replace(
-        `##-nizam@mark-##:${_.tage_name}`,
-        _.content
-      );
-    });
-    await writeFile(vite_config_path, vite_config_content, "utf8");
+    await UsingMark(path_box.vite_config_path, vite_config_file_data);
 
     if (user_options.js_framework.includes("js")) {
       // make jsconfig file
       const jsconfig_app_contant = await readJson(
-        jsconfig_app_template,
+        path_box.jsconfig_app_template,
         "utf8"
       );
-      await outputJson(jsconfig_app_path, jsconfig_app_contant, { spaces: 2 });
+      await outputJson(path_box.jsconfig_app_path, jsconfig_app_contant, {
+        spaces: 2,
+      });
     } else {
       // edit tsconfig.app.json for @ alise apped to json
-      const tsconfig_app_cotant = await readFile(tsconfig_app_path, "utf8");
+      const tsconfig_app_cotant = await readFile(
+        path_box.tsconfig_app_path,
+        "utf8"
+      );
       const tsconfig_app_cotant_parse = JSON.parse(
         stripJsonComments(tsconfig_app_cotant)
       );
@@ -79,7 +68,7 @@ export async function AliaseReact() {
           },
         },
       };
-      await outputJson(tsconfig_app_path, new_tsconfig_app_cotant, {
+      await outputJson(path_box.tsconfig_app_path, new_tsconfig_app_cotant, {
         spaces: 2,
       });
     }
@@ -96,6 +85,6 @@ import {  } from '@/';
 > Aliase Documentation: [${appData.pkg_documentation.aliases.des}](${appData.pkg_documentation.aliases.link})`
     );
   } catch (err: any) {
-    throw err
+    throw err;
   }
 }

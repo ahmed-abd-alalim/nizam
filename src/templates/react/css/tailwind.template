@@ -1,5 +1,97 @@
-if version is up on 4v
-add perfect step of tilwind
 
-else 
-its make anouther file like confige of tailwand 
+
+/*-----------------------------------*\
+  #index.css
+\*-----------------------------------*/
+
+/**
+ * nizam say: Have fun 😊
+ */
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+@font-face {
+  font-family: value;
+  src: url("/value");
+}
+
+@theme {
+
+/**
+* fonts
+*/
+  --font-name: value;
+
+/**
+* colors
+*/
+  --color-name: value;
+}
+
+
+/*-----------------------------------*\
+  #LAYER BASE
+\*-----------------------------------*/
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-weight: normal;
+  }
+  ul {
+    list-style: none;
+  }
+  img {
+    -webkit-user-drag: none;
+  }
+  body {
+    @apply h-full bg-color-namee font-name select-none overflow-x-hidden;
+  }
+
+/*
+  ::-webkit-scrollbar {
+    @apply w-0;
+  }
+*/
+}
+
+
+/*-----------------------------------*\
+  #LAYER UTILITIES
+\*-----------------------------------*/
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .flex-left {
+    @apply flex justify-start items-center;
+  }
+  .flex-right {
+    @apply flex justify-end items-center;
+  }
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+  .col-center {
+    @apply flex flex-col justify-center items-center;
+  }
+  .abs-center {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+}
+
+
+/*-----------------------------------*\
+  #LAYER COMPONENTS
+\*-----------------------------------*/
+
+/*
+@layer components {
+}
+*/

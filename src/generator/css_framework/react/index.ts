@@ -1,6 +1,6 @@
 import { useContext } from "../../../core/context/runtime.js";
 import { Bootstrap } from "./bootstrap.js";
-import { Tailwind } from "./tailwind.js";
+import { Tailwind } from "./tailwindcss.js";
 import { installDeps } from "../../../utils/npm.js";
 import Data from "../../../assets/config.json" with { type: 'json' };
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";

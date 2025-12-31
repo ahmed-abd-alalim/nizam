@@ -2,11 +2,15 @@
 ##-nizam@mark-##:import_dirname_resolve
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+##-nizam@mark-##:import_tailwindcss
 
 ##-nizam@mark-##:make__filename
 ##-nizam@mark-##:make__dirname
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+  react(),
+  ##-nizam@mark-##:append_tailwindcss_plugins
+  ],
   ##-nizam@mark-##:add_resolve
 })
