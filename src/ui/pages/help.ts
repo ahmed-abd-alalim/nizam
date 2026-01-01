@@ -12,6 +12,12 @@ export async function help() {
         "Enter key"
       )} to return to the home menu.
     `,
+      theme: {
+        prefix: {
+          idle: ``,
+          done: ``,
+        },
+      },
     });
 
     back = true;

@@ -4,6 +4,7 @@ export { say } from "./components/say.js";
 export { sectionBox } from "./layouts/section_box.js";
 export { intro } from "./layouts/intro.js";
 export { exit } from "./layouts/exit.js";
+export { printMenu } from "./layouts/print_menu.js";
 
 export { Core } from "./pages/core.js";
 export { Custom } from "./pages/custom.js";

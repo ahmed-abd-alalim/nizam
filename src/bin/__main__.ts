@@ -9,6 +9,7 @@ import {
   help,
   HomeMenu,
   Search,
+  printMenu,
 } from "../ui/index.js";
 import os from "os";
 import chalk from "chalk";
@@ -17,16 +18,13 @@ import { createContext } from "../core/context/create.js";
 import { startProject } from "../core/context/runtime.js";
 
 async function main() {
-  // create Context
   const ctx = createContext();
   startProject(ctx);
 
   try {
-    // start nizam
     await intro();
 
     while (true) {
-      // take action on what come from user option
       console.clear();
       sectionBox("Home Menu");
       await HomeMenu();
@@ -40,6 +38,7 @@ async function main() {
           console.clear();
 
           sectionBox("Maker");
+          await printMenu();
           await installProject();
           process.exit(0);
 
@@ -51,6 +50,7 @@ async function main() {
           console.clear();
 
           sectionBox("Maker");
+          await printMenu();
           await installProject();
           process.exit(0);
 

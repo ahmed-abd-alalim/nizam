@@ -47,16 +47,18 @@ export async function Core() {
       }),
     ]);
 
-    user_options.push([
-      "pkg_manager",
-      await select({
-        message: "Choose a package manager:",
-        choices: nizam_choices.pkg_manager,
-        default: "npm",
-        pageSize: 5,
-        theme: question_theme,
-      }),
-    ]);
+    if (ctx.pkg_is_installed.length > 1) {
+      user_options.push([
+        "pkg_manager",
+        await select({
+          message: "Choose a package manager:",
+          choices: nizam_choices.pkg_manager,
+          default: "npm",
+          pageSize: 5,
+          theme: question_theme,
+        }),
+      ]);
+    } else ctx.user_options.pkg_manager = ctx.pkg_is_installed[0];
 
     user_options.push([
       "add_aliase",
