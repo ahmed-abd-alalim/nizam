@@ -2,6 +2,7 @@ import { input, rawlist, confirm, Separator } from "@inquirer/prompts";
 import chalk from "chalk";
 import { useContext } from "../../core/context/runtime.js";
 import { user_options_type } from "../../assets/type.js";
+import { pathExists } from "../../utils/fs.js";
 
 export async function Core() {
   const ctx = useContext();
@@ -43,6 +44,15 @@ export async function Core() {
       await input({
         message: "Enter your project name:",
         default: "nizam-app",
+        validate: async (value) => {
+          const regex = /^[a-z_-]+$/;
+          if (!value) return "Folder name cannot be empty!";
+          if (!regex.test(value))
+            return "Only lowercase letters, _ and - are allowed!";
+          if (await pathExists(`${ctx.full_project_path}${value}`))
+            return "This name has been used before in the same route that was previously chosen.";
+          return true;
+        },
         theme: question_theme,
       }),
     ]);

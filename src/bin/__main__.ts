@@ -79,10 +79,10 @@ async function main() {
         } !! Do you really mean that!!!`
       );
       await new Promise((r) => setTimeout(r, 1000));
-      return;
+      process.exit(0);
     }
     console.error(chalk.red(err));
-    return;
+    process.exit(1);
   }
 }
 

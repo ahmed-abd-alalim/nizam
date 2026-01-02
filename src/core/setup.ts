@@ -14,7 +14,6 @@ export async function Setup() {
   const { operation_state, user_options } = useContext();
   const operation_data = [
     {
-      // check if folder pathe is orady found
       operation_name: "creat_project_folder",
       operation_fun: CreatFolder,
       operation_des: "creat project folder",
