@@ -31,6 +31,12 @@
         "des": "tailwindcss - docs",
         "link": "https://tailwindcss.com/docs"
       }
+    },
+    "app_structure": {
+      "react": {
+        "des": "github - React-Project-Structure",
+        "link": "https://github.com/ahmed-abd-alalim/React-Project-Structure"
+      }
     }
   }
 }

@@ -1,7 +1,9 @@
+import path from "path";
 import { useContext } from "../../core/context/runtime.js";
 import { mkdir, writeFile } from "../../utils/fs.js";
 import pathBox from "../../assets/path/path_react.js";
-import path from "path";
+import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
+import appData from "../../assets/config.json" with { type: 'json' };
 
 export async function structureReact() {
   const { user_options } = useContext();
@@ -99,6 +101,45 @@ export async function structureReact() {
         await creat_file_fun({ file_name });
       }
     }
+
+    await nizamDocEditor({
+      title_params: "React App Structure",
+      dec_params: `Creating a barrel file \`index.${
+        user_options.js_framework.includes("js") ? "js" : "ts"
+      }\` inside a folder allows you to re-export everything in that folder, and then when importing out, you only need to import from the same folder.`,
+      expla_params: `
+Example of a folder structure
+\`\`\`
+components/
+├─ Button.${user_options.js_framework.includes("js") ? "js" : "ts"}x
+├─ Card.${user_options.js_framework.includes("js") ? "js" : "ts"}x
+├─ Modal.${user_options.js_framework.includes("js") ? "js" : "ts"}x
+└─ index.${user_options.js_framework.includes("js") ? "js" : "ts"}
+\`\`\`
+
+Inside the \`index.${user_options.js_framework.includes("js") ? "js" : "ts"}\`
+\`\`\`
+// re-export all components
+export { default as Button } from "./Button";
+export { default as Card } from "./Card";
+export { default as Modal } from "./Modal";
+\`\`\`
+
+When use it
+\`\`\`
+import { Button, Card, Modal } from "./components";
+
+Button(); // use Button
+Card();   // use Card
+Modal();  // use Modal
+\`\`\`
+\`from "./components"\` We only write the folder name.
+
+> [!TIP]
+> React App Structure Documentation: [${
+        appData.pkg_documentation.app_structure.react.des
+      }](${appData.pkg_documentation.app_structure.react.link})`,
+    });
   } catch (err) {
     throw err;
   }
