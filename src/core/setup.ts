@@ -22,7 +22,6 @@ export async function Setup() {
       operation_targit: true,
     },
     {
-      // enaple install pkg
       operation_name: "js_framework",
       operation_fun: JSFramework,
       operation_des: `install ${user_options.js_framework}`,
