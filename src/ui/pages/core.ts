@@ -35,6 +35,11 @@ export async function Core() {
       await input({
         message: "Project path (full path or . for current folder):",
         default: ".",
+        validate: async (value) => {
+          if (!(await pathExists(value))) return "Can't see your input path";
+          return true;
+        },
+
         theme: question_theme,
       }),
     ]);
@@ -46,11 +51,10 @@ export async function Core() {
         default: "nizam-app",
         validate: async (value) => {
           const regex = /^[a-z_-]+$/;
-          if (!value) return "Folder name cannot be empty!";
           if (!regex.test(value))
             return "Only lowercase letters, _ and - are allowed!";
           if (await pathExists(`${ctx.full_project_path}${value}`))
-            return "This name has been used before in the same route that was previously chosen.";
+            return "This name has been used before in the same path that was previously chosen.";
           return true;
         },
         theme: question_theme,

@@ -11,7 +11,6 @@ import {
   printMenu,
   askAboutInstall,
 } from "../ui/index.js";
-import os from "os";
 import chalk from "chalk";
 import { Setup } from "../core/setup.js";
 import { createContext } from "../core/context/create.js";
@@ -62,23 +61,15 @@ async function main() {
           break;
         case "Exit":
           console.clear();
-          await say(
-            `See you soon... ${
-              os.userInfo().username ? os.userInfo().username : "pop"
-            }`
-          );
-          await new Promise((r) => setTimeout(r, 1000));
+          await say(`See you soon... `);
+          await new Promise((r) => setTimeout(r, 1500));
           return;
       }
     }
   } catch (err: any) {
     if (err.name === "ExitPromptError") {
-      await say(
-        `C+c Really!! Are you serious ${
-          os.userInfo().username ? os.userInfo().username : "pop"
-        } !! Do you really mean that!!!`
-      );
-      await new Promise((r) => setTimeout(r, 1000));
+      await say(`Good Bay...`);
+      await new Promise((r) => setTimeout(r, 1500));
       process.exit(0);
     }
     console.error(chalk.red(err));
