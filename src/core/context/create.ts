@@ -23,6 +23,7 @@ export function createContext(): execution_context_type {
       creat_vsc_folder: one_operation_state,
       add_aliase: one_operation_state,
       CSS_framework: one_operation_state,
+      install_all_packages: one_operation_state,
     },
   };
 }

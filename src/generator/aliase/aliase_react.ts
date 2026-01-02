@@ -8,7 +8,7 @@ import PathBox from "../../assets/path/path_react.js";
 
 export async function AliaseReact() {
   const { user_options } = useContext();
-  const path_box = PathBox()
+  const path_box = PathBox();
 
   const vite_config_file_data = [
     {
@@ -73,17 +73,17 @@ export async function AliaseReact() {
       });
     }
 
-    await nizamDocEditor(
-      "aliase (@)",
-      "you can use it inside code to move between folder fast",
-      `
+    await nizamDocEditor({
+      title_params: "aliase (@)",
+      dec_params: "you can use it inside code to move between folder fast",
+      expla_params: `
 \`\`\`bash 
 import {  } from '@/'; 
 \`\`\`
 
 > [!TIP]
-> Aliase Documentation: [${appData.pkg_documentation.aliases.des}](${appData.pkg_documentation.aliases.link})`
-    );
+> Aliase Documentation: [${appData.pkg_documentation.aliases.des}](${appData.pkg_documentation.aliases.link})`,
+    });
   } catch (err: any) {
     throw err;
   }

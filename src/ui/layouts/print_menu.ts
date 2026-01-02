@@ -55,7 +55,7 @@ export async function printMenu() {
   console.log(chalk.yellowBright(`╚${line}╝`));
 
   await input({
-    message: `${chalk.yellowBright("[!] Press the Enter key to continue.")}`,
+    message: `${chalk.yellowBright("\n[!] Press the Enter key to continue.")}`,
     theme: {
       prefix: {
         idle: ``,
@@ -63,6 +63,5 @@ export async function printMenu() {
       },
     },
   });
-  process.stdout.write("\x1b[1A\x1b[2K");
   process.stdout.write("\x1b[1A\x1b[2K");
 }

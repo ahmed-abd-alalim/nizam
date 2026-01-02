@@ -1,18 +1,24 @@
 import { appendFile } from "./fs.js";
 import PathBox from "../assets/path/path_react.js";
+
+interface nizam_doc_contant_type {
+  title_params?: string;
+  dec_params?: string;
+  expla_params?: string;
+}
 export async function nizamDocEditor(
-  title_params?: string,
-  dec_params?: string,
-  expla_params?: string
+  nizam_doc_contant: nizam_doc_contant_type
 ) {
   const path_box = PathBox();
 
   const new_instructions = `
-${title_params && `### ${title_params}`}
+${
+  !nizam_doc_contant.title_params ? "" : `### ${nizam_doc_contant.title_params}`
+}
 
-${dec_params && `#### ${dec_params}`}
+${!nizam_doc_contant.dec_params ? "" : `#### ${nizam_doc_contant.dec_params}`}
 
-${expla_params && expla_params}
+${!nizam_doc_contant.expla_params ? "" : nizam_doc_contant.expla_params}
 
   ---
   `;

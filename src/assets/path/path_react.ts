@@ -18,6 +18,7 @@ const keys = [
   "app_css_path",
   "assets_folder_path",
   "app_react_path",
+  "package_json_path",
   "jsconfig_app_template",
   "vsc_settings_templates",
   "bootstrap_templates",
@@ -65,6 +66,7 @@ function pathBox(): path_box_type {
     app_css_path: path.resolve(full_project_path, "src", "app.css"),
     assets_folder_path: path.resolve(full_project_path, "src", "assets"),
     app_react_path: path.resolve(full_project_path, "src", `App.${js_or_ts}x`),
+    package_json_path: path.resolve(full_project_path, "package.json"),
 
     // nizam-main
     jsconfig_app_template: path.resolve(

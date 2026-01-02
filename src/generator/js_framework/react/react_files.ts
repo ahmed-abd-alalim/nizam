@@ -15,7 +15,7 @@ import PathBox from "../../../assets/path/path_react.js";
 
 export async function ReactFiles() {
   const { user_options } = useContext();
-  const path_box = PathBox()
+  const path_box = PathBox();
   const index_title = `<title>nizam - add your website name (${user_options.project_name}) here</title>`;
 
   try {
@@ -84,10 +84,11 @@ export async function ReactFiles() {
     await ensureFile(path_box.main_react_path);
     await writeFile(path_box.main_react_path, main_react_text, "utf8");
 
-    await nizamDocEditor(
-      user_options.js_framework,
-      "Here’s the clear, correct way to run & build a React app using Vite",
-      `
+    await nizamDocEditor({
+      title_params: user_options.js_framework,
+      dec_params:
+        "Here’s the clear, correct way to run & build a React app using Vite",
+      expla_params: `
 Run (Development mode)
 \`\`\`bash 
 npm run dev
@@ -104,8 +105,8 @@ npm run build
 \`\`\`
 
 > [!TIP]
-> React Documentation: [${appData.pkg_documentation.js_framework.react.des}](${appData.pkg_documentation.js_framework.react.link})`
-    );
+> React Documentation: [${appData.pkg_documentation.js_framework.react.des}](${appData.pkg_documentation.js_framework.react.link})`,
+    });
   } catch (err: any) {
     throw err;
   }

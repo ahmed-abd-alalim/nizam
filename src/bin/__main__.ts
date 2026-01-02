@@ -3,19 +3,20 @@
 import {
   sectionBox,
   intro,
-  exit,
   Core,
   Custom,
   help,
   HomeMenu,
   Search,
   printMenu,
+  askAboutInstall,
 } from "../ui/index.js";
 import os from "os";
 import chalk from "chalk";
-import { installProject } from "../core/installer.js";
+import { Setup } from "../core/setup.js";
 import { createContext } from "../core/context/create.js";
 import { startProject } from "../core/context/runtime.js";
+import { say } from "../ui/index.js";
 
 async function main() {
   const ctx = createContext();
@@ -37,10 +38,10 @@ async function main() {
           await Core();
           console.clear();
 
-          sectionBox("Maker");
           await printMenu();
-          await installProject();
-          process.exit(0);
+          await Setup();
+          await askAboutInstall();
+          return;
 
         case "Custom Mode":
           console.clear();
@@ -49,10 +50,10 @@ async function main() {
           await Custom();
           console.clear();
 
-          sectionBox("Maker");
           await printMenu();
-          await installProject();
-          process.exit(0);
+          await Setup();
+          await askAboutInstall();
+          return;
 
         case "Help":
           console.clear();
@@ -61,23 +62,27 @@ async function main() {
           break;
         case "Exit":
           console.clear();
-          await exit(
+          await say(
             `See you soon... ${
               os.userInfo().username ? os.userInfo().username : "pop"
             }`
           );
+          await new Promise((r) => setTimeout(r, 1000));
+          return;
       }
     }
   } catch (err: any) {
     if (err.name === "ExitPromptError") {
-      await exit(
+      await say(
         `C+c Really!! Are you serious ${
           os.userInfo().username ? os.userInfo().username : "pop"
         } !! Do you really mean that!!!`
       );
+      await new Promise((r) => setTimeout(r, 1000));
+      return;
     }
     console.error(chalk.red(err));
-    process.exit(1);
+    return;
   }
 }
 

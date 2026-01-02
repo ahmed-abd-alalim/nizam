@@ -9,12 +9,6 @@
         "js": "degit vitejs/vite/packages/create-vite/template-react",
         "ts": "degit vitejs/vite/packages/create-vite/template-react-ts"
       }
-    },
-    "css_framework": {
-      "react": {
-        "bootstrap": "install bootstrap",
-        "tailwind": "install tailwindcss @tailwindcss/vite"
-      }
     }
   },
   "pkg_documentation": {

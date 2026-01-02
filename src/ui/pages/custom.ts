@@ -1,4 +1,4 @@
-import { select, confirm, Separator } from "@inquirer/prompts";
+import { rawlist, confirm, Separator } from "@inquirer/prompts";
 import chalk from "chalk";
 import { useContext } from "../../core/context/runtime.js";
 import { user_options_type } from "../../assets/type.js";
@@ -45,10 +45,9 @@ export async function Custom() {
   const custom_options = async () => {
     user_options.push([
       "js_framework",
-      await select({
+      await rawlist({
         message: "Select a js framework:",
         choices: nizam_choices.js_framework,
-        pageSize: 5,
         theme: question_theme,
       }),
     ]);
@@ -56,10 +55,9 @@ export async function Custom() {
     if (await check_is_Ok("CSS framework")) {
       user_options.push([
         "CSS_framework",
-        await select({
+        await rawlist({
           message: "Select a CSS framework:",
           choices: nizam_choices.css_framework,
-          pageSize: 5,
           theme: question_theme,
         }),
       ]);

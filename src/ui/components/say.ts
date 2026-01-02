@@ -21,10 +21,12 @@ export async function say(message: string) {
   const messageBox = blessed.box({
     top: 0,
     left: 11,
-    width: "100%",
-    height: 1,
+    width: "80%",
+    height: "shrink",
     content: "",
     style: { fg: "green" },
+    wrap: true,
+    scrollable: true,
   });
 
   screen.append(topLine);

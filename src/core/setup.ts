@@ -10,7 +10,7 @@ import {
   CSSFramework,
 } from "../generator/index.js";
 
-export async function installProject() {
+export async function Setup() {
   const { operation_state, user_options } = useContext();
   const operation_data = [
     {

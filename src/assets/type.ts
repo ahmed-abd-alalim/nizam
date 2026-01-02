@@ -18,6 +18,7 @@ export interface operation_state_type {
   creat_vsc_folder: one_operation_state_type;
   add_aliase: one_operation_state_type;
   CSS_framework: one_operation_state_type;
+  install_all_packages: one_operation_state_type;
 }
 
 export interface execution_context_type {

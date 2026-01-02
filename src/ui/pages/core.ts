@@ -1,4 +1,4 @@
-import { input, select, confirm, Separator } from "@inquirer/prompts";
+import { input, rawlist, confirm, Separator } from "@inquirer/prompts";
 import chalk from "chalk";
 import { useContext } from "../../core/context/runtime.js";
 import { user_options_type } from "../../assets/type.js";
@@ -50,11 +50,10 @@ export async function Core() {
     if (ctx.pkg_is_installed.length > 1) {
       user_options.push([
         "pkg_manager",
-        await select({
+        await rawlist({
           message: "Choose a package manager:",
           choices: nizam_choices.pkg_manager,
           default: "npm",
-          pageSize: 5,
           theme: question_theme,
         }),
       ]);
