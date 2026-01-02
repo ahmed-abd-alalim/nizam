@@ -34,7 +34,7 @@ export async function say(message: string) {
   screen.render();
 
   // Function for typing effect for just the message
-  const typeEffect = async (text: string, delay = 60) => {
+  const typeEffect = async (text: string, delay = 80) => {
     messageBox.setContent("");
     screen.render();
     for (let i = 0; i < text.length; i++) {

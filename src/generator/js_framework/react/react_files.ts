@@ -61,7 +61,8 @@ export async function ReactFiles() {
     await remove(path_box.app_css_path);
 
     // remove src/assets folder
-    await remove(path_box.assets_folder_path);
+    await ensureDir(path_box.assets_folder_path);
+    await emptyDir(path_box.assets_folder_path);
 
     // new app file
     const app_react_text = await readFile(path_box.app_react_templates, "utf8");

@@ -6,6 +6,7 @@ import {
   CreatFolder,
   CreatVSCFolder,
   Aliase,
+  Structure,
   JSFramework,
   CSSFramework,
 } from "../generator/index.js";
@@ -40,6 +41,13 @@ export async function Setup() {
       operation_des: "make aliase @",
       operation_is_need: false,
       operation_targit: user_options.add_aliase,
+    },
+    {
+      operation_name: "app_structure",
+      operation_fun: Structure,
+      operation_des: "build app structure",
+      operation_is_need: false,
+      operation_targit: user_options.app_structure,
     },
     {
       operation_name: "CSS_framework",

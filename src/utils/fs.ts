@@ -1,6 +1,7 @@
 import fs from "fs-extra";
 
 export const rename = fs.rename;
+export const mkdir = fs.mkdir;
 export const ensureDir = fs.ensureDir;
 export const ensureFile = fs.ensureFile;
 export const readFile = fs.readFile;

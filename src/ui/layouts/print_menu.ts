@@ -9,14 +9,29 @@ export async function printMenu() {
 
   const rows = Object.entries(user_options)
     .filter(
-      ([_, value]) => value !== null && value !== undefined && value !== ""
+      ([_, value]) =>
+        value !== null &&
+        value !== undefined &&
+        value !== "" &&
+        value.length !== 0
     )
     .map(([key, value]) => {
       let normalizedValue: string;
       if (value === true) normalizedValue = "yes";
       else if (value === false) normalizedValue = "no";
       else normalizedValue = String(value);
-      const cleanKey = key.replace(/_/g, " ");
+      const cleanKey = key
+        .replace(/_/g, " ")
+        .split(" ")
+        .map((word) => {
+          if (word.length < 4) {
+            return word.toUpperCase();
+          } else {
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+          }
+        })
+        .join(" ");
+
       return {
         raw: ` ${cleanKey} : ${normalizedValue}`,
         colored: ` ${chalk.redBright(cleanKey)} : ${chalk.greenBright(

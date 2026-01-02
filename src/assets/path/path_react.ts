@@ -2,6 +2,7 @@ import { useContext } from "../../core/context/runtime.js";
 import path from "path";
 
 const keys = [
+  "src_path",
   "tsconfig_app_path",
   "jsconfig_app_path",
   "vite_config_path",
@@ -39,6 +40,7 @@ function pathBox(): path_box_type {
 
   return {
     // nizam-app
+    src_path: path.resolve(full_project_path, "src"),
     tsconfig_app_path: path.resolve(full_project_path, "tsconfig.app.json"),
     jsconfig_app_path: path.resolve(full_project_path, "jsconfig.json"),
     vite_config_path: path.resolve(
