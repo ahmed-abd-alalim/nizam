@@ -55,5 +55,5 @@ ${user_options.pkg_manager} install
   await say(
     "Don't forget to take a look at the attached file NIZAM_DOC.md within the new project to learn how to work with the downloaded packages."
   );
-  await new Promise((r) => setTimeout(r, 6000));
+  await new Promise((r) => setTimeout(r, 4000));
 }

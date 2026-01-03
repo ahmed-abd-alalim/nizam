@@ -1,28 +1,68 @@
 {
   "name": "nizam",
   "version": "1.0.0",
+  "preferGlobal": true,
   "description": "A Smart command-line interface with no presets for creating a modern architecture",
   "type": "module",
-  "bin": {
-    "nizam": "dist/bin/__main__.js"
-  },
-  "scripts": {
-    "dev": "ts-node src/bin/__main__.ts",
-    "build": "tsc",
-    "postbuild": "node scripts/copy-templates.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "Ahmed Abd Alalim",
   "license": "MIT",
+  "author": "Ahmed Abd Alalim <ahmedabdalalim.3a@gmail.com>",
+  "homepage": "https://github.com/ahmed-abd-alalim/nizam",
   "repository": {
     "type": "git",
     "url": "https://github.com/ahmed-abd-alalim/nizam.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ahmed-abd-alalim/nizam/issues"
+  },
+  "keywords": [
+    "cli",
+    "command-line",
+    "typescript",
+    "javascript",
+    "node",
+    "react",
+    "vite",
+    "framework",
+    "css-framework",
+    "js-framework",
+    "animation",
+    "icons",
+    "library",
+    "frontend",
+    "automation",
+    "productivity",
+    "tool",
+    "developer-tool",
+    "workflow",
+    "utility"
+  ],
+  "bin": {
+    "nizam": "dist/bin/__main__.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "ts-node src/bin/__main__.ts",
+    "lint": "eslint ./src",
+    "format": "prettier --write ./src",
+    "build": "tsc",
+    "prepublishOnly": "npm run format && npm run lint && npm run build",
+    "postbuild": "node scripts/copy-templates.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "devDependencies": {
     "@types/blessed": "^0.1.27",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^25.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.51.0",
+    "@typescript-eslint/parser": "^8.51.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },

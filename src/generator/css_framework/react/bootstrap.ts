@@ -21,21 +21,17 @@ export async function Bootstrap() {
     },
   ];
 
-  try {
-    await UsingMark(path_box.main_react_path, main_file_data);
+  await UsingMark(path_box.main_react_path, main_file_data);
 
-    // edit index.css
-    const bootstrap_text = await readFile(path_box.bootstrap_templates, "utf8");
-    await appendFile(path_box.index_css_path, bootstrap_text);
-    await nizamDocEditor({
-      title_params: user_options.CSS_framework,
-      expla_params: `
+  // edit index.css
+  const bootstrap_text = await readFile(path_box.bootstrap_templates, "utf8");
+  await appendFile(path_box.index_css_path, bootstrap_text);
+  await nizamDocEditor({
+    title_params: user_options.CSS_framework,
+    expla_params: `
 We have created a clear and ready made structure that you can use. you will find it inside \`index.css\` file.
 
 > [!TIP]
 > Bootstrap Documentation: [${appData.pkg_documentation.css_framework.bootstrap.des}](${appData.pkg_documentation.css_framework.bootstrap.link})`,
-    });
-  } catch (err: any) {
-    throw err;
-  }
+  });
 }

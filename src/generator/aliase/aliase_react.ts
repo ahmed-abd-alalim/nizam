@@ -1,4 +1,4 @@
-import { readJson, readFile, outputJson, writeFile } from "../../utils/fs.js";
+import { readJson, readFile, outputJson } from "../../utils/fs.js";
 import { useContext } from "../../core/context/runtime.js";
 import stripJsonComments from "strip-json-comments";
 import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
@@ -37,54 +37,50 @@ export async function AliaseReact() {
     },
   ];
 
-  try {
-    await UsingMark(path_box.vite_config_path, vite_config_file_data);
+  await UsingMark(path_box.vite_config_path, vite_config_file_data);
 
-    if (user_options.js_framework.includes("js")) {
-      // make jsconfig file
-      const jsconfig_app_contant = await readJson(
-        path_box.jsconfig_app_template,
-        "utf8"
-      );
-      await outputJson(path_box.jsconfig_app_path, jsconfig_app_contant, {
-        spaces: 2,
-      });
-    } else {
-      // edit tsconfig.app.json for @ alise apped to json
-      const tsconfig_app_cotant = await readFile(
-        path_box.tsconfig_app_path,
-        "utf8"
-      );
-      const tsconfig_app_cotant_parse = JSON.parse(
-        stripJsonComments(tsconfig_app_cotant)
-      );
-      const new_tsconfig_app_cotant = {
-        ...tsconfig_app_cotant_parse,
-        compilerOptions: {
-          ...tsconfig_app_cotant_parse.compilerOptions,
-          baseUrl: "src",
-          paths: {
-            "@/*": ["*"],
-          },
+  if (user_options.js_framework.includes("js")) {
+    // make jsconfig file
+    const jsconfig_app_contant = await readJson(
+      path_box.jsconfig_app_template,
+      "utf8"
+    );
+    await outputJson(path_box.jsconfig_app_path, jsconfig_app_contant, {
+      spaces: 2,
+    });
+  } else {
+    // edit tsconfig.app.json for @ alise apped to json
+    const tsconfig_app_cotant = await readFile(
+      path_box.tsconfig_app_path,
+      "utf8"
+    );
+    const tsconfig_app_cotant_parse = JSON.parse(
+      stripJsonComments(tsconfig_app_cotant)
+    );
+    const new_tsconfig_app_cotant = {
+      ...tsconfig_app_cotant_parse,
+      compilerOptions: {
+        ...tsconfig_app_cotant_parse.compilerOptions,
+        baseUrl: "src",
+        paths: {
+          "@/*": ["*"],
         },
-      };
-      await outputJson(path_box.tsconfig_app_path, new_tsconfig_app_cotant, {
-        spaces: 2,
-      });
-    }
+      },
+    };
+    await outputJson(path_box.tsconfig_app_path, new_tsconfig_app_cotant, {
+      spaces: 2,
+    });
+  }
 
-    await nizamDocEditor({
-      title_params: "aliase (@)",
-      dec_params: "you can use it inside code to move between folder fast",
-      expla_params: `
+  await nizamDocEditor({
+    title_params: "aliase (@)",
+    dec_params: "you can use it inside code to move between folder fast",
+    expla_params: `
 \`\`\`bash 
 import {  } from '@/'; 
 \`\`\`
 
 > [!TIP]
 > Aliase Documentation: [${appData.pkg_documentation.aliases.des}](${appData.pkg_documentation.aliases.link})`,
-    });
-  } catch (err: any) {
-    throw err;
-  }
+  });
 }

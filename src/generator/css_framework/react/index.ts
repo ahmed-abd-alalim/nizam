@@ -31,20 +31,16 @@ export async function CSSFrameworkReact() {
     },
   ];
   const package_identification = async (bkg_name: string) => {
-    try {
-      const pkg_info = await getPkgInfo(bkg_name);
-      await appendInPkgFile(pkg_info[0], pkg_info[1]);
-    } catch (err) {
-      throw err;
-    }
+    const pkg_info = await getPkgInfo(bkg_name);
+    await appendInPkgFile(pkg_info[0], pkg_info[1]);
   };
-  try {
-    const lip_name = user_options.CSS_framework.toLowerCase();
-    const lip_fun = op_list.find((i) => i.name.includes(lip_name))?.fun;
+  const lip_info = op_list.find((i) =>
+    i.name.includes(user_options.CSS_framework.toLowerCase())
+  );
+  const lip_name = lip_info?.name;
+  const lip_fun = lip_info?.fun;
 
-    await package_identification(lip_name);
-    lip_fun && (await lip_fun());
-  } catch (err: any) {
-    throw err;
-  }
+  if (!lip_name || !lip_fun) return;
+  await package_identification(lip_name);
+  await lip_fun();
 }

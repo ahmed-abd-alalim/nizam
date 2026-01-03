@@ -37,12 +37,9 @@ export async function structureReact() {
       new_folder_path,
       `index.${user_options.js_framework.includes("js") ? "js" : "ts"}`
     );
-    try {
-      await mkdir(new_folder_path, { recursive: true });
-      await writeFile(index_file_Path, "", "utf8");
-    } catch (err) {
-      throw err;
-    }
+
+    await mkdir(new_folder_path, { recursive: true });
+    await writeFile(index_file_Path, "", "utf8");
   };
 
   const creat_file_fun = async ({
@@ -64,50 +61,46 @@ export async function structureReact() {
           : f_type
       }`
     );
-    try {
-      await writeFile(
-        file_Path,
-        `${f_type.includes("json") ? JSON.stringify({}) : ""}`,
-        "utf8"
-      );
-    } catch (err) {
-      throw err;
-    }
+
+    await writeFile(
+      file_Path,
+      `${f_type.includes("json") ? JSON.stringify({}) : ""}`,
+      "utf8"
+    );
   };
 
-  try {
-    if (app_structure.includes("nizam method")) {
-      // make folders
-      for (let folder_name of all_folder_structure_names) {
-        if (!folder_name) continue;
-        await creat_folder_fun(folder_name);
-      }
-
-      // make files
-      for (let file_name of all_file_structure_names) {
-        if (!file_name) continue;
-        await creat_file_fun({ file_name });
-      }
-    } else if (app_structure.includes("custom method")) {
-      // make folders
-      for (let folder_name of folder_structure_array) {
-        if (!folder_name) continue;
-        await creat_folder_fun(folder_name);
-      }
-
-      // make files
-      for (let file_name of files_structure_array_with_some_from_user_options) {
-        if (!file_name) continue;
-        await creat_file_fun({ file_name });
-      }
+  if (app_structure.includes("nizam method")) {
+    // make folders
+    for (let folder_name of all_folder_structure_names) {
+      if (!folder_name) continue;
+      await creat_folder_fun(folder_name);
     }
 
-    await nizamDocEditor({
-      title_params: "React App Structure",
-      dec_params: `Creating a barrel file \`index.${
-        user_options.js_framework.includes("js") ? "js" : "ts"
-      }\` inside a folder allows you to re-export everything in that folder, and then when importing out, you only need to import from the same folder.`,
-      expla_params: `
+    // make files
+    for (let file_name of all_file_structure_names) {
+      if (!file_name) continue;
+      await creat_file_fun({ file_name });
+    }
+  } else if (app_structure.includes("custom method")) {
+    // make folders
+    for (let folder_name of folder_structure_array) {
+      if (!folder_name) continue;
+      await creat_folder_fun(folder_name);
+    }
+
+    // make files
+    for (let file_name of files_structure_array_with_some_from_user_options) {
+      if (!file_name) continue;
+      await creat_file_fun({ file_name });
+    }
+  }
+
+  await nizamDocEditor({
+    title_params: "React App Structure",
+    dec_params: `Creating a barrel file \`index.${
+      user_options.js_framework.includes("js") ? "js" : "ts"
+    }\` inside a folder allows you to re-export everything in that folder, and then when importing out, you only need to import from the same folder.`,
+    expla_params: `
 Example of a folder structure
 \`\`\`
 components/
@@ -137,10 +130,7 @@ Modal();  // use Modal
 
 > [!TIP]
 > React App Structure Documentation: [${
-        appData.pkg_documentation.app_structure.react.des
-      }](${appData.pkg_documentation.app_structure.react.link})`,
-    });
-  } catch (err) {
-    throw err;
-  }
+      appData.pkg_documentation.app_structure.react.des
+    }](${appData.pkg_documentation.app_structure.react.link})`,
+  });
 }

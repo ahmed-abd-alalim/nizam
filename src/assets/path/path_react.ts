@@ -1,7 +1,7 @@
 import { useContext } from "../../core/context/runtime.js";
 import path from "path";
 
-const keys = [
+export const keys = [
   "src_path",
   "tsconfig_app_path",
   "jsconfig_app_path",

@@ -17,22 +17,18 @@ export async function Foundation() {
     },
   ];
 
-  try {
-    await UsingMark(path_box.main_react_path, main_file_data);
+  await UsingMark(path_box.main_react_path, main_file_data);
 
-    // edit index.css
-    const css_text = await readFile(path_box.bootstrap_templates, "utf8");
-    await appendFile(path_box.index_css_path, css_text);
+  // edit index.css
+  const css_text = await readFile(path_box.bootstrap_templates, "utf8");
+  await appendFile(path_box.index_css_path, css_text);
 
-    await nizamDocEditor({
-      title_params: user_options.CSS_framework,
-      expla_params: `
+  await nizamDocEditor({
+    title_params: user_options.CSS_framework,
+    expla_params: `
 We have created a clear and ready made structure that you can use. you will find it inside \`index.css\` file.
 
 > [!TIP]
 > Foundation Documentation: [${appData.pkg_documentation.css_framework.foundation.des}](${appData.pkg_documentation.css_framework.foundation.link})`,
-    });
-  } catch (err) {
-    throw err;
-  }
+  });
 }

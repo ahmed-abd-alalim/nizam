@@ -35,7 +35,7 @@ export async function Search() {
     return text.replace(/[-&]/g, "").toLowerCase().trim();
   }
 
-  const fuseData = search_data_name.map((name, index) => ({
+  const fuseData = search_data_name.map((name) => ({
     original: name,
     words: cleanText(name).split(/\s+/),
   }));

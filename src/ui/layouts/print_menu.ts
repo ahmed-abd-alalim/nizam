@@ -9,7 +9,7 @@ export async function printMenu() {
 
   const rows = Object.entries(user_options)
     .filter(
-      ([_, value]) =>
+      ([, value]) =>
         value !== null &&
         value !== undefined &&
         value !== "" &&

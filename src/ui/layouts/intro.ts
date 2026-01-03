@@ -58,6 +58,7 @@ export async function intro() {
   const pkg_list = ["npm", "bun", "pnpm", "yarn"];
 
   console.log(view);
+  // eslint-disable-next-line no-async-promise-executor
   await new Promise<void>(async (resolve) => {
     const spinner = ora({
       text: `${chalk.yellowBright("Loading")}`,
@@ -84,7 +85,7 @@ export async function intro() {
       try {
         await execAsync(`${pkg} -v`);
         pkg_is_installed.push(pkg);
-      } catch (err) {}
+      } catch { /* empty */ }
       i += Number((100 / pkg_list.length).toFixed(1));
       load();
       await new Promise((resolve) => setTimeout(resolve, 500));

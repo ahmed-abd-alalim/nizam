@@ -26,23 +26,19 @@ export async function Tailwind() {
     },
   ];
 
-  try {
-    await UsingMark(path_box.vite_config_path, vite_config_data);
-    await UsingMark(path_box.index_css_path, index_css_data);
+  await UsingMark(path_box.vite_config_path, vite_config_data);
+  await UsingMark(path_box.index_css_path, index_css_data);
 
-    // edit index.css
-    const tailwind_text = await readFile(path_box.tailwind_templates, "utf8");
-    await appendFile(path_box.index_css_path, tailwind_text);
+  // edit index.css
+  const tailwind_text = await readFile(path_box.tailwind_templates, "utf8");
+  await appendFile(path_box.index_css_path, tailwind_text);
 
-    await nizamDocEditor({
-      title_params: user_options.CSS_framework,
-      expla_params: `
+  await nizamDocEditor({
+    title_params: user_options.CSS_framework,
+    expla_params: `
 We have created a clear and ready made structure that you can use. you will find it inside \`index.css\` file.
 
 > [!TIP]
 > Tailwindcss Documentation: [${appData.pkg_documentation.css_framework.tailwindcss.des}](${appData.pkg_documentation.css_framework.tailwindcss.link})`,
-    });
-  } catch (err: any) {
-    throw err;
-  }
+  });
 }

@@ -8,14 +8,10 @@ export async function customInstall(
   const { full_project_path } = useContext();
   const pkg_command = pkg_command_params.split(" ");
 
-  try {
-    await execa(npx_params, pkg_command, {
-      cwd: full_project_path,
-      stdio: "ignore",
-      timeout: 60000,
-      killSignal: "SIGTERM",
-    });
-  } catch (err: any) {
-    throw err;
-  }
+  await execa(npx_params, pkg_command, {
+    cwd: full_project_path,
+    stdio: "ignore",
+    timeout: 60000,
+    killSignal: "SIGTERM",
+  });
 }
