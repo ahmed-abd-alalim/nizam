@@ -31,6 +31,9 @@ export async function Custom() {
       new Separator(chalk.gray("--- Popular Options ---")),
       "Bootstrap",
       "Tailwindcss",
+      "Bulma",
+      "Foundation",
+      "Materialize",
     ],
   };
 

@@ -30,6 +30,18 @@
       "tailwindcss": {
         "des": "tailwindcss - docs",
         "link": "https://tailwindcss.com/docs"
+      },
+      "bulma": {
+        "des": "bulma - docs",
+        "link": "https://bulma.io/documentation"
+      },
+      "foundation": {
+        "des": "foundation - docs",
+        "link": "https://get.foundation/sites/docs"
+      },
+      "materialize": {
+        "des": "materialize - docs",
+        "link": "https://materializecss.com/getting-started.html"
       }
     },
     "app_structure": {
