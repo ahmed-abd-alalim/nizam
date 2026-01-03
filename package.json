@@ -5,7 +5,11 @@
   "description": "A Smart command-line interface with no presets for creating a modern architecture",
   "type": "module",
   "license": "MIT",
-  "author": "Ahmed Abd Alalim <ahmedabdalalim.3a@gmail.com>",
+  "author": {
+    "name": "Ahmed Abd Alalim",
+    "email": "ahmedabdalalim.3a@gmail.com",
+    "url": "https://ahmedabdalalim.pages.dev"
+  },
   "homepage": "https://github.com/ahmed-abd-alalim/nizam",
   "repository": {
     "type": "git",
