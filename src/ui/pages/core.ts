@@ -82,22 +82,22 @@ export async function Core() {
       {
         name: "config.json",
         value: "config.json",
-        description: "global app settings & constants",
+        description: "global app settings & constants.",
       },
       {
         name: "api.json",
         value: "api.json",
-        description: "API endpoints & base URLs",
+        description: "API endpoints & base URLs.",
       },
       {
         name: "routing.json",
         value: "routing.json",
-        description: "routes definitions & paths",
+        description: "routes definitions & paths.",
       },
       {
         name: "icon.j/ts",
         value: "icon.j/ts",
-        description: "centralized icon exports for easy reuse",
+        description: "centralized icon exports for easy reuse.",
       },
     ],
   };

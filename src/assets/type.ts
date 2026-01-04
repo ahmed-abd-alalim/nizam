@@ -8,6 +8,7 @@ export interface user_options_type {
   app_structure: string;
   folder_structure_names: string[];
   files_structure_names: string[];
+  ui_library: string[];
 }
 
 export interface one_operation_state_type {
@@ -22,6 +23,7 @@ export interface operation_state_type {
   add_aliase: one_operation_state_type;
   CSS_framework: one_operation_state_type;
   app_structure: one_operation_state_type;
+  ui_library: one_operation_state_type;
   install_all_packages: one_operation_state_type;
 }
 

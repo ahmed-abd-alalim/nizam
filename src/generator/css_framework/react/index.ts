@@ -12,35 +12,45 @@ export async function CSSFrameworkReact() {
     {
       name: "bootstrap",
       fun: Bootstrap,
+      dependencies: ["bootstrap"],
     },
     {
       name: "tailwindcss",
       fun: Tailwind,
+      dependencies: ["tailwindcss", "@tailwindcss/vite"],
     },
     {
       name: "bulma",
       fun: Bulma,
+      dependencies: ["bulma"],
     },
     {
-      name: "foundation-sites",
+      name: "foundation",
       fun: Foundation,
+      dependencies: ["foundation-sites"],
     },
     {
-      name: "materialize-css",
+      name: "materialize",
       fun: Materialize,
+      dependencies: ["materialize-css"],
     },
   ];
-  const package_identification = async (bkg_name: string) => {
-    const pkg_info = await getPkgInfo(bkg_name);
+
+  const package_identification = async (pkg_name: string) => {
+    const pkg_info = await getPkgInfo(pkg_name);
     await appendInPkgFile(pkg_info[0], pkg_info[1]);
   };
-  const lip_info = op_list.find((i) =>
+
+  const lib_info = op_list.find((i) =>
     i.name.includes(user_options.CSS_framework.toLowerCase())
   );
-  const lip_name = lip_info?.name;
-  const lip_fun = lip_info?.fun;
 
-  if (!lip_name || !lip_fun) return;
-  await package_identification(lip_name);
-  await lip_fun();
+  const promises = lib_info?.dependencies.map((pkg_name) =>
+    package_identification(pkg_name)
+  );
+  await Promise.all(promises!);
+
+  const lib_fun = lib_info?.fun;
+
+  await lib_fun!();
 }

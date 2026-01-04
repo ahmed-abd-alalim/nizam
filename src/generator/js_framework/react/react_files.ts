@@ -7,6 +7,8 @@ import {
   readFile,
   rename,
   pathExists,
+  readJson,
+  writeJson,
 } from "../../../utils/fs.js";
 import { useContext } from "../../../core/context/runtime.js";
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
@@ -17,6 +19,12 @@ export async function ReactFiles() {
   const { user_options } = useContext();
   const path_box = PathBox();
   const index_title = `<title>nizam - add your website name (${user_options.project_name}) here</title>`;
+
+  // add app name in package json file
+  const package_json = await readJson(path_box.package_json_path, "utf8");
+  package_json.name ??= "";
+  package_json.name = user_options.project_name;
+  await writeJson(path_box.package_json_path, package_json, { spaces: 2 });
 
   // fixed _gitignore file name
   if (await pathExists(path_box.old_gitignore_path))

@@ -49,6 +49,24 @@
         "des": "github - React-Project-Structure",
         "link": "https://github.com/ahmed-abd-alalim/React-Project-Structure"
       }
+    },
+    "ui_library": {
+      "mui": {
+        "des": "material ui - docs",
+        "link": "https://mui.com/material-ui/getting-started"
+      },
+      "ant": {
+        "des": "ant design - docs",
+        "link": "https://5x.ant.design/docs/react/introduce"
+      },
+      "headless": {
+        "des": "headless ui - docs",
+        "link": "https://headlessui.com/react/disclosure"
+      },
+      "blueprint": {
+        "des": "blueprint ui - docs",
+        "link": "https://blueprintui.dev/getting-started"
+      }
     }
   }
 }

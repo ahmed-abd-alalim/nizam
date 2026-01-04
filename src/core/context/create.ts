@@ -19,6 +19,7 @@ export function createContext(): execution_context_type {
       app_structure: "",
       folder_structure_names: [],
       files_structure_names: [],
+      ui_library: [],
     },
     operation_state: {
       creat_project_folder: one_operation_state,
@@ -27,6 +28,7 @@ export function createContext(): execution_context_type {
       add_aliase: one_operation_state,
       CSS_framework: one_operation_state,
       app_structure: one_operation_state,
+      ui_library: one_operation_state,
       install_all_packages: one_operation_state,
     },
   };
