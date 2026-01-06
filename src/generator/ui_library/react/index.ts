@@ -2,12 +2,15 @@ import { useContext } from "../../../core/context/runtime.js";
 import { MUI } from "./mui.js";
 import { Ant } from "./antd.js";
 import { Headless } from "./headless.js";
-
-import { getPkgInfo, appendInPkgFile } from "../../../utils/pkg/index.js";
+import { installDependencies } from "../../../utils/pkg/index.js";
 
 export async function UILibraryReact() {
   const { user_options } = useContext();
-  const lib_list = [
+  const lib_list: {
+    name: string;
+    fun: () => Promise<void>;
+    dependencies: (string | null)[];
+  }[] = [
     {
       name: "material ui",
       fun: MUI,
@@ -25,21 +28,8 @@ export async function UILibraryReact() {
     },
   ];
 
-  const package_identification = async (pkg_name: string) => {
-    const pkg_info = await getPkgInfo(pkg_name);
-    await appendInPkgFile(pkg_info[0], pkg_info[1]);
-  };
-
-  const promises = user_options.ui_library.map(async (lib_name) => {
-    const lib_info = lib_list.find((i) =>
-      i.name.includes(lib_name.toLowerCase())
-    );
-    const promises = lib_info?.dependencies
-      .filter((x): x is string => Boolean(x))
-      .map((dependencie_name) => package_identification(dependencie_name));
-    await Promise.all(promises!);
-    const lib_fun = lib_info?.fun;
-    await lib_fun!();
+  await installDependencies({
+    lib_list: lib_list,
+    user_option_library: user_options.ui_library,
   });
-  await Promise.all(promises!);
 }
