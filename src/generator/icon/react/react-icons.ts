@@ -28,7 +28,7 @@ ${
 > [!NOTE]  
 > Import all icons from one file (clean way).
 > We have created a \`icon.${
-user_options.js_framework.includes("js") ? "js" : "ts"}\` file to use it which you will find in \`src/assets/icon${
+user_options.js_framework.includes("js") ? "js" : "ts"}\` file to use it which you will find in \`src/assets/icon.${
 user_options.js_framework.includes("js") ? "js" : "ts"}\``: ""
 }
 
