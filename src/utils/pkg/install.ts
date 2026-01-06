@@ -8,7 +8,7 @@ export async function install() {
     await execa(user_options.pkg_manager, ["install"], {
       cwd: full_project_path,
       stdio: "ignore",
-      timeout: 60000,
+      timeout: 360000,
       killSignal: "SIGTERM",
     });
     operation_state.install_all_packages.status = "success";
