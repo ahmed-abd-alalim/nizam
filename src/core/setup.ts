@@ -78,7 +78,11 @@ export async function Setup() {
   CorePaths();
 
   for (const _ of operation_data) {
-    if (!_.operation_targit) continue;
+    if (
+      !_.operation_targit ||
+      (Array.isArray(_.operation_targit) && _.operation_targit.length === 0)
+    )
+      continue;
     await operations(_.operation_fun, _.operation_name, _.operation_des);
     if (!_.operation_is_need) continue;
     if (

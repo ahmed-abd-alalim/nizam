@@ -13,7 +13,7 @@ export async function structureReact() {
   const files_structure_array = user_options.files_structure_names;
   const files_structure_array_with_some_from_user_options = [
     ...files_structure_array,
-    `${user_options.js_framework.includes("ts") ? "type.ts" : null}`,
+    user_options.js_framework.includes("ts") ? "type.ts" : null,
   ];
 
   const all_folder_structure_names = [
@@ -24,11 +24,11 @@ export async function structureReact() {
   ];
 
   const all_file_structure_names = [
-    `${user_options.js_framework.includes("ts") ? "type.ts" : null}`,
+    user_options.js_framework.includes("ts") ? "type.ts" : null,
     "config.json",
     "api.json",
     "routing.json",
-    `${!user_options.icon_library.length ? "" : "icons.j/ts"}`,
+    !user_options.icon_library.length ? null : "icons.j/ts",
   ];
 
   const creat_folder_fun = async (folder_name: string) => {
@@ -71,24 +71,30 @@ export async function structureReact() {
 
   if (app_structure.includes("nizam method")) {
     // make folders
-    for (let folder_name of all_folder_structure_names.filter(Boolean)) {
+    for (let folder_name of all_folder_structure_names.filter(
+      Boolean
+    ) as string[]) {
       await creat_folder_fun(folder_name);
     }
 
     // make files
-    for (let file_name of all_file_structure_names.filter(Boolean)) {
+    for (let file_name of all_file_structure_names.filter(
+      Boolean
+    ) as string[]) {
       await creat_file_fun({ file_name });
     }
   } else if (app_structure.includes("custom method")) {
     // make folders
-    for (let folder_name of folder_structure_array.filter(Boolean)) {
+    for (let folder_name of folder_structure_array.filter(
+      Boolean
+    ) as string[]) {
       await creat_folder_fun(folder_name);
     }
 
     // make files
     for (let file_name of files_structure_array_with_some_from_user_options.filter(
       Boolean
-    )) {
+    ) as string[]) {
       await creat_file_fun({ file_name });
     }
   }

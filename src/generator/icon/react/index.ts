@@ -26,9 +26,9 @@ export async function IconLibraryReact() {
       fun: MaterialIcons,
       dependencies: [
         "@mui/icons-material",
-        `${!check_mui_pkg ? "@mui/material" : null}`,
-        `${!check_mui_pkg ? "@emotion/react" : null}`,
-        `${!check_mui_pkg ? "@emotion/styled" : null}`,
+        !check_mui_pkg ? "@mui/material" : null,
+        !check_mui_pkg ? "@emotion/react" : null,
+        !check_mui_pkg ? "@emotion/styled" : null,
       ],
     },
   ];
@@ -43,7 +43,7 @@ export async function IconLibraryReact() {
       i.name.includes(lib_name.toLowerCase())
     );
     const promises = lib_info?.dependencies
-      .filter(Boolean)
+      .filter((x): x is string => Boolean(x))
       .map((dependencie_name) => package_identification(dependencie_name));
     await Promise.all(promises!);
     const lib_fun = lib_info?.fun;
