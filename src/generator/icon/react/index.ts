@@ -3,6 +3,7 @@ import { getPkgInfo, appendInPkgFile } from "../../../utils/pkg/index.js";
 import { ReactIcons } from "./react-icons.js";
 import { LucideReact } from "./lucide-react.js";
 import { MaterialIcons } from "./material-icons.js";
+import { LordIcon } from "./lord-icon.js";
 
 export async function IconLibraryReact() {
   const { user_options } = useContext();
@@ -30,6 +31,11 @@ export async function IconLibraryReact() {
         !check_mui_pkg ? "@emotion/react" : null,
         !check_mui_pkg ? "@emotion/styled" : null,
       ],
+    },
+    {
+      name: "lord icon",
+      fun: LordIcon,
+      dependencies: ["@lordicon/react"],
     },
   ];
 

@@ -86,6 +86,11 @@ export async function Custom() {
           "A modern, lightweight icon library that offers clean and customizable SVG icons as React components.",
       },
       {
+        name: `Lord Icon ${chalk.gray("\t(animated icons)")}`,
+        value: "Lord Icon",
+        description: "Animated SVG icons with a React wrapper.",
+      },
+      {
         name: `Material Icons`,
         value: "Material Icons",
         description:

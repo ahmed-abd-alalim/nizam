@@ -76,6 +76,10 @@
       "material_icons": {
         "des": "material icons - docs",
         "link": "https://mui.com/material-ui/material-icons/"
+      },
+      "lord_icon": {
+        "des": "lord icon - docs",
+        "link": "https://lordicon.com/docs"
       }
     }
   }
