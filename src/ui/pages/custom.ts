@@ -5,7 +5,8 @@ import { user_options_type } from "../../assets/type.js";
 
 export async function Custom() {
   const ctx = useContext();
-  const user_options: (string[] | [string, boolean])[] = [];
+  const user_options: (string[] | [string, boolean] | [string, string[]])[] =
+    [];
   const question_theme = {
     prefix: {
       idle: `${chalk.yellowBright("[")}${chalk.blueBright(
@@ -73,7 +74,7 @@ export async function Custom() {
     icon_library: [
       new Separator(chalk.gray("--- Popular Options ---")),
       {
-        name: `React Icons ${chalk.gray("\t\tmost used")}`,
+        name: `React Icons ${chalk.gray("\t(most used)")}`,
         value: "React Icons",
         description:
           "A popular library that provides thousands of icons from multiple icon packs (like FontAwesome, Material, and more) as easy-to-use React components.",
@@ -85,13 +86,10 @@ export async function Custom() {
           "A modern, lightweight icon library that offers clean and customizable SVG icons as React components.",
       },
       {
-        name: `Material Icons ${
-          user_options.find((i) => i.includes("Material UI"))
-            ? chalk.gray("\t\tstrong candidate because you use Material UI")
-            : "Google's official icon set for Material Design Provides a wide range of icons with consistent style, mainly used in Material-UI projects."
-        }`,
+        name: `Material Icons`,
         value: "Material Icons",
-        description: "",
+        description:
+          "Google's official icon set for Material Design Provides a wide range of icons with consistent style, mainly used in Material-UI projects.",
       },
     ],
   };
@@ -135,21 +133,33 @@ export async function Custom() {
         },
         theme: checkbox_theme,
       });
-      // @ts-ignore
+
       user_options.push(["ui_library", selectedlibrary]);
     }
-
     if (await check_is_Ok("Icons Library")) {
+      const found = user_options.find(
+        (i) => Array.isArray(i[1]) && i[1].includes("Material UI")
+      );
+      if (found) {
+        const materialIconOption = nizam_choices.icon_library.find(
+          (i): i is { name: string; value: string; description: string } =>
+            "name" in i && i.name === "Material Icons"
+        );
+        if (materialIconOption) {
+          materialIconOption.name += chalk.gray(
+            "\t(strong candidate because you use Material UI)"
+          );
+        }
+      }
       const selectedlibrary: string[] = await checkbox({
         message: "Select Library:",
-        choices: nizam_choices.ui_library,
+        choices: nizam_choices.icon_library,
         validate: async (value) => {
           if (value.length === 0) return "At least one should be chosen";
           return true;
         },
         theme: checkbox_theme,
       });
-      // @ts-ignore
       user_options.push(["icon_library", selectedlibrary]);
     }
   };

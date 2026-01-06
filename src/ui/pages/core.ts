@@ -12,7 +12,8 @@ import { pathExists } from "../../utils/fs.js";
 
 export async function Core() {
   const ctx = useContext();
-  const user_options: (string[] | [string, boolean])[] = [];
+  const user_options: (string[] | [string, boolean] | [string, string[]])[] =
+    [];
   const question_theme = {
     prefix: {
       idle: `${chalk.yellowBright("[")}${chalk.blueBright(
@@ -189,9 +190,9 @@ export async function Core() {
           },
           theme: checkbox_theme,
         });
-        // @ts-ignore
+
         user_options.push(["folder_structure_names", selectedFolders]);
-        // @ts-ignore
+
         user_options.push(["files_structure_names", selectedFiles]);
       }
       user_options.push(["app_structure", selectedMethod]);
