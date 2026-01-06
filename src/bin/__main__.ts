@@ -21,6 +21,42 @@ async function main() {
   const ctx = createContext();
   startProject(ctx);
 
+  const search_mode_colle = async () => {
+    console.clear();
+    sectionBox("Search Mode");
+    await Search();
+    await Core();
+    console.clear();
+
+    await printMenu();
+    await Setup();
+    await askAboutInstall();
+  };
+
+  const custom_mode_colle = async () => {
+    console.clear();
+    sectionBox("Custom Mode");
+    await Core();
+    await Custom();
+    console.clear();
+
+    await printMenu();
+    await Setup();
+    await askAboutInstall();
+  };
+
+  const help_colle = async () => {
+    console.clear();
+    sectionBox("Help");
+    await help();
+  };
+
+  const exit_colle = async () => {
+    console.clear();
+    await say(`See you soon... `);
+    await new Promise((r) => setTimeout(r, 1500));
+  };
+
   try {
     await intro();
 
@@ -28,41 +64,18 @@ async function main() {
       console.clear();
       sectionBox("Home Menu");
       await HomeMenu();
-
       switch (ctx.start_menu_options) {
         case "Search Mode":
-          console.clear();
-          sectionBox("Search Mode");
-          await Search();
-          await Core();
-          console.clear();
-
-          await printMenu();
-          await Setup();
-          await askAboutInstall();
+          await search_mode_colle();
           return;
-
         case "Custom Mode":
-          console.clear();
-          sectionBox("Custom Mode");
-          await Core();
-          await Custom();
-          console.clear();
-
-          await printMenu();
-          await Setup();
-          await askAboutInstall();
+          await custom_mode_colle();
           return;
-
         case "Help":
-          console.clear();
-          sectionBox("Help");
-          await help();
+          await help_colle();
           break;
         case "Exit":
-          console.clear();
-          await say(`See you soon... `);
-          await new Promise((r) => setTimeout(r, 1500));
+          await exit_colle();
           return;
       }
     }

@@ -10,6 +10,7 @@ import {
   JSFramework,
   CSSFramework,
   UILibrary,
+  IconLibrary,
 } from "../generator/index.js";
 
 export async function Setup() {
@@ -57,13 +58,19 @@ export async function Setup() {
       operation_is_need: false,
       operation_targit: user_options.CSS_framework,
     },
-
     {
       operation_name: "ui_library",
       operation_fun: UILibrary,
       operation_des: `install UI Component Library`,
       operation_is_need: false,
       operation_targit: user_options.ui_library,
+    },
+    {
+      operation_name: "icon_library",
+      operation_fun: IconLibrary,
+      operation_des: `install icons Library`,
+      operation_is_need: false,
+      operation_targit: user_options.icon_library,
     },
   ];
 

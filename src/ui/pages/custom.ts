@@ -69,11 +69,29 @@ export async function Custom() {
           "(usually with Tailwind CSS)"
         )}.`,
       },
+    ],
+    icon_library: [
+      new Separator(chalk.gray("--- Popular Options ---")),
       {
-        name: "Blueprint UI",
-        value: "Blueprint UI",
+        name: `React Icons ${chalk.gray("\t\tmost used")}`,
+        value: "React Icons",
         description:
-          "A React UI toolkit optimized for data-dense and complex desktop-style applications.",
+          "A popular library that provides thousands of icons from multiple icon packs (like FontAwesome, Material, and more) as easy-to-use React components.",
+      },
+      {
+        name: "Lucide React",
+        value: "Lucide React",
+        description:
+          "A modern, lightweight icon library that offers clean and customizable SVG icons as React components.",
+      },
+      {
+        name: `Material Icons ${
+          user_options.find((i) => i.includes("Material UI"))
+            ? chalk.gray("\t\tstrong candidate because you use Material UI")
+            : "Google's official icon set for Material Design Provides a wide range of icons with consistent style, mainly used in Material-UI projects."
+        }`,
+        value: "Material Icons",
+        description: "",
       },
     ],
   };
@@ -119,6 +137,20 @@ export async function Custom() {
       });
       // @ts-ignore
       user_options.push(["ui_library", selectedlibrary]);
+    }
+
+    if (await check_is_Ok("Icons Library")) {
+      const selectedlibrary: string[] = await checkbox({
+        message: "Select Library:",
+        choices: nizam_choices.ui_library,
+        validate: async (value) => {
+          if (value.length === 0) return "At least one should be chosen";
+          return true;
+        },
+        theme: checkbox_theme,
+      });
+      // @ts-ignore
+      user_options.push(["icon_library", selectedlibrary]);
     }
   };
 

@@ -12,11 +12,9 @@ export async function nizamDocEditor(
   const path_box = PathBox();
 
   const new_instructions = `
-${
-  !nizam_doc_contant.title_params ? "" : `### ${nizam_doc_contant.title_params}`
-}
+${!nizam_doc_contant.title_params ? "" : `## ${nizam_doc_contant.title_params}`}
 
-${!nizam_doc_contant.dec_params ? "" : `#### ${nizam_doc_contant.dec_params}`}
+${!nizam_doc_contant.dec_params ? "" : `### ${nizam_doc_contant.dec_params}`}
 
 ${!nizam_doc_contant.expla_params ? "" : nizam_doc_contant.expla_params}
 

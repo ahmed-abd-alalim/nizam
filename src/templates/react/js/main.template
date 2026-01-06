@@ -4,8 +4,6 @@
 ##-nizam@mark-##:foundation_min
 ##-nizam@mark-##:materialize_min
 ##-nizam@mark-##:ant_reset_css
-##-nizam@mark-##:blueprintui_themes
-##-nizam@mark-##:blueprintui_layout
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'

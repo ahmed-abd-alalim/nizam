@@ -62,10 +62,20 @@
       "headless": {
         "des": "headless ui - docs",
         "link": "https://headlessui.com/react/disclosure"
+      }
+    },
+    "icon_library": {
+      "react_icons": {
+        "des": "react icons - docs",
+        "link": "https://react-icons.github.io/react-icons"
       },
-      "blueprint": {
-        "des": "blueprint ui - docs",
-        "link": "https://blueprintui.dev/getting-started"
+      "lucide_react": {
+        "des": "lucide react - guide",
+        "link": "https://lucide.dev/guide"
+      },
+      "material_icons": {
+        "des": "material icons - docs",
+        "link": "https://mui.com/material-ui/material-icons/"
       }
     }
   }

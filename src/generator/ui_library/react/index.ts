@@ -2,7 +2,7 @@ import { useContext } from "../../../core/context/runtime.js";
 import { MUI } from "./mui.js";
 import { Ant } from "./antd.js";
 import { Headless } from "./headless.js";
-import { Blueprint } from "./blueprint.js";
+
 import { getPkgInfo, appendInPkgFile } from "../../../utils/pkg/index.js";
 
 export async function UILibraryReact() {
@@ -23,11 +23,6 @@ export async function UILibraryReact() {
       fun: Headless,
       dependencies: ["@headlessui/react"],
     },
-    {
-      name: "blueprint ui",
-      fun: Blueprint,
-      dependencies: ["@blueprintui/components", "@blueprintui/layout"],
-    },
   ];
 
   const package_identification = async (pkg_name: string) => {
@@ -39,9 +34,9 @@ export async function UILibraryReact() {
     const lib_info = lib_list.find((i) =>
       i.name.includes(lib_name.toLowerCase())
     );
-    const promises = lib_info?.dependencies.map((dependencie_name) =>
-      package_identification(dependencie_name)
-    );
+    const promises = lib_info?.dependencies
+      .filter(Boolean)
+      .map((dependencie_name) => package_identification(dependencie_name));
     await Promise.all(promises!);
     const lib_fun = lib_info?.fun;
     await lib_fun!();

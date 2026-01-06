@@ -95,9 +95,9 @@ export async function Core() {
         description: "routes definitions & paths.",
       },
       {
-        name: "icon.j/ts",
-        value: "icon.j/ts",
-        description: "centralized icon exports for easy reuse.",
+        name: "icons.j/ts",
+        value: "icons.j/ts",
+        description: "centralized icons exports for easy reuse.",
       },
     ],
   };
