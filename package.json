@@ -50,11 +50,11 @@
   "scripts": {
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "watch:templates": "npx cpx \"src/templates/**/*.template\" dist/templates --watch",
-    "watch:rollup": "rollup -c -w",
+    "watch:rollup": "rollup -c -w --silent",
     "dev": "npm run clean && npm-run-all --parallel watch:*",
     "lint": "eslint ./src",
     "format": "prettier --write ./src",
-    "build": "npm run clean && rollup -c",
+    "build": "npm run clean && rollup -c --silent",
     "prepublishOnly": "npm run format && npm run lint && npm run build"
   },
   "engines": {
