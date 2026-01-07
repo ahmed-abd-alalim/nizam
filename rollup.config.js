@@ -19,7 +19,7 @@ export default {
         },
       ],
       flatten: false,
-      copyOnce: false,
+      copyOnce: true,
     }),
   ],
 };
