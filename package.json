@@ -53,8 +53,7 @@
     "format": "prettier --write ./src",
     "build": "tsc",
     "prepublishOnly": "npm run format && npm run lint && npm run build",
-    "postbuild": "node scripts/copy-templates.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postbuild": "node scripts/copy-templates.js"
   },
   "engines": {
     "node": ">=18"
