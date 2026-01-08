@@ -20,6 +20,10 @@ export const keys = [
   "assets_folder_path",
   "app_react_path",
   "package_json_path",
+  "layout_path",
+  "reactrouter_router_path",
+  "tanstackrouter_router_path",
+
   "jsconfig_app_template",
   "vsc_settings_templates",
   "bootstrap_templates",
@@ -29,6 +33,9 @@ export const keys = [
   "app_react_templates",
   "vite_config_templates",
   "main_react_templates",
+  "layout_templates",
+  "reactrouter_router_templates",
+  "tanstackrouter_router_templates",
 ] as const;
 
 export type path_box_type = Record<(typeof keys)[number], string>;
@@ -69,6 +76,17 @@ function pathBox(): path_box_type {
     assets_folder_path: path.resolve(full_project_path, "src", "assets"),
     app_react_path: path.resolve(full_project_path, "src", `App.${js_or_ts}x`),
     package_json_path: path.resolve(full_project_path, "package.json"),
+    layout_path: path.resolve(full_project_path, "src", `layout.${js_or_ts}x`),
+    reactrouter_router_path: path.resolve(
+      full_project_path,
+      "src",
+      `router.${js_or_ts}x`
+    ),
+    tanstackrouter_router_path: path.resolve(
+      full_project_path,
+      "src",
+      `router.${js_or_ts}`
+    ),
 
     // nizam-main
     jsconfig_app_template: path.resolve(
@@ -121,6 +139,24 @@ function pathBox(): path_box_type {
       "react",
       js_or_ts,
       "main.template"
+    ),
+    layout_templates: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "layout.template"
+    ),
+    reactrouter_router_templates: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "react_router-router.template"
+    ),
+    tanstackrouter_router_templates: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "tanstack_router-router.template"
     ),
   };
 }

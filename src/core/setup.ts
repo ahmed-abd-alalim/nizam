@@ -11,6 +11,7 @@ import {
   CSSFramework,
   UILibrary,
   IconLibrary,
+  RoutingLibrary,
 } from "../generator/index.js";
 
 export async function Setup() {
@@ -64,6 +65,13 @@ export async function Setup() {
       operation_des: `install UI Component Library`,
       operation_is_need: false,
       operation_targit: user_options.ui_library,
+    },
+    {
+      operation_name: "routing_library",
+      operation_fun: RoutingLibrary,
+      operation_des: `install ${user_options.routing_library}`,
+      operation_is_need: false,
+      operation_targit: user_options.routing_library,
     },
     {
       operation_name: "icon_library",

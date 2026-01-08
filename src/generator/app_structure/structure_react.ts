@@ -27,7 +27,7 @@ export async function structureReact() {
     user_options.js_framework.includes("ts") ? "type.ts" : null,
     "config.json",
     "api.json",
-    "routing.json",
+    !user_options.routing_library ? null : "routing.json",
     !user_options.icon_library.length ? null : "icons.j/ts",
   ];
 

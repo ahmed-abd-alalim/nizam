@@ -1,5 +1,11 @@
+##-nizam@mark-##:rr_class_import
+##-nizam@mark-##:wouter_import
+
 function App() {
-  return <></>;
+  return <>
+  ##-nizam@mark-##:rr_class_start_rout
+  ##-nizam@mark-##:wouter_example
+  </>;
 }
 
 export default App;

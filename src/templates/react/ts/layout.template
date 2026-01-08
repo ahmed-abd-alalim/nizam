@@ -1,0 +1,17 @@
+##-nizam@mark-##:rr_Outlet_import
+##-nizam@mark-##:tr_Outlet_import
+
+// ex:import Navbar from "./Navbar";
+// ex:import Footer from "./Footer";
+
+export default function Layout() {
+  return (
+    <>
+        {/*ex:<Navbar />*/}
+      <main>
+        <Outlet />
+      </main>
+        {/*ex:<Footer />*/}
+    </>
+  );
+}

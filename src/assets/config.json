@@ -81,6 +81,20 @@
         "des": "lord icon - docs",
         "link": "https://lordicon.com/docs"
       }
+    },
+    "routing_library": {
+      "react_router": {
+        "des": "react router - docs",
+        "link": "https://reactrouter.com/home"
+      },
+      "tanStack_router": {
+        "des": "tanStack router - docs",
+        "link": "https://tanstack.com/router/latest"
+      },
+      "wouter": {
+        "des": "github-wouter - docs",
+        "link": "https://github.com/molefrog/wouter"
+      }
     }
   }
 }

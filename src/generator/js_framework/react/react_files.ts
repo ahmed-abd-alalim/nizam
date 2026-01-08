@@ -71,10 +71,22 @@ export async function ReactFiles() {
   await ensureDir(path_box.assets_folder_path);
   await emptyDir(path_box.assets_folder_path);
 
-  // new app file
-  const app_react_text = await readFile(path_box.app_react_templates, "utf8");
-  await ensureFile(path_box.app_react_path);
-  await writeFile(path_box.app_react_path, app_react_text, "utf8");
+  if (
+    (user_options.routing_library.includes("React Router") &&
+      user_options.react_router_rout.includes("Data Router")) ||
+    user_options.routing_library.includes("TanStack Router")
+  ) {
+    // remove app.jsx file for data routing and add layout file
+    await remove(path_box.app_react_path);
+    const main_react_text = await readFile(path_box.layout_templates, "utf8");
+    await ensureFile(path_box.layout_path);
+    await writeFile(path_box.layout_path, main_react_text, "utf8");
+  } else {
+    // new app file
+    const app_react_text = await readFile(path_box.app_react_templates, "utf8");
+    await ensureFile(path_box.app_react_path);
+    await writeFile(path_box.app_react_path, app_react_text, "utf8");
+  }
 
   // new vite.config
   const vite_config_text = await readFile(

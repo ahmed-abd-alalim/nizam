@@ -11,7 +11,7 @@ const question_theme = {
     )}${chalk.yellowBright("]")}`,
   },
   style: {
-    message: (text: any) => chalk.blueBright(text),
+    message: (text: any) => chalk.blue(text),
     answer: (text: any) => chalk.greenBright(text),
   },
 };
@@ -22,7 +22,7 @@ const checkbox_theme = {
     pointer: "➤",
   },
   style: {
-    message: (text: any) => chalk.blueBright(text),
+    message: (text: any) => chalk.blue(text),
     answer: (text: any) => chalk.greenBright(text),
     description: (text: any) => chalk.yellowBright(`[!] ${text}`),
     highlight: (text: any) => chalk.cyanBright(text),
@@ -83,5 +83,8 @@ export async function checkbox_fun(
 }
 
 export async function check_is_Ok(qu_title: string) {
-  return await confirm_fun(`Do you want use ${qu_title}?`, false);
+  return await confirm_fun(
+    `Do you want use ${chalk.blueBright(qu_title)}?`,
+    false
+  );
 }

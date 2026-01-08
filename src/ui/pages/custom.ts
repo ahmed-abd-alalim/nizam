@@ -45,6 +45,32 @@ export async function Custom() {
         )}.`,
       },
     ],
+    routing_library: [
+      new Separator(chalk.gray("--- Popular Options ---")),
+      {
+        name: "React Router",
+        value: "React Router",
+      },
+      {
+        name: "TanStack Router",
+        value: "TanStack Router",
+      },
+      {
+        name: "Wouter",
+        value: "Wouter",
+      },
+    ],
+    react_router_rout_ways: [
+      new Separator(chalk.gray("--- Popular Options ---")),
+      {
+        name: `Classic Router - ${chalk.gray("old way")}`,
+        value: "Classic Router",
+      },
+      {
+        name: `Data Router - ${chalk.gray("new way")}`,
+        value: "Data Router",
+      },
+    ],
     icon_library: [
       new Separator(chalk.gray("--- Popular Options ---")),
       {
@@ -101,6 +127,24 @@ export async function Custom() {
         ),
       ]);
     }
+
+    if (user_options.find((n) => (n as string[])[1].includes("React + vite ")))
+      if (await check_is_Ok("Routing Library")) {
+        user_options.push([
+          "routing_library",
+          await rawlist_fun("Select Library:", nizam_choices.routing_library),
+        ]);
+
+        if (user_options.find((n) => n[1] === "React Router")) {
+          user_options.push([
+            "react_router_rout",
+            await rawlist_fun(
+              "Select way:",
+              nizam_choices.react_router_rout_ways
+            ),
+          ]);
+        }
+      }
 
     if (await check_is_Ok("Icons Library")) {
       const found = user_options.find(
