@@ -1,4 +1,5 @@
-import { rawlist, confirm, Separator, checkbox } from "@inquirer/prompts";
+import { Separator } from "@inquirer/prompts";
+import { rawlist_fun, checkbox_fun, check_is_Ok } from "./main.js";
 import chalk from "chalk";
 import { useContext } from "../../core/context/runtime.js";
 import { user_options_type } from "../../assets/type.js";
@@ -7,33 +8,6 @@ export async function Custom() {
   const ctx = useContext();
   const user_options: (string[] | [string, boolean] | [string, string[]])[] =
     [];
-  const question_theme = {
-    prefix: {
-      idle: `${chalk.yellowBright("[")}${chalk.blueBright(
-        "?"
-      )}${chalk.yellowBright("]")}`,
-      done: `${chalk.yellowBright("[")}${chalk.greenBright(
-        "✔"
-      )}${chalk.yellowBright("]")}`,
-    },
-    style: {
-      message: (text: any) => chalk.blueBright(text),
-      answer: (text: any) => chalk.greenBright(text),
-    },
-  };
-  const checkbox_theme = {
-    icon: {
-      checked: ` ${chalk.greenBright("✔")} `,
-      unchecked: ` ${chalk.redBright("✖")} `,
-      pointer: "➤",
-    },
-    style: {
-      message: (text: any) => chalk.blueBright(text),
-      answer: (text: any) => chalk.greenBright(text),
-      description: (text: any) => chalk.yellowBright(`[!] ${text}`),
-      highlight: (text: any) => chalk.cyanBright(text),
-    },
-  };
 
   const nizam_choices = {
     js_framework: [
@@ -86,7 +60,7 @@ export async function Custom() {
           "A modern, lightweight icon library that offers clean and customizable SVG icons as React components.",
       },
       {
-        name: `Lord Icon ${chalk.gray("\t(animated icons)")}`,
+        name: `Lord Icon ${chalk.gray("\t\t(animated icons)")}`,
         value: "Lord Icon",
         description: "Animated SVG icons with a React wrapper.",
       },
@@ -99,48 +73,35 @@ export async function Custom() {
     ],
   };
 
-  const check_is_Ok = async (qu_title: string) => {
-    return await confirm({
-      message: `Do you want use ${qu_title}?`,
-      default: false,
-      theme: question_theme,
-    });
-  };
-
   const custom_options = async () => {
     user_options.push([
       "js_framework",
-      await rawlist({
-        message: "Select a js framework:",
-        choices: nizam_choices.js_framework,
-        theme: question_theme,
-      }),
+      await rawlist_fun("Select a js framework:", nizam_choices.js_framework),
     ]);
-
     if (await check_is_Ok("CSS framework")) {
       user_options.push([
         "CSS_framework",
-        await rawlist({
-          message: "Select a CSS framework:",
-          choices: nizam_choices.css_framework,
-          theme: question_theme,
-        }),
+        await rawlist_fun(
+          "Select a CSS framework:",
+          nizam_choices.css_framework
+        ),
       ]);
     }
 
     if (await check_is_Ok("UI Component Library")) {
-      const selectedlibrary: string[] = await checkbox({
-        message: "Select Library:",
-        choices: nizam_choices.ui_library,
-        validate: async (value) => {
-          if (value.length === 0) return "At least one should be chosen";
-          return true;
-        },
-        theme: checkbox_theme,
-      });
-
-      user_options.push(["ui_library", selectedlibrary]);
+      user_options.push([
+        "ui_library",
+        await checkbox_fun(
+          "Select Library:",
+          nizam_choices.ui_library,
+          (value: string[]) => {
+            if (value.length === 0) return "At least one should be chosen";
+            return true;
+          }
+        ),
+      ]);
     }
+
     if (await check_is_Ok("Icons Library")) {
       const found = user_options.find(
         (i) => Array.isArray(i[1]) && i[1].includes("Material UI")
@@ -156,16 +117,17 @@ export async function Custom() {
           );
         }
       }
-      const selectedlibrary: string[] = await checkbox({
-        message: "Select Library:",
-        choices: nizam_choices.icon_library,
-        validate: async (value) => {
-          if (value.length === 0) return "At least one should be chosen";
-          return true;
-        },
-        theme: checkbox_theme,
-      });
-      user_options.push(["icon_library", selectedlibrary]);
+      user_options.push([
+        "icon_library",
+        await checkbox_fun(
+          "Select Library:",
+          nizam_choices.icon_library,
+          (value: string[]) => {
+            if (value.length === 0) return "At least one should be chosen";
+            return true;
+          }
+        ),
+      ]);
     }
   };
 

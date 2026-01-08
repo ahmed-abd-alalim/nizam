@@ -95,12 +95,6 @@ export async function Setup() {
 
   //@@@ clean all tage i all file after finished
 
-  // ##-nizam@mark-##: name of section
-
-  // 5- add aliase @
-
-  // 4- add start default (folder struchers) folders
-
   // 7- operation_state.push([
   //   "React Router",
   //   ReactRouter(operation_list.react_router),
