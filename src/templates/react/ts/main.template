@@ -9,12 +9,19 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 ##-nizam@mark-##:rr_data_import
 ##-nizam@mark-##:tr_data_import
+##-nizam@mark-##:context_import_theme_provider
+##-nizam@mark-##:import_react_toolkit_provider
+##-nizam@mark-##:import_react_toolkit_store
 import './index.css'
 import App from './App.tsx'
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+  ##-nizam@mark-##:open_tage_theme_provider
+  ##-nizam@mark-##:open_tage_react_toolkit_provider
     <App />
+  ##-nizam@mark-##:close_tage_theme_provider
+  ##-nizam@mark-##:close_tage_react_toolkit_provider
   </StrictMode>,
 )

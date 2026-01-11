@@ -23,6 +23,7 @@ export function createContext(): execution_context_type {
       icon_library: [],
       routing_library: "",
       react_router_rout: "",
+      state_management: "",
     },
     operation_state: {
       creat_project_folder: one_operation_state,
@@ -34,6 +35,7 @@ export function createContext(): execution_context_type {
       ui_library: one_operation_state,
       routing_library: one_operation_state,
       icon_library: one_operation_state,
+      state_management: one_operation_state,
       install_all_packages: one_operation_state,
     },
   };

@@ -23,6 +23,18 @@ export const keys = [
   "layout_path",
   "reactrouter_router_path",
   "tanstackrouter_router_path",
+  "context_path",
+  "context_theme_path",
+  "theme_context_file_path",
+  "theme_provider_file_path",
+  "use_theme_file_path",
+  "store_path",
+  "store_file_path",
+  "store_slices_path",
+  "slices_index_file_path",
+  "slices_counter_file_path",
+  "zustand_use_counter_file_path",
+  "zustand_index_file_path",
 
   "jsconfig_app_template",
   "vsc_settings_templates",
@@ -36,6 +48,14 @@ export const keys = [
   "layout_templates",
   "reactrouter_router_templates",
   "tanstackrouter_router_templates",
+  "theme_context_file_template",
+  "theme_provider_file_template",
+  "use_theme_file_template",
+  "store_file_template",
+  "slices_index_file_template",
+  "slices_counter_file_template",
+  "zustand_use_counter_file_template",
+  "zustand_index_file_template",
 ] as const;
 
 export type path_box_type = Record<(typeof keys)[number], string>;
@@ -86,6 +106,73 @@ function pathBox(): path_box_type {
       full_project_path,
       "src",
       `router.${js_or_ts}`
+    ),
+    context_path: path.resolve(full_project_path, "src", `context`),
+    context_theme_path: path.resolve(
+      full_project_path,
+      "src",
+      `context`,
+      "theme"
+    ),
+    theme_context_file_path: path.resolve(
+      full_project_path,
+      "src",
+      `context`,
+      "theme",
+      `ThemeContext.${js_or_ts}`
+    ),
+    theme_provider_file_path: path.resolve(
+      full_project_path,
+      "src",
+      `context`,
+      "theme",
+      `ThemeProvider.${js_or_ts}x`
+    ),
+    use_theme_file_path: path.resolve(
+      full_project_path,
+      "src",
+      `context`,
+      "theme",
+      `useTheme.${js_or_ts}`
+    ),
+    store_path: path.resolve(full_project_path, "src", `store`),
+    store_file_path: path.resolve(
+      full_project_path,
+      "src",
+      `store`,
+      `store.${js_or_ts}`
+    ),
+    store_slices_path: path.resolve(
+      full_project_path,
+      "src",
+      `store`,
+      "slices"
+    ),
+    slices_index_file_path: path.resolve(
+      full_project_path,
+      "src",
+      `store`,
+      "slices",
+      `index.${js_or_ts}`
+    ),
+    slices_counter_file_path: path.resolve(
+      full_project_path,
+      "src",
+      `store`,
+      "slices",
+      `counterSlice.${js_or_ts}`
+    ),
+    zustand_use_counter_file_path: path.resolve(
+      full_project_path,
+      "src",
+      `store`,
+      `useCounterStore.${js_or_ts}`
+    ),
+    zustand_index_file_path: path.resolve(
+      full_project_path,
+      "src",
+      `store`,
+      `index.${js_or_ts}`
     ),
 
     // nizam-main
@@ -157,6 +244,70 @@ function pathBox(): path_box_type {
       "react",
       js_or_ts,
       "tanstack_router-router.template"
+    ),
+    theme_context_file_template: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "state_management",
+      "context",
+      "theme_context.template"
+    ),
+    theme_provider_file_template: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "state_management",
+      "context",
+      "theme_provider.template"
+    ),
+    use_theme_file_template: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "state_management",
+      "context",
+      "use_theme.template"
+    ),
+    store_file_template: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "state_management",
+      "store",
+      "store.template"
+    ),
+    slices_index_file_template: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "state_management",
+      "store",
+      "index.template"
+    ),
+    slices_counter_file_template: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "state_management",
+      "store",
+      "counter_slice.template"
+    ),
+    zustand_use_counter_file_template: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "state_management",
+      "zustand",
+      `use_counter_store.template`
+    ),
+    zustand_index_file_template: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "state_management",
+      "zustand",
+      `index.template`
     ),
   };
 }

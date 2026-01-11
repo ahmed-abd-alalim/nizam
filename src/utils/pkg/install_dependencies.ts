@@ -24,11 +24,11 @@ export async function installDependencies({
     const fil_dependencies = lib_info?.dependencies.filter((x): x is string =>
       Boolean(x)
     );
-
-    for (const dependencie_name of fil_dependencies!) {
-      await package_identification(dependencie_name);
+    if (fil_dependencies?.length !== 0) {
+      for (const dependencie_name of fil_dependencies!) {
+        await package_identification(dependencie_name);
+      }
     }
-
     const lib_fun = lib_info?.fun;
     await lib_fun!();
   } else if (Array.isArray(user_option_library)) {
@@ -36,15 +36,14 @@ export async function installDependencies({
       const lib_info = lib_list.find((i) =>
         i.name.includes(lib_name.toLowerCase())
       );
-
       const fil_dependencies = lib_info?.dependencies.filter((x): x is string =>
         Boolean(x)
       );
-
-      for (const dependencie_name of fil_dependencies!) {
-        await package_identification(dependencie_name);
+      if (fil_dependencies?.length !== 0) {
+        for (const dependencie_name of fil_dependencies!) {
+          await package_identification(dependencie_name);
+        }
       }
-
       const lib_fun = lib_info?.fun;
       await lib_fun!();
     }

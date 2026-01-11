@@ -12,6 +12,7 @@ import {
   UILibrary,
   IconLibrary,
   RoutingLibrary,
+  StateManagement,
 } from "../generator/index.js";
 
 export async function Setup() {
@@ -34,14 +35,14 @@ export async function Setup() {
     {
       operation_name: "creat_vsc_folder",
       operation_fun: CreatVSCFolder,
-      operation_des: "creat .vscode folder",
+      operation_des: "creat (.vscode) folder",
       operation_is_need: false,
       operation_targit: true,
     },
     {
       operation_name: "add_aliase",
       operation_fun: Aliase,
-      operation_des: "make aliase @",
+      operation_des: "make path alias (@) configuration",
       operation_is_need: false,
       operation_targit: user_options.add_aliase,
     },
@@ -55,23 +56,30 @@ export async function Setup() {
     {
       operation_name: "CSS_framework",
       operation_fun: CSSFramework,
-      operation_des: `install ${user_options.CSS_framework}`,
+      operation_des: `install and integrate ${user_options.CSS_framework}`,
       operation_is_need: false,
       operation_targit: user_options.CSS_framework,
     },
     {
       operation_name: "ui_library",
       operation_fun: UILibrary,
-      operation_des: `install UI Component Library`,
+      operation_des: `install and integrate UI component library`,
       operation_is_need: false,
       operation_targit: user_options.ui_library,
     },
     {
       operation_name: "routing_library",
       operation_fun: RoutingLibrary,
-      operation_des: `install ${user_options.routing_library}`,
+      operation_des: `install and integrate ${user_options.routing_library}`,
       operation_is_need: false,
       operation_targit: user_options.routing_library,
+    },
+    {
+      operation_name: "state_management",
+      operation_fun: StateManagement,
+      operation_des: `install and integrate ${user_options.state_management}`,
+      operation_is_need: false,
+      operation_targit: user_options.state_management,
     },
     {
       operation_name: "icon_library",
@@ -100,11 +108,4 @@ export async function Setup() {
       process.exit(0);
     }
   }
-
-  //@@@ clean all tage i all file after finished
-
-  // 7- operation_state.push([
-  //   "React Router",
-  //   ReactRouter(operation_list.react_router),
-  // ]);
 }

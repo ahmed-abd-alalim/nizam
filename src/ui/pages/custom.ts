@@ -8,6 +8,9 @@ export async function Custom() {
   const ctx = useContext();
   const user_options: (string[] | [string, boolean] | [string, string[]])[] =
     [];
+  const is_react_app = user_options.find((n) =>
+    (n as string[])[1].includes("React + vite ")
+  );
 
   const nizam_choices = {
     js_framework: [
@@ -71,6 +74,21 @@ export async function Custom() {
         value: "Data Router",
       },
     ],
+    state_management: [
+      new Separator(chalk.gray("--- Popular Options ---")),
+      {
+        name: `React Context API`,
+        value: "React Context API",
+      },
+      {
+        name: `Redux Toolkit`,
+        value: "Redux Toolkit",
+      },
+      {
+        name: `Zustand`,
+        value: "Zustand",
+      },
+    ],
     icon_library: [
       new Separator(chalk.gray("--- Popular Options ---")),
       {
@@ -128,7 +146,7 @@ export async function Custom() {
       ]);
     }
 
-    if (user_options.find((n) => (n as string[])[1].includes("React + vite ")))
+    if (is_react_app)
       if (await check_is_Ok("Routing Library")) {
         user_options.push([
           "routing_library",
@@ -145,6 +163,13 @@ export async function Custom() {
           ]);
         }
       }
+
+    if (await check_is_Ok("State Management way")) {
+      user_options.push([
+        "state_management",
+        await rawlist_fun("Select way:", nizam_choices.state_management),
+      ]);
+    }
 
     if (await check_is_Ok("Icons Library")) {
       const found = user_options.find(

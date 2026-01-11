@@ -95,6 +95,20 @@
         "des": "github-wouter - docs",
         "link": "https://github.com/molefrog/wouter"
       }
+    },
+    "state_management": {
+      "react_context_api": {
+        "des": "react - docs",
+        "link": "https://react.dev/reference/react/createContext"
+      },
+      "redux_toolkit": {
+        "des": "redux toolkit - docs",
+        "link": "https://redux-toolkit.js.org/introduction/getting-started"
+      },
+      "zustand": {
+        "des": "zustand - docs",
+        "link": "https://zustand.docs.pmnd.rs/getting-started/introduction"
+      }
     }
   }
 }
