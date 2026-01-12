@@ -25,6 +25,7 @@ export function createContext(): execution_context_type {
       react_router_rout: "",
       state_management: "",
       head_management: "",
+      data_fetching: "",
     },
     operation_state: {
       creat_project_folder: one_operation_state,
@@ -38,6 +39,7 @@ export function createContext(): execution_context_type {
       icon_library: one_operation_state,
       state_management: one_operation_state,
       head_management: one_operation_state,
+      data_fetching: one_operation_state,
       install_all_packages: one_operation_state,
     },
   };

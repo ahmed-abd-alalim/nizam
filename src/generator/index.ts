@@ -9,3 +9,4 @@ export { IconLibrary } from "./icon/index.js";
 export { RoutingLibrary } from "./routing/index.js";
 export { StateManagement } from "./state_management/index.js";
 export { HeadManagement } from "./head_management/index.js";
+export { DataFetching } from "./data_fetching/index.js";

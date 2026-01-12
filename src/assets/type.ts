@@ -14,6 +14,7 @@ export interface user_options_type {
   react_router_rout: string;
   state_management: string;
   head_management: string;
+  data_fetching: string;
 }
 
 export interface one_operation_state_type {
@@ -33,6 +34,7 @@ export interface operation_state_type {
   routing_library: one_operation_state_type;
   state_management: one_operation_state_type;
   head_management: one_operation_state_type;
+  data_fetching: one_operation_state_type;
   install_all_packages: one_operation_state_type;
 }
 

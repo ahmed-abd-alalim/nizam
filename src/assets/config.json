@@ -123,6 +123,20 @@
         "des": "unhead - docs",
         "link": "https://unhead.unjs.io/docs/react/head/guides/get-started/installation"
       }
+    },
+    "data_fetching": {
+      "axios": {
+        "des": "axios - docs",
+        "link": "https://axios-http.com/docs/intro"
+      },
+      "tanstack_query": {
+        "des": "tanstack query - docs",
+        "link": "https://tanstack.com/query/latest/docs/framework/react/overview"
+      },
+      "swr": {
+        "des": "swr - docs",
+        "link": "https://swr.vercel.app/docs/getting-started"
+      }
     }
   }
 }

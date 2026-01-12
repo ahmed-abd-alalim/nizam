@@ -96,6 +96,11 @@ export async function ReactFiles() {
   await ensureFile(path_box.vite_config_path);
   await writeFile(path_box.vite_config_path, vite_config_text, "utf8");
 
+  // make .env file
+  const env_text = await readFile(path_box.env_template, "utf8");
+  await ensureFile(path_box.env_path);
+  await writeFile(path_box.env_path, env_text, "utf8");
+
   // new main
   const main_react_text = await readFile(path_box.main_react_templates, "utf8");
   await ensureFile(path_box.main_react_path);

@@ -14,6 +14,7 @@ import {
   RoutingLibrary,
   StateManagement,
   HeadManagement,
+  DataFetching,
 } from "../generator/index.js";
 
 export async function Setup() {
@@ -95,6 +96,13 @@ export async function Setup() {
       operation_des: `install and integrate ${user_options.head_management}`,
       operation_is_need: false,
       operation_targit: user_options.head_management,
+    },
+    {
+      operation_name: "data_fetching",
+      operation_fun: DataFetching,
+      operation_des: `install and integrate ${user_options.data_fetching}`,
+      operation_is_need: false,
+      operation_targit: user_options.data_fetching,
     },
   ];
 

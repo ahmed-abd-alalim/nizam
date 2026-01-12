@@ -35,6 +35,11 @@ export const keys = [
   "slices_counter_file_path",
   "zustand_use_counter_file_path",
   "zustand_index_file_path",
+  "env_path",
+  "api_path",
+  "api_http_file_path",
+  "api_fetcher_file_path",
+  "api_axios_fle_path",
 
   "jsconfig_app_template",
   "vsc_settings_templates",
@@ -56,6 +61,10 @@ export const keys = [
   "slices_counter_file_template",
   "zustand_use_counter_file_template",
   "zustand_index_file_template",
+  "env_template",
+  "api_http_file_template",
+  "api_fetcher_file_template",
+  "api_axios_file_template",
 ] as const;
 
 export type path_box_type = Record<(typeof keys)[number], string>;
@@ -173,6 +182,26 @@ function pathBox(): path_box_type {
       "src",
       `store`,
       `index.${js_or_ts}`
+    ),
+    env_path: path.resolve(full_project_path, ".env"),
+    api_path: path.resolve(full_project_path, "src", `api`),
+    api_http_file_path: path.resolve(
+      full_project_path,
+      "src",
+      `api`,
+      `http.${js_or_ts}`
+    ),
+    api_fetcher_file_path: path.resolve(
+      full_project_path,
+      "src",
+      `api`,
+      `fetcher.${js_or_ts}`
+    ),
+    api_axios_fle_path: path.resolve(
+      full_project_path,
+      "src",
+      `api`,
+      `axios.${js_or_ts}`
     ),
 
     // nizam-main
@@ -308,6 +337,28 @@ function pathBox(): path_box_type {
       "state_management",
       "zustand",
       `index.template`
+    ),
+    env_template: path.resolve(nizam_templates_path, "env.template"),
+    api_http_file_template: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "data_fetching",
+      `http.template`
+    ),
+    api_fetcher_file_template: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "data_fetching",
+      `fetcher.template`
+    ),
+    api_axios_file_template: path.resolve(
+      nizam_templates_path,
+      "react",
+      js_or_ts,
+      "data_fetching",
+      `axios.template`
     ),
   };
 }

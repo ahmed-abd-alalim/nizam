@@ -132,6 +132,21 @@ export async function Custom() {
         value: "Unhead",
       },
     ],
+    data_fetching: [
+      new Separator(chalk.gray("--- Popular Options ---")),
+      {
+        name: `Axios`,
+        value: "Axios",
+      },
+      {
+        name: `TanStack Query`,
+        value: `TanStack Query`,
+      },
+      {
+        name: `SWR`,
+        value: "SWR",
+      },
+    ],
   };
 
   const custom_options = async () => {
@@ -220,6 +235,13 @@ export async function Custom() {
       user_options.push([
         "head_management",
         await rawlist_fun("Select Library:", nizam_choices.head_management),
+      ]);
+    }
+
+    if (await check_is_Ok("Data Fetching Libraries")) {
+      user_options.push([
+        "data_fetching",
+        await rawlist_fun("Select Library:", nizam_choices.data_fetching),
       ]);
     }
   };
