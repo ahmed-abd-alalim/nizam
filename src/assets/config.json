@@ -109,6 +109,20 @@
         "des": "zustand - docs",
         "link": "https://zustand.docs.pmnd.rs/getting-started/introduction"
       }
+    },
+    "head_management": {
+      "react_helmet_async": {
+        "des": "react-helmet-async - docs",
+        "link": "https://www.npmjs.com/package/react-helmet-async"
+      },
+      "@dr.pogodin/react-helmet": {
+        "des": "@dr.pogodin/react-helmet - docs",
+        "link": "https://www.npmjs.com/package/@dr.pogodin/react-helmet"
+      },
+      "unhead": {
+        "des": "unhead - docs",
+        "link": "https://unhead.unjs.io/docs/react/head/guides/get-started/installation"
+      }
     }
   }
 }

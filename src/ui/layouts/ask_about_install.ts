@@ -63,7 +63,9 @@ ${user_options.pkg_manager} install
   if (operation_state.install_all_packages.status === "fatal") return;
   await new Promise((r) => setTimeout(r, 1500));
   await say(
-    "Don't forget to take a look at the attached file NIZAM_DOC.md within the new project to learn how to work with the downloaded packages."
+    `Don't forget to take a look at the attached file ${chalk.bold(
+      "NIZAM_DOC.md"
+    )} within the new project to learn how to work with the downloaded packages.`
   );
   await new Promise((r) => setTimeout(r, 4000));
 }

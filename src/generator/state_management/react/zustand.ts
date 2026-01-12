@@ -30,7 +30,7 @@ export async function Zustand() {
   );
 
   await nizamDocEditor({
-    title_params: "Zustand",
+    title_params: user_options.state_management,
     expla_params: `
 #### We've created a template that you can use or modify. You'll find it inside. \`src/store\`.
 

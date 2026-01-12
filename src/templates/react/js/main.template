@@ -12,16 +12,26 @@ import { createRoot } from 'react-dom/client'
 ##-nizam@mark-##:context_import_theme_provider
 ##-nizam@mark-##:import_react_toolkit_provider
 ##-nizam@mark-##:import_react_toolkit_store
+##-nizam@mark-##:import_react_helmet_async_provider
+##-nizam@mark-##:import_dr_pogodin_react_helmet_async_provider
+##-nizam@mark-##:import_unhead_provider
 import './index.css'
 import App from './App.jsx'
 
+##-nizam@mark-##:import_unhead_createhead
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+  ##-nizam@mark-##:open_unhead_provider_tage
+  ##-nizam@mark-##:open_dr_pogodin_react_helmet_async_provider_tage
+  ##-nizam@mark-##:open_react_helmet_async_provider_tage
   ##-nizam@mark-##:open_tage_theme_provider
   ##-nizam@mark-##:open_tage_react_toolkit_provider
     <App />
   ##-nizam@mark-##:close_tage_theme_provider
   ##-nizam@mark-##:close_tage_react_toolkit_provider
+  ##-nizam@mark-##:close_react_helmet_async_provider_tage
+  ##-nizam@mark-##:close_dr_pogodin_react_helmet_async_provider_tage
+  ##-nizam@mark-##:close_unhead_provider_tage
   </StrictMode>,
 )

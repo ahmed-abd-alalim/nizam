@@ -13,6 +13,7 @@ import {
   IconLibrary,
   RoutingLibrary,
   StateManagement,
+  HeadManagement,
 } from "../generator/index.js";
 
 export async function Setup() {
@@ -87,6 +88,13 @@ export async function Setup() {
       operation_des: `install icons Library`,
       operation_is_need: false,
       operation_targit: user_options.icon_library,
+    },
+    {
+      operation_name: "head_management",
+      operation_fun: HeadManagement,
+      operation_des: `install and integrate ${user_options.head_management}`,
+      operation_is_need: false,
+      operation_targit: user_options.head_management,
     },
   ];
 

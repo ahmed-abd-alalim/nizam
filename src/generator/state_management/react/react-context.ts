@@ -54,7 +54,7 @@ export async function ReactContextAPI() {
   await UsingMark(path_box.main_react_path, main_file_data);
 
   await nizamDocEditor({
-    title_params: "React Context API",
+    title_params: user_options.state_management,
     expla_params: `
 #### We've created a template that you can use or modify. You'll find it inside. \`src/context/theme\`.
 

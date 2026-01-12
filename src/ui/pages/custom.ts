@@ -115,6 +115,23 @@ export async function Custom() {
           "Google's official icon set for Material Design Provides a wide range of icons with consistent style, mainly used in Material-UI projects.",
       },
     ],
+    head_management: [
+      new Separator(chalk.gray("--- Popular Options ---")),
+      {
+        name: `React Helmet Async  ${chalk.gray("\t(react 18)")}`,
+        value: "React Helmet Async",
+      },
+      {
+        name: `Dr. Pogodin React Helmet  ${chalk.gray(
+          "\t(fork for react 19+)"
+        )}`,
+        value: "Dr. Pogodin React Helmet",
+      },
+      {
+        name: `Unhead  ${chalk.gray("\t\t\t(powerful, SSR/SEO friendly)")}`,
+        value: "Unhead",
+      },
+    ],
   };
 
   const custom_options = async () => {
@@ -196,6 +213,13 @@ export async function Custom() {
             return true;
           }
         ),
+      ]);
+    }
+
+    if (await check_is_Ok("SEO / Meta Tag Management Libraries")) {
+      user_options.push([
+        "head_management",
+        await rawlist_fun("Select Library:", nizam_choices.head_management),
       ]);
     }
   };

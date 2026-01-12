@@ -57,7 +57,7 @@ export async function ReduxToolkit() {
   await UsingMark(path_box.main_react_path, main_file_data);
 
   await nizamDocEditor({
-    title_params: "Redux Toolkit",
+    title_params: user_options.state_management,
     expla_params: `
 #### We've created a template that you can use or modify. You'll find it inside. \`src/store\`.
 
