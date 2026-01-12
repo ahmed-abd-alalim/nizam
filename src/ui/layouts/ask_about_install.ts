@@ -35,19 +35,29 @@ ${user_options.pkg_manager} install
   ---
 `;
 
-  const is_ok = await confirm({
-    message: `Do you want install all packages now?`,
-    default: false,
-    theme: question_theme,
-  });
-  if (is_ok) {
-    process.stdout.write("\x1b[1A\x1b[2K");
-    await operations(install, "install_all_packages", "Install all packages ");
-  } else {
-    const content = await readFile(path_box.nizam_Instructions_path, "utf8");
-    const lines = content.split("\n");
-    lines.splice(11, 0, install_instructions);
-    await writeFile(path_box.nizam_Instructions_path, lines.join("\n"), "utf8");
+  if (user_options.pkg_manager.length !== 0) {
+    const is_ok = await confirm({
+      message: `Do you want install all packages now?`,
+      default: false,
+      theme: question_theme,
+    });
+    if (is_ok) {
+      process.stdout.write("\x1b[1A\x1b[2K");
+      await operations(
+        install,
+        "install_all_packages",
+        "Install all packages "
+      );
+    } else {
+      const content = await readFile(path_box.nizam_Instructions_path, "utf8");
+      const lines = content.split("\n");
+      lines.splice(11, 0, install_instructions);
+      await writeFile(
+        path_box.nizam_Instructions_path,
+        lines.join("\n"),
+        "utf8"
+      );
+    }
   }
 
   if (operation_state.install_all_packages.status === "fatal") return;
