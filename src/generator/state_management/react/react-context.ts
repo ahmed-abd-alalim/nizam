@@ -1,5 +1,5 @@
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
-import Data from "../../../assets/config.json" with { type: 'json' };
+import Data from "../../../assets/storage/resources.json" with { type: 'json' };
 import { mkdir, readFile, writeFile, ensureFile } from "../../../utils/fs.js";
 import pathBox from "../../../assets/path/path_react.js";
 import { UsingMark } from "../../../utils/using_mark.js";
@@ -7,7 +7,7 @@ import { useContext } from "../../../core/context/runtime.js";
 
 export async function ReactContextAPI() {
   const { user_options } = useContext();
-  const appData = Data;
+  const{ state_management } = Data;
   const path_box = pathBox();
 
   const main_file_data = [
@@ -72,7 +72,7 @@ src/
 
 > [!TIP]
 > React Context API Documentation: [${
-      appData.pkg_documentation.state_management.react_context_api.des
-    }](${appData.pkg_documentation.state_management.react_context_api.link})`,
+      state_management.documentation.react_context_api.des
+    }](${state_management.documentation.react_context_api.link})`,
   });
 }

@@ -17,6 +17,7 @@ export async function structureReact() {
   ];
 
   const all_folder_structure_names = [
+    "pages",
     "layouts",
     "components",
     "utils",
@@ -134,7 +135,7 @@ Modal();  // use Modal
 
 > [!TIP]
 > React App Structure Documentation: [${
-      appData.pkg_documentation.app_structure.react.des
-    }](${appData.pkg_documentation.app_structure.react.link})`,
+      appData.core_documentation.app_structure.react.des
+    }](${appData.core_documentation.app_structure.react.link})`,
   });
 }

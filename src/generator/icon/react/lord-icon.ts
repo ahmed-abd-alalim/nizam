@@ -1,10 +1,10 @@
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
-import Data from "../../../assets/config.json" with { type: 'json' };
+import Data from "../../../assets/storage/resources.json" with { type: 'json' };
 import { useContext } from "../../../core/context/runtime.js";
 
 export async function LordIcon() {
   const { user_options } = useContext();
-  const appData = Data;
+  const {icon_library} = Data;
 
   await nizamDocEditor({
     title_params: "Lord Icon",
@@ -26,7 +26,7 @@ ${
 
 > [!TIP]
 > Lord Icon Documentation: [${
-      appData.pkg_documentation.icon_library.lord_icon.des
-    }](${appData.pkg_documentation.icon_library.lord_icon.link})`,
+      icon_library.documentation.lord_icon.des
+    }](${icon_library.documentation.lord_icon.link})`,
   });
 }

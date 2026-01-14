@@ -1,10 +1,10 @@
 import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
-import Data from "../../assets/config.json" with { type: 'json' };
+import Data from "../../assets/storage/resources.json" with { type: 'json' };
 import { UsingMark } from "../../utils/using_mark.js";
 import PathBox from "../../assets/path/path_react.js";
 export async function Wouter() {
   const path_box = PathBox();
-  const appData = Data;
+  const {routing_library} = Data;
   const app_file_data = [
     {
       tage_name: "wouter_import",
@@ -25,6 +25,6 @@ It provides the essential routing features: <Router>, \`<Route>\`, \`useLocation
 It does not include nested routes, transitions, or complicated features—just simple client side routing.
 
 > [!TIP]
-> React Icons Documentation: [${appData.pkg_documentation.routing_library.wouter.des}](${appData.pkg_documentation.routing_library.wouter.link})`,
+> React Icons Documentation: [${routing_library.documentation.wouter.des}](${routing_library.documentation.wouter.link})`,
   });
 }

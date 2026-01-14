@@ -1,5 +1,5 @@
 import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
-import Data from "../../assets/config.json" with { type: 'json' };
+import Data from "../../assets/storage/resources.json" with { type: 'json' };
 import { useContext } from "../../core/context/runtime.js";
 import { UsingMark } from "../../utils/using_mark.js";
 import PathBox from "../../assets/path/path_react.js";
@@ -8,7 +8,7 @@ import { ensureFile, readFile, writeFile } from "../../utils/fs.js";
 export async function TanStackRouter() {
   const { user_options } = useContext();
   const path_box = PathBox();
-  const appData = Data;
+  const {routing_library} = Data;
 
   const main_file_data = [
     {
@@ -61,6 +61,6 @@ export async function TanStackRouter() {
 It’s designed to handle complex routing needs in large-scale applications, while still offering strong developer ergonomics.
 
 > [!TIP]
-> React Icons Documentation: [${appData.pkg_documentation.routing_library.tanStack_router.des}](${appData.pkg_documentation.routing_library.tanStack_router.link})`,
+> React Icons Documentation: [${routing_library.documentation.tanStack_router.des}](${routing_library.documentation.tanStack_router.link})`,
   });
 }

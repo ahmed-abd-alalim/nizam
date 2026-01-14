@@ -1,0 +1,306 @@
+{
+  "js_framework": {
+    "name": "JS Framework",
+    "type": "fixed",
+    "options": [
+      {
+        "name": "React + vite + js",
+        "value": "React + vite + js"
+      },
+      {
+        "name": "React + vite + ts",
+        "value": "React + vite + ts"
+      }
+    ],
+    "documentation": {
+      "react": {
+        "des": "react - learn",
+        "link": "https://react.dev/learn"
+      }
+    },
+    "terminal_command": {
+      "react": {
+        "js": "degit vitejs/vite/packages/create-vite/template-react",
+        "ts": "degit vitejs/vite/packages/create-vite/template-react-ts"
+      }
+    },
+    "description": "This section is for selecting the JavaScript framework and build setup for the project."
+  },
+  "css_framework": {
+    "name": "CSS Framework",
+    "type": "single",
+    "options": [
+      {
+        "name": "Bootstrap",
+        "value": "Bootstrap"
+      },
+      {
+        "name": "Tailwindcss",
+        "value": "Tailwindcss"
+      },
+      {
+        "name": "Bulma",
+        "value": "Bulma"
+      },
+      {
+        "name": "Foundation",
+        "value": "Foundation"
+      },
+      {
+        "name": "Materialize",
+        "value": "Materialize"
+      }
+    ],
+    "documentation": {
+      "bootstrap": {
+        "des": "bootstrap - docs",
+        "link": "https://getbootstrap.com/docs"
+      },
+      "tailwindcss": {
+        "des": "tailwindcss - docs",
+        "link": "https://tailwindcss.com/docs"
+      },
+      "bulma": {
+        "des": "bulma - docs",
+        "link": "https://bulma.io/documentation"
+      },
+      "foundation": {
+        "des": "foundation - docs",
+        "link": "https://get.foundation/sites/docs"
+      },
+      "materialize": {
+        "des": "materialize - docs",
+        "link": "https://materializecss.com/getting-started.html"
+      }
+    },
+    "description": "This section is for selecting the CSS framework or styling library to use in the project."
+  },
+  "ui_library": {
+    "name": "UI Component Library",
+    "type": "multi",
+    "options": [
+      {
+        "name": "Material UI",
+        "value": "Material UI",
+        "description": "A popular React UI library based on Google’s Material Design, with ready made components and strong theming support."
+      },
+      {
+        "name": "Ant Design",
+        "value": "Ant Design",
+        "description": "A powerful enterprise focused React UI framework with rich components and clean, professional design."
+      },
+      {
+        "name": "Headless UI",
+        "value": "Headless UI",
+        "description": "Headless UI has no CSS at all. you must style it yourself (usually with Tailwind CSS)"
+      }
+    ],
+    "documentation": {
+      "mui": {
+        "des": "material ui - docs",
+        "link": "https://mui.com/material-ui/getting-started"
+      },
+      "ant": {
+        "des": "ant design - docs",
+        "link": "https://5x.ant.design/docs/react/introduce"
+      },
+      "headless": {
+        "des": "headless ui - docs",
+        "link": "https://headlessui.com/react/disclosure"
+      }
+    },
+    "description": "This section is for choosing a library of prebuilt UI components to speed up interface development."
+  },
+  "routing_library": {
+    "name": "Routing Library",
+    "type": "single",
+    "options": [
+      {
+        "name": "React Router",
+        "value": "React Router"
+      },
+      {
+        "name": "TanStack Router",
+        "value": "TanStack Router"
+      },
+      {
+        "name": "Wouter",
+        "value": "Wouter"
+      }
+    ],
+    "documentation": {
+      "react_router": {
+        "des": "react router - docs",
+        "link": "https://reactrouter.com/home"
+      },
+      "tanStack_router": {
+        "des": "tanStack router - docs",
+        "link": "https://tanstack.com/router/latest"
+      },
+      "wouter": {
+        "des": "github-wouter - docs",
+        "link": "https://github.com/molefrog/wouter"
+      }
+    },
+    "description": "This section is for selecting the library that manages navigation and page routing in the project."
+  },
+  "react_router_rout_ways": {
+    "name": "React Router Rout Ways",
+    "type": "single",
+    "options": [
+      {
+        "name": "Classic Router",
+        "value": "Classic Router"
+      },
+      {
+        "name": "Data Router",
+        "value": "Data Router"
+      }
+    ],
+    "description": "This section is for choosing the routing approach in React Router: Classic Router for traditional route setup, or Data Router for route-based data loading."
+  },
+  "state_management": {
+    "name": "State Management",
+    "type": "single",
+    "options": [
+      {
+        "name": "React Context API",
+        "value": "React Context API"
+      },
+      {
+        "name": "Redux Toolkit",
+        "value": "Redux Toolkit"
+      },
+      {
+        "name": "Zustand",
+        "value": "Zustand"
+      }
+    ],
+    "documentation": {
+      "react_context_api": {
+        "des": "react - docs",
+        "link": "https://react.dev/reference/react/createContext"
+      },
+      "redux_toolkit": {
+        "des": "redux toolkit - docs",
+        "link": "https://redux-toolkit.js.org/introduction/getting-started"
+      },
+      "zustand": {
+        "des": "zustand - docs",
+        "link": "https://zustand.docs.pmnd.rs/getting-started/introduction"
+      }
+    },
+    "description": "This section is for selecting the method or library to manage and share application state across components."
+  },
+  "icon_library": {
+    "name": "Icons Library",
+    "type": "multi",
+    "options": [
+      {
+        "name": "React Icons",
+        "value": "React Icons",
+        "description": "A popular library that provides thousands of icons from multiple icon packs (like FontAwesome, Material, and more) as easy-to-use React components."
+      },
+      {
+        "name": "Lucide React",
+        "value": "Lucide React",
+        "description": "A modern, lightweight icon library that offers clean and customizable SVG icons as React components."
+      },
+      {
+        "name": "Lord Icon",
+        "value": "Lord Icon",
+        "description": "Animated SVG icons with a React wrapper."
+      },
+      {
+        "name": "Material Icons",
+        "value": "Material Icons",
+        "description": "Google's official icon set for Material Design Provides a wide range of icons with consistent style, mainly used in Material-UI projects."
+      }
+    ],
+    "documentation": {
+      "react_icons": {
+        "des": "react icons - docs",
+        "link": "https://react-icons.github.io/react-icons"
+      },
+      "lucide_react": {
+        "des": "lucide react - guide",
+        "link": "https://lucide.dev/guide"
+      },
+      "material_icons": {
+        "des": "material icons - docs",
+        "link": "https://mui.com/material-ui/material-icons/"
+      },
+      "lord_icon": {
+        "des": "lord icon - docs",
+        "link": "https://lordicon.com/docs"
+      }
+    },
+    "description": "This section is for choosing a library of icons to use throughout the project’s UI."
+  },
+  "head_management": {
+    "name": "SEO / Meta Tag Management Libraries",
+    "type": "single",
+    "options": [
+      {
+        "name": "React Helmet Async",
+        "value": "React Helmet Async"
+      },
+      {
+        "name": "Dr. Pogodin React Helmet",
+        "value": "Dr. Pogodin React Helmet"
+      },
+      {
+        "name": "Unhead",
+        "value": "Unhead"
+      }
+    ],
+    "documentation": {
+      "react_helmet_async": {
+        "des": "react-helmet-async - docs",
+        "link": "https://www.npmjs.com/package/react-helmet-async"
+      },
+      "@dr.pogodin/react-helmet": {
+        "des": "@dr.pogodin/react-helmet - docs",
+        "link": "https://www.npmjs.com/package/@dr.pogodin/react-helmet"
+      },
+      "unhead": {
+        "des": "unhead - docs",
+        "link": "https://unhead.unjs.io/docs/react/head/guides/get-started/installation"
+      }
+    },
+    "description": "This section is for selecting libraries that help manage SEO and meta tags in the project."
+  },
+  "data_fetching": {
+    "name": "Data Fetching Libraries",
+    "type": "single",
+    "options": [
+      {
+        "name": "Axios",
+        "value": "Axios"
+      },
+      {
+        "name": "TanStack Query",
+        "value": "TanStack Query"
+      },
+      {
+        "name": "SWR",
+        "value": "SWR"
+      }
+    ],
+    "documentation": {
+      "axios": {
+        "des": "axios - docs",
+        "link": "https://axios-http.com/docs/intro"
+      },
+      "tanstack_query": {
+        "des": "tanstack query - docs",
+        "link": "https://tanstack.com/query/latest/docs/framework/react/overview"
+      },
+      "swr": {
+        "des": "swr - docs",
+        "link": "https://swr.vercel.app/docs/getting-started"
+      }
+    },
+    "description": "This section is for choosing libraries to handle API calls and data fetching in the project."
+  }
+}

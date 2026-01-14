@@ -1,5 +1,5 @@
 import pathBox from "../../../assets/path/path_react.js";
-import Data from "../../../assets/config.json" with { type: 'json' };
+import Data from "../../../assets/storage/resources.json" with { type: 'json' };
 import { UsingMark } from "../../../utils/using_mark.js";
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
 import { readFile, appendFile } from "../../../utils/fs.js";
@@ -8,7 +8,7 @@ import { useContext } from "../../../core/context/runtime.js";
 export async function Bulma() {
   const { user_options } = useContext();
   const path_box = pathBox();
-  const appData: any = Data;
+  const { css_framework } = Data;
 
   const main_file_data = [
     {
@@ -29,6 +29,6 @@ export async function Bulma() {
 We have created a clear and ready made structure that you can use. you will find it inside \`index.css\` file.
 
 > [!TIP]
-> Bulma Documentation: [${appData.pkg_documentation.css_framework.bulma.des}](${appData.pkg_documentation.css_framework.bulma.link})`,
+> Bulma Documentation: [${css_framework.documentation.bulma.des}](${css_framework.documentation.bulma.link})`,
   });
 }

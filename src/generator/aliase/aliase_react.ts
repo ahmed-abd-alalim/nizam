@@ -81,6 +81,6 @@ import {  } from '@/';
 \`\`\`
 
 > [!TIP]
-> Aliase Documentation: [${appData.pkg_documentation.aliases.des}](${appData.pkg_documentation.aliases.link})`,
+> Aliase Documentation: [${appData.core_documentation.aliases.des}](${appData.core_documentation.aliases.link})`,
   });
 }

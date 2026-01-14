@@ -1,11 +1,11 @@
 import { UsingMark } from "../../../utils/using_mark.js";
 import PathBox from "../../../assets/path/path_react.js";
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
-import Data from "../../../assets/config.json" with { type: 'json' };
+import Data from "../../../assets/storage/resources.json" with { type: 'json' };
 
 export async function Ant() {
   const path_box = PathBox();
-  const appData = Data;
+  const {ui_library} = Data;
   const main_data = [
     {
       tage_name: "ant_reset_css",
@@ -19,6 +19,6 @@ export async function Ant() {
     title_params: "Ant Design",
     expla_params: `
 > [!TIP]
-> Ant Design Documentation: [${appData.pkg_documentation.ui_library.ant.des}](${appData.pkg_documentation.ui_library.ant.link})`,
+> Ant Design Documentation: [${ui_library.documentation.ant.des}](${ui_library.documentation.ant.link})`,
   });
 }

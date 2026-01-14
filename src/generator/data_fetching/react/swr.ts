@@ -3,12 +3,12 @@ import { UsingMark } from "../../../utils/using_mark.js";
 import PathBox from "../../../assets/path/path_react.js";
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
 import { useContext } from "../../../core/context/runtime.js";
-import Data from "../../../assets/config.json" with { type: 'json' };
+import Data from "../../../assets/storage/resources.json" with { type: 'json' };
 
 export async function SWR() {
   const { user_options } = useContext();
   const path_box = PathBox();
-  const appData = Data;
+  const { data_fetching } = Data;
 
   const env_file_data = [
     {
@@ -47,6 +47,8 @@ export default Home;
 \`\`\`
 
 > [!TIP]
-> SWR Documentation: [${appData.pkg_documentation.data_fetching.swr.des}](${appData.pkg_documentation.data_fetching.swr.link})`,
+> SWR Documentation: [${data_fetching.documentation.swr.des}](${
+      data_fetching.documentation.swr.link
+    })`,
   });
 }

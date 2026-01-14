@@ -3,139 +3,15 @@
     "name": "nizam",
     "version": "1.0.0"
   },
-  "pkg_terminal_command": {
-    "js_framework": {
-      "react": {
-        "js": "degit vitejs/vite/packages/create-vite/template-react",
-        "ts": "degit vitejs/vite/packages/create-vite/template-react-ts"
-      }
-    }
-  },
-  "pkg_documentation": {
+  "core_documentation": {
     "aliases": {
       "des": "geeksforgeeks - aliases",
       "link": "https://www.geeksforgeeks.org/reactjs/how-to-setup-path-aliases-in-vite-react/"
-    },
-    "js_framework": {
-      "react": {
-        "des": "react - learn",
-        "link": "https://react.dev/learn"
-      }
-    },
-    "css_framework": {
-      "bootstrap": {
-        "des": "bootstrap - docs",
-        "link": "https://getbootstrap.com/docs"
-      },
-      "tailwindcss": {
-        "des": "tailwindcss - docs",
-        "link": "https://tailwindcss.com/docs"
-      },
-      "bulma": {
-        "des": "bulma - docs",
-        "link": "https://bulma.io/documentation"
-      },
-      "foundation": {
-        "des": "foundation - docs",
-        "link": "https://get.foundation/sites/docs"
-      },
-      "materialize": {
-        "des": "materialize - docs",
-        "link": "https://materializecss.com/getting-started.html"
-      }
     },
     "app_structure": {
       "react": {
         "des": "github - React-Project-Structure",
         "link": "https://github.com/ahmed-abd-alalim/React-Project-Structure"
-      }
-    },
-    "ui_library": {
-      "mui": {
-        "des": "material ui - docs",
-        "link": "https://mui.com/material-ui/getting-started"
-      },
-      "ant": {
-        "des": "ant design - docs",
-        "link": "https://5x.ant.design/docs/react/introduce"
-      },
-      "headless": {
-        "des": "headless ui - docs",
-        "link": "https://headlessui.com/react/disclosure"
-      }
-    },
-    "icon_library": {
-      "react_icons": {
-        "des": "react icons - docs",
-        "link": "https://react-icons.github.io/react-icons"
-      },
-      "lucide_react": {
-        "des": "lucide react - guide",
-        "link": "https://lucide.dev/guide"
-      },
-      "material_icons": {
-        "des": "material icons - docs",
-        "link": "https://mui.com/material-ui/material-icons/"
-      },
-      "lord_icon": {
-        "des": "lord icon - docs",
-        "link": "https://lordicon.com/docs"
-      }
-    },
-    "routing_library": {
-      "react_router": {
-        "des": "react router - docs",
-        "link": "https://reactrouter.com/home"
-      },
-      "tanStack_router": {
-        "des": "tanStack router - docs",
-        "link": "https://tanstack.com/router/latest"
-      },
-      "wouter": {
-        "des": "github-wouter - docs",
-        "link": "https://github.com/molefrog/wouter"
-      }
-    },
-    "state_management": {
-      "react_context_api": {
-        "des": "react - docs",
-        "link": "https://react.dev/reference/react/createContext"
-      },
-      "redux_toolkit": {
-        "des": "redux toolkit - docs",
-        "link": "https://redux-toolkit.js.org/introduction/getting-started"
-      },
-      "zustand": {
-        "des": "zustand - docs",
-        "link": "https://zustand.docs.pmnd.rs/getting-started/introduction"
-      }
-    },
-    "head_management": {
-      "react_helmet_async": {
-        "des": "react-helmet-async - docs",
-        "link": "https://www.npmjs.com/package/react-helmet-async"
-      },
-      "@dr.pogodin/react-helmet": {
-        "des": "@dr.pogodin/react-helmet - docs",
-        "link": "https://www.npmjs.com/package/@dr.pogodin/react-helmet"
-      },
-      "unhead": {
-        "des": "unhead - docs",
-        "link": "https://unhead.unjs.io/docs/react/head/guides/get-started/installation"
-      }
-    },
-    "data_fetching": {
-      "axios": {
-        "des": "axios - docs",
-        "link": "https://axios-http.com/docs/intro"
-      },
-      "tanstack_query": {
-        "des": "tanstack query - docs",
-        "link": "https://tanstack.com/query/latest/docs/framework/react/overview"
-      },
-      "swr": {
-        "des": "swr - docs",
-        "link": "https://swr.vercel.app/docs/getting-started"
       }
     }
   }

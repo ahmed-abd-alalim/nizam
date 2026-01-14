@@ -2,12 +2,12 @@ import { UsingMark } from "../../utils/using_mark.js";
 import PathBox from "../../assets/path/path_react.js";
 import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
 import { useContext } from "../../core/context/runtime.js";
-import Data from "../../assets/config.json" with { type: 'json' };
+import Data from "../../assets/storage/resources.json" with { type: 'json' };
 
 export async function Drpogodin() {
   const { user_options } = useContext();
   const path_box = PathBox();
-  const appData = Data;
+  const { head_management } = Data;
 
   const main_file_data = [
     {
@@ -47,6 +47,6 @@ const home = (
 \`\`\`
 
 > [!TIP]
-> Dr. Pogodin React Helmet Documentation: [${appData.pkg_documentation.head_management["@dr.pogodin/react-helmet"].des}](${appData.pkg_documentation.head_management["@dr.pogodin/react-helmet"].link})`,
+> Dr. Pogodin React Helmet Documentation: [${head_management.documentation["@dr.pogodin/react-helmet"].des}](${head_management.documentation["@dr.pogodin/react-helmet"].link})`,
   });
 }

@@ -11,6 +11,7 @@ import {
   printMenu,
   askAboutInstall,
 } from "../ui/index.js";
+import { execSync } from "child_process";
 import chalk from "chalk";
 import { Setup } from "../core/setup.js";
 import { createContext } from "../core/context/create.js";
@@ -21,12 +22,20 @@ async function main() {
   const ctx = createContext();
   startProject(ctx);
 
+  const clearConsole = () => {
+    if (process.platform === "win32") {
+      execSync("cls", { stdio: "inherit" });
+    } else {
+      execSync("clear", { stdio: "inherit" });
+    }
+  };
+
   const search_mode_colle = async () => {
-    console.clear();
+    clearConsole();
     sectionBox("Search Mode");
     await Search();
     await Core();
-    console.clear();
+    clearConsole();
 
     await printMenu();
     await Setup();
@@ -34,11 +43,11 @@ async function main() {
   };
 
   const custom_mode_colle = async () => {
-    console.clear();
+    clearConsole();
     sectionBox("Custom Mode");
     await Core();
     await Custom();
-    console.clear();
+    clearConsole();
 
     await printMenu();
     await Setup();
@@ -46,13 +55,13 @@ async function main() {
   };
 
   const help_colle = async () => {
-    console.clear();
+    clearConsole();
     sectionBox("Help");
     await help();
   };
 
   const exit_colle = async () => {
-    console.clear();
+    clearConsole();
     await say(`See you soon... `);
     await new Promise((r) => setTimeout(r, 1500));
   };
@@ -61,7 +70,7 @@ async function main() {
     await intro();
 
     while (true) {
-      console.clear();
+      clearConsole();
       sectionBox("Home Menu");
       await HomeMenu();
       switch (ctx.start_menu_options) {

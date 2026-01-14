@@ -12,11 +12,12 @@ import {
 } from "../../../utils/fs.js";
 import { useContext } from "../../../core/context/runtime.js";
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
-import appData from "../../../assets/config.json" with { type: 'json' };
+import appData from "../../../assets/storage/resources.json" with { type: 'json' };
 import PathBox from "../../../assets/path/path_react.js";
 
 export async function ReactFiles() {
   const { user_options } = useContext();
+    const {js_framework} = appData;
   const path_box = PathBox();
   const index_title = `<title>nizam - add your website name (${user_options.project_name}) here</title>`;
 
@@ -127,6 +128,6 @@ npm run build
 \`\`\`
 
 > [!TIP]
-> React Documentation: [${appData.pkg_documentation.js_framework.react.des}](${appData.pkg_documentation.js_framework.react.link})`,
+> React Documentation: [${js_framework.documentation.react.des}](${js_framework.documentation.react.link})`,
   });
 }

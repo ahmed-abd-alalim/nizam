@@ -3,164 +3,57 @@ import { rawlist_fun, checkbox_fun, check_is_Ok } from "./main.js";
 import chalk from "chalk";
 import { useContext } from "../../core/context/runtime.js";
 import { user_options_type } from "../../assets/type.js";
+import AppData from '../../assets/storage/resources.json'  with { type: 'json' };
+
+type Option = {
+  name: string;
+  value: string;
+  description?: string;
+};
 
 export async function Custom() {
+  const app_data = AppData;
   const ctx = useContext();
   const user_options: (string[] | [string, boolean] | [string, string[]])[] =
     [];
+
   const is_react_app = user_options.find((n) =>
     (n as string[])[1].includes("React + vite ")
   );
 
-  const nizam_choices = {
-    js_framework: [
-      new Separator(chalk.gray("--- Popular Options ---")),
-      "React + vite + js",
-      "React + vite + ts",
-    ],
-    css_framework: [
-      new Separator(chalk.gray("--- Popular Options ---")),
-      "Bootstrap",
-      "Tailwindcss",
-      "Bulma",
-      "Foundation",
-      "Materialize",
-    ],
-    ui_library: [
-      new Separator(chalk.gray("--- Popular Options ---")),
-      {
-        name: "Material UI",
-        value: "Material UI",
-        description:
-          "A popular React UI library based on Google’s Material Design, with ready made components and strong theming support.",
-      },
-      {
-        name: "Ant Design",
-        value: "Ant Design",
-        description:
-          "A powerful enterprise focused React UI framework with rich components and clean, professional design.",
-      },
-      {
-        name: "Headless UI",
-        value: "Headless UI",
-        description: `Headless UI has no CSS at all. you must style it yourself ${chalk.redBright(
-          "(usually with Tailwind CSS)"
-        )}.`,
-      },
-    ],
-    routing_library: [
-      new Separator(chalk.gray("--- Popular Options ---")),
-      {
-        name: "React Router",
-        value: "React Router",
-      },
-      {
-        name: "TanStack Router",
-        value: "TanStack Router",
-      },
-      {
-        name: "Wouter",
-        value: "Wouter",
-      },
-    ],
-    react_router_rout_ways: [
-      new Separator(chalk.gray("--- Popular Options ---")),
-      {
-        name: `Classic Router - ${chalk.gray("old way")}`,
-        value: "Classic Router",
-      },
-      {
-        name: `Data Router - ${chalk.gray("new way")}`,
-        value: "Data Router",
-      },
-    ],
-    state_management: [
-      new Separator(chalk.gray("--- Popular Options ---")),
-      {
-        name: `React Context API`,
-        value: "React Context API",
-      },
-      {
-        name: `Redux Toolkit`,
-        value: "Redux Toolkit",
-      },
-      {
-        name: `Zustand`,
-        value: "Zustand",
-      },
-    ],
-    icon_library: [
-      new Separator(chalk.gray("--- Popular Options ---")),
-      {
-        name: `React Icons ${chalk.gray("\t(most used)")}`,
-        value: "React Icons",
-        description:
-          "A popular library that provides thousands of icons from multiple icon packs (like FontAwesome, Material, and more) as easy-to-use React components.",
-      },
-      {
-        name: "Lucide React",
-        value: "Lucide React",
-        description:
-          "A modern, lightweight icon library that offers clean and customizable SVG icons as React components.",
-      },
-      {
-        name: `Lord Icon ${chalk.gray("\t\t(animated icons)")}`,
-        value: "Lord Icon",
-        description: "Animated SVG icons with a React wrapper.",
-      },
-      {
-        name: `Material Icons`,
-        value: "Material Icons",
-        description:
-          "Google's official icon set for Material Design Provides a wide range of icons with consistent style, mainly used in Material-UI projects.",
-      },
-    ],
-    head_management: [
-      new Separator(chalk.gray("--- Popular Options ---")),
-      {
-        name: `React Helmet Async  ${chalk.gray("\t(react 18)")}`,
-        value: "React Helmet Async",
-      },
-      {
-        name: `Dr. Pogodin React Helmet  ${chalk.gray(
-          "\t(fork for react 19+)"
-        )}`,
-        value: "Dr. Pogodin React Helmet",
-      },
-      {
-        name: `Unhead  ${chalk.gray("\t\t\t(powerful, SSR/SEO friendly)")}`,
-        value: "Unhead",
-      },
-    ],
-    data_fetching: [
-      new Separator(chalk.gray("--- Popular Options ---")),
-      {
-        name: `Axios`,
-        value: "Axios",
-      },
-      {
-        name: `TanStack Query`,
-        value: `TanStack Query`,
-      },
-      {
-        name: `SWR`,
-        value: "SWR",
-      },
-    ],
+  const append_hint_fun = (name_: string, hint_message: string) => {
+    for (const group of Object.values(app_data)) {
+      (group.options as Option[]).forEach((i) => {
+        if (i.name === name_) {
+          i.name += chalk.gray(`\t(${hint_message.toLocaleLowerCase()})`);
+        }
+      });
+    }
   };
 
   const custom_options = async () => {
+    append_hint_fun("Classic Router", "old way");
+    append_hint_fun("Data Router", "new way");
+    append_hint_fun("React Icons", "most used");
+    append_hint_fun("Lord Icon", "animated icons");
+    append_hint_fun("React Helmet Async", "react 18");
+    append_hint_fun("Dr. Pogodin React Helmet", "fork for react 19+");
+    append_hint_fun("Unhead", "powerful, SSR/SEO friendly");
+
     user_options.push([
       "js_framework",
-      await rawlist_fun("Select a js framework:", nizam_choices.js_framework),
+      await rawlist_fun("Select a js framework:", [
+        new Separator(chalk.gray("--- Popular Options ---")),
+        ...app_data.js_framework.options,
+      ]),
     ]);
-    if (await check_is_Ok("CSS framework")) {
+    if (await check_is_Ok("CSS Framework")) {
       user_options.push([
         "CSS_framework",
-        await rawlist_fun(
-          "Select a CSS framework:",
-          nizam_choices.css_framework
-        ),
+        await rawlist_fun("Select a CSS framework:", [
+          new Separator(chalk.gray("--- Popular Options ---")),
+          ...app_data.css_framework.options,
+        ]),
       ]);
     }
 
@@ -169,7 +62,10 @@ export async function Custom() {
         "ui_library",
         await checkbox_fun(
           "Select Library:",
-          nizam_choices.ui_library,
+          [
+            new Separator(chalk.gray("--- Popular Options ---")),
+            ...app_data.ui_library.options,
+          ],
           (value: string[]) => {
             if (value.length === 0) return "At least one should be chosen";
             return true;
@@ -182,16 +78,19 @@ export async function Custom() {
       if (await check_is_Ok("Routing Library")) {
         user_options.push([
           "routing_library",
-          await rawlist_fun("Select Library:", nizam_choices.routing_library),
+          await rawlist_fun("Select Library:", [
+            new Separator(chalk.gray("--- Popular Options ---")),
+            ...app_data.routing_library.options,
+          ]),
         ]);
 
         if (user_options.find((n) => n[1] === "React Router")) {
           user_options.push([
             "react_router_rout",
-            await rawlist_fun(
-              "Select way:",
-              nizam_choices.react_router_rout_ways
-            ),
+            await rawlist_fun("Select way:", [
+              new Separator(chalk.gray("--- Popular Options ---")),
+              ...app_data.react_router_rout_ways.options,
+            ]),
           ]);
         }
       }
@@ -199,7 +98,10 @@ export async function Custom() {
     if (await check_is_Ok("State Management way")) {
       user_options.push([
         "state_management",
-        await rawlist_fun("Select way:", nizam_choices.state_management),
+        await rawlist_fun("Select way:", [
+          new Separator(chalk.gray("--- Popular Options ---")),
+          ...app_data.state_management.options,
+        ]),
       ]);
     }
 
@@ -208,21 +110,19 @@ export async function Custom() {
         (i) => Array.isArray(i[1]) && i[1].includes("Material UI")
       );
       if (found) {
-        const materialIconOption = nizam_choices.icon_library.find(
-          (i): i is { name: string; value: string; description: string } =>
-            "name" in i && i.name === "Material Icons"
+        append_hint_fun(
+          "Material Icons",
+          "strong candidate because you use Material UI"
         );
-        if (materialIconOption) {
-          materialIconOption.name += chalk.gray(
-            "\t(strong candidate because you use Material UI)"
-          );
-        }
       }
       user_options.push([
         "icon_library",
         await checkbox_fun(
           "Select Library:",
-          nizam_choices.icon_library,
+          [
+            new Separator(chalk.gray("--- Popular Options ---")),
+            ...app_data.icon_library.options,
+          ],
           (value: string[]) => {
             if (value.length === 0) return "At least one should be chosen";
             return true;
@@ -234,14 +134,20 @@ export async function Custom() {
     if (await check_is_Ok("SEO / Meta Tag Management Libraries")) {
       user_options.push([
         "head_management",
-        await rawlist_fun("Select Library:", nizam_choices.head_management),
+        await rawlist_fun("Select Library:", [
+          new Separator(chalk.gray("--- Popular Options ---")),
+          ...app_data.head_management.options,
+        ]),
       ]);
     }
 
     if (await check_is_Ok("Data Fetching Libraries")) {
       user_options.push([
         "data_fetching",
-        await rawlist_fun("Select Library:", nizam_choices.data_fetching),
+        await rawlist_fun("Select Library:", [
+          new Separator(chalk.gray("--- Popular Options ---")),
+          ...app_data.data_fetching.options,
+        ]),
       ]);
     }
   };

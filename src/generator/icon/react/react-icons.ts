@@ -1,10 +1,10 @@
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
-import Data from "../../../assets/config.json" with { type: 'json' };
+import Data from "../../../assets/storage/resources.json" with { type: 'json' };
 import { useContext } from "../../../core/context/runtime.js";
 
 export async function ReactIcons() {
   const { user_options } = useContext();
-  const appData = Data;
+  const {icon_library} = Data;
 
   await nizamDocEditor({
     title_params: "React Icons",
@@ -34,7 +34,7 @@ user_options.js_framework.includes("js") ? "js" : "ts"}\``: ""
 
 > [!TIP]
 > React Icons Documentation: [${
-      appData.pkg_documentation.icon_library.react_icons.des
-    }](${appData.pkg_documentation.icon_library.react_icons.link})`,
+     icon_library.documentation.react_icons.des
+    }](${icon_library.documentation.react_icons.link})`,
   });
 }

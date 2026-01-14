@@ -1,5 +1,5 @@
 import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
-import Data from "../../assets/config.json" with { type: 'json' };
+import Data from "../../assets/storage/resources.json" with { type: 'json' };
 import { useContext } from "../../core/context/runtime.js";
 import { UsingMark } from "../../utils/using_mark.js";
 import PathBox from "../../assets/path/path_react.js";
@@ -8,7 +8,7 @@ import { ensureFile, readFile, writeFile } from "../../utils/fs.js";
 export async function ReactRouter() {
   const { user_options } = useContext();
   const path_box = PathBox();
-  const appData = Data;
+  const {routing_library} = Data;
 
   const read_wride_maker = async (
     template_file: string,
@@ -96,7 +96,7 @@ ${
 
 > [!TIP]
 > React Icons Documentation: [${
-      appData.pkg_documentation.routing_library.react_router.des
-    }](${appData.pkg_documentation.routing_library.react_router.link})`,
+      routing_library.documentation.react_router.des
+    }](${routing_library.documentation.react_router.link})`,
   });
 }

@@ -1,12 +1,12 @@
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
-import Data from "../../../assets/config.json" with { type: 'json' };
+import Data from "../../../assets/storage/resources.json" with { type: 'json' };
 import pathBox from "../../../assets/path/path_react.js";
 import { useContext } from "../../../core/context/runtime.js";
 import { ensureFile, readFile, writeFile, mkdir } from "../../../utils/fs.js";
 
 export async function Zustand() {
   const { user_options } = useContext();
-  const appData = Data;
+  const{ state_management } = Data;
   const path_box = pathBox();
 
   const ensure_read_write = async (
@@ -44,7 +44,7 @@ src/
 
 > [!TIP]
 > Zustand Documentation: [${
-      appData.pkg_documentation.state_management.zustand.des
-    }](${appData.pkg_documentation.state_management.zustand.link})`,
+      state_management.documentation.zustand.des
+    }](${state_management.documentation.zustand.link})`,
   });
 }
