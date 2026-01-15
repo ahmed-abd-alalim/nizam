@@ -11,8 +11,15 @@ export function sectionBox(section_name: string) {
     " ".repeat(spaceEachSide) +
     section_name +
     " ".repeat(totalLength - section_name.length - spaceEachSide - 2);
+  // const empty_line =
+  //   " ".repeat(spaceEachSide) + " ".repeat(totalLength - spaceEachSide - 1);
 
-  console.log(chalk.bold.green(sideHashes));
-  console.log(chalk.yellowBright.bold(line));
-  console.log(`${chalk.bold.green(sideHashes)}\n`);
+  console.log(chalk.yellowBright(`✦ `) + chalk.bold.green(`${sideHashes}╮`));
+  // console.log(chalk.green(`¦ ${empty_line} ¦`));
+  console.log(
+    `${chalk.green(`¦ `)}${chalk.yellowBright.bold(line)}${chalk.green(`  ¦`)}`
+  );
+  // console.log(chalk.green(`¦ ${empty_line} ¦`));
+  console.log(chalk.bold.green(`╰${sideHashes}`) + chalk.yellowBright(` ✦`));
+  console.log(chalk.green(`  │`));
 }

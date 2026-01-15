@@ -6,7 +6,7 @@ export async function HomeMenu() {
   const ctx = useContext();
   const question_theme = {
     icon: {
-      cursor: "➤ ",
+      cursor: `${chalk.yellowBright("➤")} `,
     },
     prefix: {
       idle: "",
@@ -24,26 +24,26 @@ export async function HomeMenu() {
     loop: false,
     choices: [
       {
-        name: "[🔍] Browse Mode",
+        name: `${chalk.green(`[🔍]`)} ${chalk.yellow(`Browse Mode`)}`,
         value: "Browse Mode",
         description:
           "Multiple options with the ability to search or browse through comprehensive lists. Useful if you know which tools you'll be using.",
       },
       {
-        name: "[❓] OneShot Mode",
+        name: `${chalk.green(`[❓]`)} ${chalk.yellow(`OneShot Mode`)}`,
         value: "OneShot Mode",
 
         description: `A series of questions that suggest suitable options when you are unsure which tools to use. ${chalk.redBright("If this is your first time, we recommend checking out the")} ${chalk.redBright.bold("Help menu")} ${chalk.redBright("to understand the questions and suggestions contained therein.")}`,
       },
       {
-        name: "[🚨] Help",
+        name: `${chalk.green(`[🚨]`)} ${chalk.yellowBright(`Help`)}`,
         value: "Help",
 
         description:
           "It provides you with support and guidance, with an explanation of each question and the options that will be displayed, to make it easier to understand and use the tool.",
       },
       {
-        name: "[📤] Exit",
+        name: `${chalk.green(`[📤]`)} ${chalk.redBright(`Exit`)}`,
         value: "Exit",
         description: "",
       },
