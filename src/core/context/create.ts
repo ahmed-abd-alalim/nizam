@@ -41,6 +41,7 @@ export function createContext(): execution_context_type {
       head_management: one_operation_state,
       data_fetching: one_operation_state,
       install_all_packages: one_operation_state,
+      clean_folder_mark: one_operation_state,
     },
   };
 }

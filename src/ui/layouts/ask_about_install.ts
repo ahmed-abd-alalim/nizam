@@ -11,10 +11,10 @@ export async function askAboutInstall() {
   const question_theme = {
     prefix: {
       idle: `${chalk.yellowBright("[")}${chalk.blueBright(
-        "?",
+        "?"
       )}${chalk.yellowBright("]")}`,
       done: `${chalk.yellowBright("[")}${chalk.greenBright(
-        "✔",
+        "✔"
       )}${chalk.yellowBright("]")}`,
     },
     style: {
@@ -43,11 +43,7 @@ ${user_options.pkg_manager} install
     });
     if (is_ok) {
       process.stdout.write("\x1b[1A\x1b[2K");
-      await operations(
-        install,
-        "install_all_packages",
-        "Install all packages ",
-      );
+      await operations(install, "install_all_packages", "Install all packages");
     } else {
       const content = await readFile(path_box.nizam_Instructions_path, "utf8");
       const lines = content.split("\n");
@@ -55,7 +51,7 @@ ${user_options.pkg_manager} install
       await writeFile(
         path_box.nizam_Instructions_path,
         lines.join("\n"),
-        "utf8",
+        "utf8"
       );
     }
   }
@@ -64,8 +60,8 @@ ${user_options.pkg_manager} install
   await new Promise((r) => setTimeout(r, 1500));
   await say(
     `Don't forget to take a look at the attached file ${chalk.bold(
-      "NIZAM_DOC.md",
-    )} within the new project to learn how to work with the downloaded packages.`,
+      "NIZAM_DOC.md"
+    )} within the new project to learn how to work with the downloaded packages.`
   );
   await new Promise((r) => setTimeout(r, 4000));
 }

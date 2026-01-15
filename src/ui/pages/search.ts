@@ -20,6 +20,7 @@ interface resources_refruns_data_type {
 }
 type fixed_options_type = [string, string[]][];
 type single_options_type = [string, string[]][];
+type multi_options_type = string;
 type depended_on_options_type = [string, string, string[]][];
 
 export async function Search() {
@@ -29,6 +30,7 @@ export async function Search() {
   const resources_refruns_data: resources_refruns_data_type[] = [];
   const fixed_options: fixed_options_type[] = [];
   const single_options: single_options_type[] = [];
+  const multi_options: multi_options_type[] = [];
   const depended_on_options: depended_on_options_type = [];
 
   Object.values(resources).forEach((section) => {
@@ -46,6 +48,16 @@ export async function Search() {
         section.name,
         section.options.map((i: options_resources_type) => i.name),
       ]);
+    }
+  });
+
+  Object.values(resources).forEach((section) => {
+    if (section.type === "multi") {
+      multi_options.push(
+        (Object.keys(resources) as (keyof typeof resources)[]).find(
+          (k) => resources[k] === section
+        )!
+      );
     }
   });
 
@@ -105,7 +117,7 @@ export async function Search() {
         ([, values]: any) => !values.some((v: string) => answer.includes(v))
       )?.[0];
       if (unselect_fixed_value) {
-        return `just select at least one from ${unselect_fixed_value?.[0].toLowerCase()}`;
+        return `just select at least one from ${unselect_fixed_value}`;
       }
 
       // search about single options
@@ -118,7 +130,7 @@ export async function Search() {
         }
       )?.[0];
       if (more_one_single_value) {
-        return `just select only one from ${more_one_single_value?.[0].toLowerCase()}`;
+        return `just select only one from ${more_one_single_value}`;
       }
 
       //search about options depends on anouther
@@ -174,6 +186,15 @@ export async function Search() {
       return acc;
     }, {})
   );
-  const user_options_conv = Object.fromEntries(result);
+
+  const result_filter = result.map((s) => {
+    if (!multi_options.includes(s[0])) {
+      return [s[0], s[1].toString()];
+    } else {
+      return s;
+    }
+  });
+
+  const user_options_conv = Object.fromEntries(result_filter);
   ctx.user_options = { ...ctx.user_options, ...user_options_conv };
 }

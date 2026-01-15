@@ -36,6 +36,7 @@ export interface operation_state_type {
   head_management: one_operation_state_type;
   data_fetching: one_operation_state_type;
   install_all_packages: one_operation_state_type;
+  clean_folder_mark: one_operation_state_type;
 }
 
 export interface execution_context_type {

@@ -16,6 +16,7 @@ import {
   HeadManagement,
   DataFetching,
 } from "../generator/index.js";
+import { cleanFolder } from "../utils/remove_marks.js";
 
 export async function Setup() {
   const { operation_state, user_options } = useContext();
@@ -103,6 +104,13 @@ export async function Setup() {
       operation_des: `install and integrate ${user_options.data_fetching}`,
       operation_is_need: false,
       operation_targit: user_options.data_fetching,
+    },
+    {
+      operation_name: "clean_folder_mark",
+      operation_fun: cleanFolder,
+      operation_des: `preparing the file for use`,
+      operation_is_need: true,
+      operation_targit: true,
     },
   ];
 
