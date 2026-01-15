@@ -1,14 +1,16 @@
 import chalk from "chalk";
 import { input } from "@inquirer/prompts";
-import Data from "../../assets/storage/resources.json" with {type:"json"}
+import resources_json from "../../assets/storage/resources.json" with { type: "json" };
+import type { resources_type } from "../../assets/type.js";
 
 export async function help() {
-  const app_data_value: any = Object.values(Data);
+  const resource: resources_type = resources_json;
+  const app_data_value = Object.values(resource);
   let back = false;
 
   console.log(
     `${chalk.yellowBright("[")}${chalk.redBright("#")}${chalk.yellowBright(
-      "]== Regarding all the options and what they include in the library:"
+      "]== Explanation of all questions and their options in OneShot Mode:"
     )}`
   );
   console.log(chalk.yellowBright("|"));

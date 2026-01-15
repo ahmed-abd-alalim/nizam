@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import ora from "ora";
-import app_info from "../../assets/config.json" with { type: 'json' };
+import app_info from "../../assets/config.json" with { type: "json" };
 import { exec } from "child_process";
 import util from "util";
 const execAsync = util.promisify(exec);
@@ -19,7 +19,7 @@ export async function intro() {
 ▓▓▓▒   ▒▓▓▒ ▒▓▓▓   ░▓▓▓░     ▓▓▓░   ▓▓▓▓ ▒▓▓▓  ▒▓▓▓  ▒▓▓▓
 ▓▓▓▒   ▒▓▓▒ ▒▓▓▓  ▒▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓  ▒▓▓▓  ▒▓▓▓
 ▒▒▒░   ▒▒▒▒ ░▒▒▒ ░▒▒▒▒▒▒▒▒▒▒   ░▒   ▒▒▒▒ ░▒▒▒  ░▒▒▒  ░▒▒▒  ${chalk.redBright.bold(
-    `v${app_info.app_info.version}`
+    `v${app_info.app_info.version}`,
   )}
                                                          
 `);
@@ -34,7 +34,7 @@ export async function intro() {
 ░▓▓▓  ░▓▓▒ ░▓▓▒   ▒▓▓▒    ▒▓▓   ▒▓▓▒ ▒▓▓  ▒▓▓░ ▒▓▓░
 ░▓▓▓  ░▓▓▒ ░▓▓▒  ▒▓▓▓▓▓▓▓ ▒▓▓▒ ▒▓▓▓▒ ▒▓▓  ▒▓▓░ ▒▓▓░
 ░▒▒▒  ░▒▒▒ ░▒▒▒ ▒▒▒▒▒▒▒▒▒  ▒▒▒▒ ▒▒▒░ ▒▒▒  ▒▒▒░ ▒▒▒░  ${chalk.redBright.bold(
-    `v${app_info.app_info.version}`
+    `v${app_info.app_info.version}`,
   )}
                                                    
 `);
@@ -47,7 +47,7 @@ export async function intro() {
 ▓▓▓  ▒▓▓░░▓▓░  ▒▓▓░   ▒▓▒  ▓▓▓░▓▓▓ ░▓▓▒ ▓▓▓
 ▓▓▓  ▒▓▓░░▓▓░ ▒▓▓▓▓▓▓ ▓▓▓▒▒▓▓▓░▓▓▓ ░▓▓▒ ▓▓▓
 ▒▒▒  ░▒▒░░▒▒ ▒▒▒▒▒▒▒▒  ░▒  ▒▒▒ ▒▒▒ ░▒▒░ ▒▒▒  ${chalk.redBright.bold(
-    `v${app_info.app_info.version}`
+    `v${app_info.app_info.version}`,
   )}
                                            
 `);
@@ -71,7 +71,7 @@ export async function intro() {
       spinner.text = `${chalk.yellowBright("Loading █")}${chalk
         .yellowBright("█")
         .repeat(i / 5)}${"░".repeat(20 - i / 5)} ${chalk.redBright(
-        i
+        i,
       )} ${chalk.yellowBright("%")}`;
 
       if (i >= 100) {
@@ -85,7 +85,9 @@ export async function intro() {
       try {
         await execAsync(`${pkg} -v`);
         pkg_is_installed.push(pkg);
-      } catch { /* empty */ }
+      } catch {
+        /* empty */
+      }
       i += Number((100 / pkg_list.length).toFixed(1));
       load();
       await new Promise((resolve) => setTimeout(resolve, 500));
@@ -94,7 +96,7 @@ export async function intro() {
 
   if (pkg_is_installed.length === 0) {
     throw new Error(
-      "Can't find any package manager for use it. install any one and try again."
+      "Can't find any package manager for use it. install any one and try again.",
     );
   }
 }

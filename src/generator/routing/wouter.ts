@@ -1,10 +1,12 @@
 import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
-import Data from "../../assets/storage/resources.json" with { type: 'json' };
+import resources_json from "../../assets/storage/resources.json" with { type: "json" };
 import { UsingMark } from "../../utils/using_mark.js";
 import PathBox from "../../assets/path/path_react.js";
+import type { resources_type } from "../../assets/type.js";
+
 export async function Wouter() {
   const path_box = PathBox();
-  const {routing_library} = Data;
+  const { routing_library }: resources_type = resources_json;
   const app_file_data = [
     {
       tage_name: "wouter_import",

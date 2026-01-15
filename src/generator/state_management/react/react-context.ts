@@ -1,13 +1,14 @@
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
-import Data from "../../../assets/storage/resources.json" with { type: 'json' };
+import resources_json from "../../../assets/storage/resources.json" with { type: "json" };
 import { mkdir, readFile, writeFile, ensureFile } from "../../../utils/fs.js";
 import pathBox from "../../../assets/path/path_react.js";
 import { UsingMark } from "../../../utils/using_mark.js";
 import { useContext } from "../../../core/context/runtime.js";
+import type { resources_type } from "../../../assets/type.js";
 
 export async function ReactContextAPI() {
   const { user_options } = useContext();
-  const{ state_management } = Data;
+  const { state_management }: resources_type = resources_json;
   const path_box = pathBox();
 
   const main_file_data = [
@@ -29,7 +30,7 @@ export async function ReactContextAPI() {
 
   const ensure_read_write = async (
     file_path: string,
-    temp_path: string
+    temp_path: string,
   ): Promise<void> => {
     const file_contant = await readFile(temp_path);
     await ensureFile(file_path);
@@ -40,15 +41,15 @@ export async function ReactContextAPI() {
   await mkdir(path_box.context_theme_path, { recursive: true });
   await ensure_read_write(
     path_box.theme_context_file_path,
-    path_box.theme_context_file_template
+    path_box.theme_context_file_template,
   );
   await ensure_read_write(
     path_box.theme_provider_file_path,
-    path_box.theme_provider_file_template
+    path_box.theme_provider_file_template,
   );
   await ensure_read_write(
     path_box.use_theme_file_path,
-    path_box.use_theme_file_template
+    path_box.use_theme_file_template,
   );
 
   await UsingMark(path_box.main_react_path, main_file_data);

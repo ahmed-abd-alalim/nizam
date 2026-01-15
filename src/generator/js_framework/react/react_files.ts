@@ -12,12 +12,13 @@ import {
 } from "../../../utils/fs.js";
 import { useContext } from "../../../core/context/runtime.js";
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
-import appData from "../../../assets/storage/resources.json" with { type: 'json' };
+import appData from "../../../assets/storage/resources.json" with { type: "json" };
 import PathBox from "../../../assets/path/path_react.js";
+import type { resources_type } from "../../../assets/type.js";
 
 export async function ReactFiles() {
   const { user_options } = useContext();
-    const {js_framework} = appData;
+  const { js_framework }: resources_type = appData;
   const path_box = PathBox();
   const index_title = `<title>nizam - add your website name (${user_options.project_name}) here</title>`;
 
@@ -34,13 +35,13 @@ export async function ReactFiles() {
   // make nizam Instructions file
   const nizam_Instructions_text = await readFile(
     path_box.nizam_Instructions_templates,
-    "utf8"
+    "utf8",
   );
   await ensureFile(path_box.nizam_Instructions_path);
   await writeFile(
     path_box.nizam_Instructions_path,
     nizam_Instructions_text,
-    "utf8"
+    "utf8",
   );
 
   // clean README.md file
@@ -48,7 +49,7 @@ export async function ReactFiles() {
   await writeFile(
     path_box.README_path,
     `# ${user_options.project_name}`,
-    "utf8"
+    "utf8",
   );
 
   // clean index.css
@@ -92,7 +93,7 @@ export async function ReactFiles() {
   // new vite.config
   const vite_config_text = await readFile(
     path_box.vite_config_templates,
-    "utf8"
+    "utf8",
   );
   await ensureFile(path_box.vite_config_path);
   await writeFile(path_box.vite_config_path, vite_config_text, "utf8");

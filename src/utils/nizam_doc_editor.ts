@@ -7,7 +7,7 @@ interface nizam_doc_contant_type {
   expla_params?: string;
 }
 export async function nizamDocEditor(
-  nizam_doc_contant: nizam_doc_contant_type
+  nizam_doc_contant: nizam_doc_contant_type,
 ) {
   const path_box = PathBox();
 

@@ -1,14 +1,15 @@
 import pathBox from "../../../assets/path/path_react.js";
-import Data from "../../../assets/storage/resources.json" with { type: 'json' };
+import resources_json from "../../../assets/storage/resources.json" with { type: "json" };
 import { UsingMark } from "../../../utils/using_mark.js";
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
 import { readFile, appendFile } from "../../../utils/fs.js";
 import { useContext } from "../../../core/context/runtime.js";
+import type { resources_type } from "../../../assets/type.js";
 
 export async function Materialize() {
   const { user_options } = useContext();
   const path_box = pathBox();
-  const { css_framework } = Data;
+  const { css_framework }: resources_type = resources_json;
 
   const main_file_data = [
     {

@@ -3,12 +3,13 @@ import { UsingMark } from "../../../utils/using_mark.js";
 import PathBox from "../../../assets/path/path_react.js";
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
 import { useContext } from "../../../core/context/runtime.js";
-import Data from "../../../assets/storage/resources.json" with { type: 'json' };
+import type { resources_type } from "../../../assets/type.js";
+import resources_json from "../../../assets/storage/resources.json" with { type: "json" };
 
 export async function Bootstrap() {
   const { user_options } = useContext();
   const path_box = PathBox();
-  const { css_framework } = Data;
+  const { css_framework }: resources_type = resources_json;
 
   const main_file_data = [
     {

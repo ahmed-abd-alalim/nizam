@@ -1,14 +1,15 @@
 import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
-import Data from "../../assets/storage/resources.json" with { type: 'json' };
+import resources_json from "../../assets/storage/resources.json" with { type: "json" };
 import { useContext } from "../../core/context/runtime.js";
 import { UsingMark } from "../../utils/using_mark.js";
 import PathBox from "../../assets/path/path_react.js";
 import { ensureFile, readFile, writeFile } from "../../utils/fs.js";
+import type { resources_type } from "../../assets/type.js";
 
 export async function TanStackRouter() {
   const { user_options } = useContext();
   const path_box = PathBox();
-  const {routing_library} = Data;
+  const { routing_library }: resources_type = resources_json;
 
   const main_file_data = [
     {
@@ -26,7 +27,7 @@ export async function TanStackRouter() {
 
   const read_wride_maker = async (
     template_file: string,
-    write_file: string
+    write_file: string,
   ): Promise<void> => {
     const main_react_text = await readFile(template_file, "utf8");
     await ensureFile(write_file);
@@ -38,11 +39,11 @@ export async function TanStackRouter() {
     `import App from './App.${
       user_options.js_framework.includes("js") ? "js" : "ts"
     }x'`,
-    `import { router } from './router';`
+    `import { router } from './router';`,
   );
   file_content = file_content.replace(
     `<App />`,
-    `<RouterProvider router={router} />`
+    `<RouterProvider router={router} />`,
   );
   await writeFile(path_box.main_react_path, file_content, "utf8");
 
@@ -51,7 +52,7 @@ export async function TanStackRouter() {
 
   await read_wride_maker(
     path_box.tanstackrouter_router_templates,
-    path_box.tanstackrouter_router_path
+    path_box.tanstackrouter_router_path,
   );
 
   await nizamDocEditor({

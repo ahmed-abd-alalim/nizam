@@ -8,7 +8,7 @@ import { installDependencies } from "../../../utils/pkg/index.js";
 export async function IconLibraryReact() {
   const { user_options } = useContext();
   const check_mui_pkg = user_options.ui_library.find((i) =>
-    i.includes("Material UI")
+    i.includes("Material UI"),
   );
 
   const lib_list: {

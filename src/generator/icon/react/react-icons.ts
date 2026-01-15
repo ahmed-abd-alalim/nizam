@@ -1,10 +1,10 @@
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
-import Data from "../../../assets/storage/resources.json" with { type: 'json' };
+import resources_json from "../../../assets/storage/resources.json" with { type: "json" };
 import { useContext } from "../../../core/context/runtime.js";
-
+import type { resources_type } from "../../../assets/type.js";
 export async function ReactIcons() {
   const { user_options } = useContext();
-  const {icon_library} = Data;
+  const { icon_library }: resources_type = resources_json;
 
   await nizamDocEditor({
     title_params: "React Icons",
@@ -28,13 +28,16 @@ ${
 > [!NOTE]  
 > Import all icons from one file (clean way).
 > We have created a \`icon.${
-user_options.js_framework.includes("js") ? "js" : "ts"}\` file to use it which you will find in \`src/assets/icon.${
-user_options.js_framework.includes("js") ? "js" : "ts"}\``: ""
+        user_options.js_framework.includes("js") ? "js" : "ts"
+      }\` file to use it which you will find in \`src/assets/icon.${
+        user_options.js_framework.includes("js") ? "js" : "ts"
+      }\``
+    : ""
 }
 
 > [!TIP]
-> React Icons Documentation: [${
-     icon_library.documentation.react_icons.des
-    }](${icon_library.documentation.react_icons.link})`,
+> React Icons Documentation: [${icon_library.documentation.react_icons.des}](${
+      icon_library.documentation.react_icons.link
+    })`,
   });
 }

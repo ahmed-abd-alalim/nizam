@@ -4,10 +4,10 @@ import chalk from "chalk";
 const question_theme = {
   prefix: {
     idle: `${chalk.yellowBright("[")}${chalk.blueBright(
-      "?"
+      "?",
     )}${chalk.yellowBright("]")}`,
     done: `${chalk.yellowBright("[")}${chalk.greenBright(
-      "✔"
+      "✔",
     )}${chalk.yellowBright("]")}`,
   },
   style: {
@@ -29,10 +29,10 @@ const checkbox_theme = {
   },
   prefix: {
     idle: `${chalk.yellowBright("[")}${chalk.blueBright(
-      "?"
+      "?",
     )}${chalk.yellowBright("]")}`,
     done: `${chalk.yellowBright("[")}${chalk.greenBright(
-      "✔"
+      "✔",
     )}${chalk.yellowBright("]")}`,
   },
 };
@@ -40,7 +40,7 @@ const checkbox_theme = {
 export async function fun_input(
   message: string,
   default_inbut: string,
-  validate?: any
+  validate?: any,
 ) {
   return await input({
     message: message,
@@ -52,7 +52,7 @@ export async function fun_input(
 
 export async function rawlist_fun(
   message: string,
-  choices: any
+  choices: any,
 ): Promise<string> {
   return await rawlist({
     message: message,
@@ -72,7 +72,7 @@ export async function confirm_fun(message: string, default_value: boolean) {
 export async function checkbox_fun(
   message: string,
   choices: any,
-  validate?: any
+  validate?: any,
 ): Promise<string[]> {
   return await checkbox({
     message,
@@ -85,6 +85,6 @@ export async function checkbox_fun(
 export async function check_is_Ok(qu_title: string) {
   return await confirm_fun(
     `Do you want use ${chalk.blueBright(qu_title)}?`,
-    false
+    false,
   );
 }

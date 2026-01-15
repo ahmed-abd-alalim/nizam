@@ -32,7 +32,7 @@ async function main() {
 
   const search_mode_colle = async () => {
     clearConsole();
-    sectionBox("Search Mode");
+    sectionBox("Browse Mode");
     await Search();
     await Core();
     clearConsole();
@@ -44,7 +44,7 @@ async function main() {
 
   const custom_mode_colle = async () => {
     clearConsole();
-    sectionBox("Custom Mode");
+    sectionBox("OneShot Mode");
     await Core();
     await Custom();
     clearConsole();
@@ -71,13 +71,13 @@ async function main() {
 
     while (true) {
       clearConsole();
-      sectionBox("Home Menu");
+      sectionBox("Home");
       await HomeMenu();
       switch (ctx.start_menu_options) {
-        case "Search Mode":
+        case "Browse Mode":
           await search_mode_colle();
           return;
-        case "Custom Mode":
+        case "OneShot Mode":
           await custom_mode_colle();
           return;
         case "Help":

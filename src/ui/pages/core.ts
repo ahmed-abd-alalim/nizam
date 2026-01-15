@@ -85,7 +85,7 @@ export async function Core() {
         async (value: string) => {
           if (!(await pathExists(value))) return "Can't see your input path";
           return true;
-        }
+        },
       ),
     ]);
 
@@ -101,7 +101,7 @@ export async function Core() {
           if (await pathExists(`${ctx.full_project_path}${value}`))
             return "This name has been used before in the same path that was previously chosen.";
           return true;
-        }
+        },
       ),
     ]);
 
@@ -110,7 +110,7 @@ export async function Core() {
         "pkg_manager",
         await rawlist_fun(
           "Choose a package manager:",
-          nizam_choices.pkg_manager
+          nizam_choices.pkg_manager,
         ),
       ]);
     } else ctx.user_options.pkg_manager = ctx.pkg_is_installed[0];
@@ -125,7 +125,7 @@ export async function Core() {
         "app_structure",
         await rawlist_fun(
           "Choose app structure method:",
-          nizam_choices.structure_method
+          nizam_choices.structure_method,
         ),
       ]);
 
@@ -138,7 +138,7 @@ export async function Core() {
             async (value: string[]) => {
               if (value.length === 0) return "At least one should be chosen";
               return true;
-            }
+            },
           ),
         ]);
         user_options.push([
@@ -149,7 +149,7 @@ export async function Core() {
             async (value: string[]) => {
               if (value.length === 0) return "At least one should be chosen";
               return true;
-            }
+            },
           ),
         ]);
       }

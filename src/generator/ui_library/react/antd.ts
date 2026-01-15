@@ -1,11 +1,12 @@
 import { UsingMark } from "../../../utils/using_mark.js";
 import PathBox from "../../../assets/path/path_react.js";
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
-import Data from "../../../assets/storage/resources.json" with { type: 'json' };
+import resources_json from "../../../assets/storage/resources.json" with { type: "json" };
+import type { resources_type } from "../../../assets/type.js";
 
 export async function Ant() {
   const path_box = PathBox();
-  const {ui_library} = Data;
+  const { ui_library }: resources_type = resources_json;
   const main_data = [
     {
       tage_name: "ant_reset_css",

@@ -147,6 +147,7 @@
   "react_router_rout_ways": {
     "name": "React Router Rout Ways",
     "type": "single",
+    "depended_on": "React Router",
     "options": [
       {
         "name": "Classic Router",

@@ -2,7 +2,7 @@ import { readJson, readFile, outputJson } from "../../utils/fs.js";
 import { useContext } from "../../core/context/runtime.js";
 import stripJsonComments from "strip-json-comments";
 import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
-import appData from "../../assets/config.json" with { type: 'json' };
+import appData from "../../assets/config.json" with { type: "json" };
 import { UsingMark } from "../../utils/using_mark.js";
 import PathBox from "../../assets/path/path_react.js";
 
@@ -43,7 +43,7 @@ export async function AliaseReact() {
     // make jsconfig file
     const jsconfig_app_contant = await readJson(
       path_box.jsconfig_app_template,
-      "utf8"
+      "utf8",
     );
     await outputJson(path_box.jsconfig_app_path, jsconfig_app_contant, {
       spaces: 2,
@@ -52,10 +52,10 @@ export async function AliaseReact() {
     // edit tsconfig.app.json for @ alise apped to json
     const tsconfig_app_cotant = await readFile(
       path_box.tsconfig_app_path,
-      "utf8"
+      "utf8",
     );
     const tsconfig_app_cotant_parse = JSON.parse(
-      stripJsonComments(tsconfig_app_cotant)
+      stripJsonComments(tsconfig_app_cotant),
     );
     const new_tsconfig_app_cotant = {
       ...tsconfig_app_cotant_parse,

@@ -3,12 +3,12 @@ import { UsingMark } from "../../../utils/using_mark.js";
 import PathBox from "../../../assets/path/path_react.js";
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
 import { useContext } from "../../../core/context/runtime.js";
-import Data from "../../../assets/storage/resources.json" with { type: 'json' };
-
+import resources_json from "../../../assets/storage/resources.json" with { type: "json" };
+import type { resources_type } from "../../../assets/type.js";
 export async function SWR() {
   const { user_options } = useContext();
   const path_box = PathBox();
-  const { data_fetching } = Data;
+  const { data_fetching }: resources_type = resources_json;
 
   const env_file_data = [
     {

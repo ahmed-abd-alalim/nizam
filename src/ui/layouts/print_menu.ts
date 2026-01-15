@@ -13,7 +13,7 @@ export async function printMenu() {
         value !== null &&
         value !== undefined &&
         value !== "" &&
-        value.length !== 0
+        value.length !== 0,
     )
     .map(([key, value]) => {
       let normalizedValue: string;
@@ -35,7 +35,7 @@ export async function printMenu() {
       return {
         raw: ` ${cleanKey} : ${normalizedValue}`,
         colored: ` ${chalk.redBright(cleanKey)} : ${chalk.greenBright(
-          normalizedValue
+          normalizedValue,
         )}`,
       };
     });
@@ -49,8 +49,8 @@ export async function printMenu() {
   console.log(chalk.yellowBright(`╔${line}╗`));
   console.log(
     `${chalk.yellowBright("║")}${chalk.redBright(
-      title.padStart((width + title.length) / 2).padEnd(width)
-    )}${chalk.yellowBright("║")}`
+      title.padStart((width + title.length) / 2).padEnd(width),
+    )}${chalk.yellowBright("║")}`,
   );
   console.log(chalk.yellowBright(`╠${line}╣`));
 
@@ -58,10 +58,10 @@ export async function printMenu() {
     const padding = width - stripAnsi(row.raw).length - 5;
     console.log(
       `${chalk.yellowBright("║")} ${chalk.yellowBright("[")}${chalk.redBright(
-        i + 1
+        i + 1,
       )}${chalk.yellowBright("]")} ${
         row.colored + " ".repeat(padding)
-      }${chalk.yellowBright("║")}`
+      }${chalk.yellowBright("║")}`,
     );
     if (rows.length - 1 === i) return;
     console.log(chalk.yellowBright(`╠${line2}╣`));

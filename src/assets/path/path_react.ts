@@ -81,19 +81,19 @@ function pathBox(): path_box_type {
     jsconfig_app_path: path.resolve(full_project_path, "jsconfig.json"),
     vite_config_path: path.resolve(
       full_project_path,
-      `vite.config.${js_or_ts}`
+      `vite.config.${js_or_ts}`,
     ),
     vsc_path: path.resolve(full_project_path, ".vscode"),
     vsc_setting_path: path.resolve(
       full_project_path,
       ".vscode",
-      "settings.json"
+      "settings.json",
     ),
     index_css_path: path.resolve(full_project_path, "src", "index.css"),
     main_react_path: path.resolve(
       full_project_path,
       "src",
-      `main.${js_or_ts}x`
+      `main.${js_or_ts}x`,
     ),
     old_gitignore_path: path.resolve(full_project_path, "_gitignore"),
     new_gitignore_path: path.resolve(full_project_path, ".gitignore"),
@@ -109,79 +109,79 @@ function pathBox(): path_box_type {
     reactrouter_router_path: path.resolve(
       full_project_path,
       "src",
-      `router.${js_or_ts}x`
+      `router.${js_or_ts}x`,
     ),
     tanstackrouter_router_path: path.resolve(
       full_project_path,
       "src",
-      `router.${js_or_ts}`
+      `router.${js_or_ts}`,
     ),
     context_path: path.resolve(full_project_path, "src", `context`),
     context_theme_path: path.resolve(
       full_project_path,
       "src",
       `context`,
-      "theme"
+      "theme",
     ),
     theme_context_file_path: path.resolve(
       full_project_path,
       "src",
       `context`,
       "theme",
-      `ThemeContext.${js_or_ts}`
+      `ThemeContext.${js_or_ts}`,
     ),
     theme_provider_file_path: path.resolve(
       full_project_path,
       "src",
       `context`,
       "theme",
-      `ThemeProvider.${js_or_ts}x`
+      `ThemeProvider.${js_or_ts}x`,
     ),
     use_theme_file_path: path.resolve(
       full_project_path,
       "src",
       `context`,
       "theme",
-      `useTheme.${js_or_ts}`
+      `useTheme.${js_or_ts}`,
     ),
     store_path: path.resolve(full_project_path, "src", `store`),
     store_file_path: path.resolve(
       full_project_path,
       "src",
       `store`,
-      `store.${js_or_ts}`
+      `store.${js_or_ts}`,
     ),
     store_slices_path: path.resolve(
       full_project_path,
       "src",
       `store`,
-      "slices"
+      "slices",
     ),
     slices_index_file_path: path.resolve(
       full_project_path,
       "src",
       `store`,
       "slices",
-      `index.${js_or_ts}`
+      `index.${js_or_ts}`,
     ),
     slices_counter_file_path: path.resolve(
       full_project_path,
       "src",
       `store`,
       "slices",
-      `counterSlice.${js_or_ts}`
+      `counterSlice.${js_or_ts}`,
     ),
     zustand_use_counter_file_path: path.resolve(
       full_project_path,
       "src",
       `store`,
-      `useCounterStore.${js_or_ts}`
+      `useCounterStore.${js_or_ts}`,
     ),
     zustand_index_file_path: path.resolve(
       full_project_path,
       "src",
       `store`,
-      `index.${js_or_ts}`
+      `index.${js_or_ts}`,
     ),
     env_path: path.resolve(full_project_path, ".env"),
     api_path: path.resolve(full_project_path, "src", `api`),
@@ -189,19 +189,19 @@ function pathBox(): path_box_type {
       full_project_path,
       "src",
       `api`,
-      `http.${js_or_ts}`
+      `http.${js_or_ts}`,
     ),
     api_fetcher_file_path: path.resolve(
       full_project_path,
       "src",
       `api`,
-      `fetcher.${js_or_ts}`
+      `fetcher.${js_or_ts}`,
     ),
     api_axios_fle_path: path.resolve(
       full_project_path,
       "src",
       `api`,
-      `axios.${js_or_ts}`
+      `axios.${js_or_ts}`,
     ),
 
     // nizam-main
@@ -209,70 +209,70 @@ function pathBox(): path_box_type {
       nizam_templates_path,
       "react",
       js_or_ts,
-      "jsconfig.template"
+      "jsconfig.template",
     ),
     vsc_settings_templates: path.resolve(
       nizam_templates_path,
       "vscode",
-      "settings.template"
+      "settings.template",
     ),
     bootstrap_templates: path.resolve(
       nizam_templates_path,
       "react",
       "css",
-      "bootstrap.template"
+      "bootstrap.template",
     ),
     tailwind_templates: path.resolve(
       nizam_templates_path,
       "react",
       "css",
-      "tailwind.template"
+      "tailwind.template",
     ),
     nizam_Instructions_templates: path.resolve(
       nizam_templates_path,
-      "NIZAM_DOC.template"
+      "NIZAM_DOC.template",
     ),
     index_css_templates: path.resolve(
       nizam_templates_path,
       "react",
       "css",
-      "index.template"
+      "index.template",
     ),
     app_react_templates: path.resolve(
       nizam_templates_path,
       "react",
       js_or_ts,
-      "app.template"
+      "app.template",
     ),
     vite_config_templates: path.resolve(
       nizam_templates_path,
       "react",
       js_or_ts,
-      "vite.config.template"
+      "vite.config.template",
     ),
     main_react_templates: path.resolve(
       nizam_templates_path,
       "react",
       js_or_ts,
-      "main.template"
+      "main.template",
     ),
     layout_templates: path.resolve(
       nizam_templates_path,
       "react",
       js_or_ts,
-      "layout.template"
+      "layout.template",
     ),
     reactrouter_router_templates: path.resolve(
       nizam_templates_path,
       "react",
       js_or_ts,
-      "react_router-router.template"
+      "react_router-router.template",
     ),
     tanstackrouter_router_templates: path.resolve(
       nizam_templates_path,
       "react",
       js_or_ts,
-      "tanstack_router-router.template"
+      "tanstack_router-router.template",
     ),
     theme_context_file_template: path.resolve(
       nizam_templates_path,
@@ -280,7 +280,7 @@ function pathBox(): path_box_type {
       js_or_ts,
       "state_management",
       "context",
-      "theme_context.template"
+      "theme_context.template",
     ),
     theme_provider_file_template: path.resolve(
       nizam_templates_path,
@@ -288,7 +288,7 @@ function pathBox(): path_box_type {
       js_or_ts,
       "state_management",
       "context",
-      "theme_provider.template"
+      "theme_provider.template",
     ),
     use_theme_file_template: path.resolve(
       nizam_templates_path,
@@ -296,7 +296,7 @@ function pathBox(): path_box_type {
       js_or_ts,
       "state_management",
       "context",
-      "use_theme.template"
+      "use_theme.template",
     ),
     store_file_template: path.resolve(
       nizam_templates_path,
@@ -304,7 +304,7 @@ function pathBox(): path_box_type {
       js_or_ts,
       "state_management",
       "store",
-      "store.template"
+      "store.template",
     ),
     slices_index_file_template: path.resolve(
       nizam_templates_path,
@@ -312,7 +312,7 @@ function pathBox(): path_box_type {
       js_or_ts,
       "state_management",
       "store",
-      "index.template"
+      "index.template",
     ),
     slices_counter_file_template: path.resolve(
       nizam_templates_path,
@@ -320,7 +320,7 @@ function pathBox(): path_box_type {
       js_or_ts,
       "state_management",
       "store",
-      "counter_slice.template"
+      "counter_slice.template",
     ),
     zustand_use_counter_file_template: path.resolve(
       nizam_templates_path,
@@ -328,7 +328,7 @@ function pathBox(): path_box_type {
       js_or_ts,
       "state_management",
       "zustand",
-      `use_counter_store.template`
+      `use_counter_store.template`,
     ),
     zustand_index_file_template: path.resolve(
       nizam_templates_path,
@@ -336,7 +336,7 @@ function pathBox(): path_box_type {
       js_or_ts,
       "state_management",
       "zustand",
-      `index.template`
+      `index.template`,
     ),
     env_template: path.resolve(nizam_templates_path, "env.template"),
     api_http_file_template: path.resolve(
@@ -344,21 +344,21 @@ function pathBox(): path_box_type {
       "react",
       js_or_ts,
       "data_fetching",
-      `http.template`
+      `http.template`,
     ),
     api_fetcher_file_template: path.resolve(
       nizam_templates_path,
       "react",
       js_or_ts,
       "data_fetching",
-      `fetcher.template`
+      `fetcher.template`,
     ),
     api_axios_file_template: path.resolve(
       nizam_templates_path,
       "react",
       js_or_ts,
       "data_fetching",
-      `axios.template`
+      `axios.template`,
     ),
   };
 }

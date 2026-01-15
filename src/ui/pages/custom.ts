@@ -3,8 +3,8 @@ import { rawlist_fun, checkbox_fun, check_is_Ok } from "./main.js";
 import chalk from "chalk";
 import { useContext } from "../../core/context/runtime.js";
 import { user_options_type } from "../../assets/type.js";
-import AppData from '../../assets/storage/resources.json'  with { type: 'json' };
-
+import AppData from "../../assets/storage/resources.json" with { type: "json" };
+import type { resources_type } from "../../assets/type.js";
 type Option = {
   name: string;
   value: string;
@@ -12,13 +12,13 @@ type Option = {
 };
 
 export async function Custom() {
-  const app_data = AppData;
+  const app_data: resources_type = AppData;
   const ctx = useContext();
   const user_options: (string[] | [string, boolean] | [string, string[]])[] =
     [];
 
   const is_react_app = user_options.find((n) =>
-    (n as string[])[1].includes("React + vite ")
+    (n as string[])[1].includes("React + vite "),
   );
 
   const append_hint_fun = (name_: string, hint_message: string) => {
@@ -69,7 +69,7 @@ export async function Custom() {
           (value: string[]) => {
             if (value.length === 0) return "At least one should be chosen";
             return true;
-          }
+          },
         ),
       ]);
     }
@@ -107,12 +107,12 @@ export async function Custom() {
 
     if (await check_is_Ok("Icons Library")) {
       const found = user_options.find(
-        (i) => Array.isArray(i[1]) && i[1].includes("Material UI")
+        (i) => Array.isArray(i[1]) && i[1].includes("Material UI"),
       );
       if (found) {
         append_hint_fun(
           "Material Icons",
-          "strong candidate because you use Material UI"
+          "strong candidate because you use Material UI",
         );
       }
       user_options.push([
@@ -126,7 +126,7 @@ export async function Custom() {
           (value: string[]) => {
             if (value.length === 0) return "At least one should be chosen";
             return true;
-          }
+          },
         ),
       ]);
     }

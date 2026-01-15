@@ -8,7 +8,7 @@ export function CorePaths() {
   // get full project path
   const project_Path = path.resolve(
     process.cwd(),
-    ctx.user_options.project_path
+    ctx.user_options.project_path,
   );
   ctx.full_project_path = `${project_Path}\\${ctx.user_options.project_name}`;
 

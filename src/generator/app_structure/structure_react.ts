@@ -3,7 +3,7 @@ import { useContext } from "../../core/context/runtime.js";
 import { mkdir, writeFile } from "../../utils/fs.js";
 import pathBox from "../../assets/path/path_react.js";
 import { nizamDocEditor } from "../../utils/nizam_doc_editor.js";
-import appData from "../../assets/config.json" with { type: 'json' };
+import appData from "../../assets/config.json" with { type: "json" };
 
 export async function structureReact() {
   const { user_options } = useContext();
@@ -36,7 +36,7 @@ export async function structureReact() {
     const new_folder_path = path.resolve(path_box.src_path, folder_name);
     const index_file_Path = path.join(
       new_folder_path,
-      `index.${user_options.js_framework.includes("js") ? "js" : "ts"}`
+      `index.${user_options.js_framework.includes("js") ? "js" : "ts"}`,
     );
 
     await mkdir(new_folder_path, { recursive: true });
@@ -60,41 +60,41 @@ export async function structureReact() {
             ? "js"
             : "ts"
           : f_type
-      }`
+      }`,
     );
 
     await writeFile(
       file_Path,
       `${f_type.includes("json") ? JSON.stringify({}) : ""}`,
-      "utf8"
+      "utf8",
     );
   };
 
   if (app_structure.includes("nizam method")) {
     // make folders
     for (let folder_name of all_folder_structure_names.filter(
-      Boolean
+      Boolean,
     ) as string[]) {
       await creat_folder_fun(folder_name);
     }
 
     // make files
     for (let file_name of all_file_structure_names.filter(
-      Boolean
+      Boolean,
     ) as string[]) {
       await creat_file_fun({ file_name });
     }
   } else if (app_structure.includes("custom method")) {
     // make folders
     for (let folder_name of folder_structure_array.filter(
-      Boolean
+      Boolean,
     ) as string[]) {
       await creat_folder_fun(folder_name);
     }
 
     // make files
     for (let file_name of files_structure_array_with_some_from_user_options.filter(
-      Boolean
+      Boolean,
     ) as string[]) {
       await creat_file_fun({ file_name });
     }

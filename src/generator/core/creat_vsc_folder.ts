@@ -9,26 +9,28 @@ export async function CreatVSCFolder() {
 
   try {
     await ensureDir(path_box.vsc_path);
-    let data = await readJson(path_box.vsc_settings_templates);
+    let vsc_settings_json = await readJson(path_box.vsc_settings_templates);
 
     if (user_options.js_framework.includes("ts")) {
-      data = {
-        ...data,
+      vsc_settings_json = {
+        ...vsc_settings_json,
         "[typescript]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
         },
       };
     }
     if (user_options.CSS_framework === "Tailwind") {
-      data = {
-        ...data,
+      vsc_settings_json = {
+        ...vsc_settings_json,
         "files.associations": {
           "*.css": "tailwindcss",
         },
       };
     }
 
-    await outputJson(path_box.vsc_setting_path, data, { spaces: 2 });
+    await outputJson(path_box.vsc_setting_path, vsc_settings_json, {
+      spaces: 2,
+    });
 
     operation_state.creat_vsc_folder.status = "success";
   } catch (err: any) {

@@ -6,7 +6,7 @@ import { operation_state_type } from "../../assets/type.js";
 export async function operations(
   opration_fun: () => Promise<void>,
   opration_name: string,
-  opration_dis: string
+  opration_dis: string,
 ): Promise<void> {
   const { operation_state } = useContext();
 
@@ -21,20 +21,20 @@ export async function operations(
   if (is_ok === "success")
     spinner.stopAndPersist({
       symbol: `${chalk.yellowBright("[")}${chalk.green(
-        "✔"
+        "✔",
       )}${chalk.yellowBright("]")}`,
       text: `${chalk.greenBright(`${opration_dis} is done.`)}`,
     });
   else {
     spinner.stopAndPersist({
       symbol: `${chalk.yellowBright("[")}${chalk.red("X")}${chalk.yellowBright(
-        "]"
+        "]",
       )}`,
       text: `${chalk.redBright(`${opration_dis} is fail.`)}`,
     });
 
     console.log(
-      `${chalk.bold.red("[x]==>")} ${chalk.redBright(error_message)}`
+      `${chalk.bold.red("[x]==>")} ${chalk.redBright(error_message)}`,
     );
   }
 }

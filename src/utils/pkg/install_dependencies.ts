@@ -18,11 +18,11 @@ export async function installDependencies({
 
   if (typeof user_option_library === "string") {
     const lib_info = lib_list.find((i) =>
-      i.name.includes((user_option_library as string).toLowerCase())
+      i.name.includes((user_option_library as string).toLowerCase()),
     );
 
     const fil_dependencies = lib_info?.dependencies.filter((x): x is string =>
-      Boolean(x)
+      Boolean(x),
     );
     if (fil_dependencies?.length !== 0) {
       for (const dependencie_name of fil_dependencies!) {
@@ -34,10 +34,10 @@ export async function installDependencies({
   } else if (Array.isArray(user_option_library)) {
     for (const lib_name of user_option_library as string[]) {
       const lib_info = lib_list.find((i) =>
-        i.name.includes(lib_name.toLowerCase())
+        i.name.includes(lib_name.toLowerCase()),
       );
       const fil_dependencies = lib_info?.dependencies.filter((x): x is string =>
-        Boolean(x)
+        Boolean(x),
       );
       if (fil_dependencies?.length !== 0) {
         for (const dependencie_name of fil_dependencies!) {
