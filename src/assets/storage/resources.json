@@ -20,8 +20,8 @@
     },
     "terminal_command": {
       "react": {
-        "js": "degit vitejs/vite/packages/create-vite/template-react",
-        "ts": "degit vitejs/vite/packages/create-vite/template-react-ts"
+        "js": "vitejs/vite/packages/create-vite/template-react",
+        "ts": "vitejs/vite/packages/create-vite/template-react-ts"
       }
     },
     "description": "This section is for selecting the JavaScript framework and build setup for the project."

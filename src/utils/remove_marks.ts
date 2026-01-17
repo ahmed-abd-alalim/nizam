@@ -7,26 +7,41 @@ export async function cleanFolder() {
   const { full_project_path, operation_state } = useContext();
   const MARK = "##-nizam@mark-##:";
 
-  try {
-    const items = await readdir(full_project_path);
+  const remove_mark = async (dir: string) => {
+    const items = await readdir(dir);
 
     for (const item of items) {
-      const fullPath = path.join(full_project_path, item);
+      const fullPath = path.join(dir, item);
 
       const stat = await lstat(fullPath);
 
       if (stat.isDirectory()) {
-        await cleanFolder();
+        await remove_mark(fullPath);
       } else if (stat.isFile()) {
         let content = await readFile(fullPath, "utf8");
 
-        const regex = new RegExp(`${MARK}\\S+`, "g");
-        const cleaned = content.replace(regex, "");
+        const lines = content.split(/\r?\n/);
 
-        await writeFile(fullPath, cleaned, "utf8");
+        const cleanedLines = lines
+          .map((line) => {
+            if (line.includes(MARK)) {
+              const newLine = line.replace(new RegExp(`${MARK}\\S+`, "g"), "");
+
+              return newLine.trim() === "" ? null : newLine;
+            }
+            return line;
+          })
+          .filter(Boolean);
+
+        const cleanedContent = cleanedLines.join("\n");
+
+        await writeFile(fullPath, cleanedContent, "utf8");
       }
     }
+  };
 
+  try {
+    await remove_mark(full_project_path);
     operation_state.clean_folder_mark.status = "success";
   } catch (err) {
     operation_state.clean_folder_mark.status = "fatal";
