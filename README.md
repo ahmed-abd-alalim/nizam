@@ -62,7 +62,7 @@ In addition to creating an organized file structure, nizam allows developers to 
 
 <p align="center">
   <picture>
-    <img alt="vite logo" src="./github_assets/nizam-home.png" height="400">
+    <img alt="vite logo" src="./github_assets/nizam-home.png" height="350">
   </picture>
 </p>
 
@@ -86,7 +86,9 @@ In addition to creating an organized file structure, nizam allows developers to 
 npx create-nizam
 ```
 
-##### _using npm:_
+<details>
+ <summary>using npm</summary>
+<br/>
 
 ```bash
 npm i -g create-nizam
@@ -96,7 +98,11 @@ npm i -g create-nizam
 create-nizam
 ```
 
-##### _using bun:_
+</details>
+
+<details>
+ <summary>using bun</summary>
+<br/>
 
 ```bash
 bun install -g create-nizam
@@ -106,7 +112,11 @@ bun install -g create-nizam
 bun run create-nizam
 ```
 
-##### _using yarn:_
+</details>
+
+<details>
+ <summary>using yarn</summary>
+<br/>
 
 ```bash
 yarn global add create-nizam
@@ -116,7 +126,11 @@ yarn global add create-nizam
 yarn create-nizam
 ```
 
-##### _using pnpm:_
+</details>
+
+<details>
+ <summary>using pnpm</summary>
+<br/>
 
 ```bash
 pnpm add -g create-nizam
@@ -125,6 +139,8 @@ pnpm add -g create-nizam
 ```bash
 pnpm create-nizam
 ```
+
+</details>
 
 ## Project License
 
