@@ -80,7 +80,7 @@ In addition to creating an organized file structure, nizam allows developers to 
 
 ## Get started with nizam
 
-##### _using npx:_
+##### using npx:
 
 ```bash
 npx create-nizam
