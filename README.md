@@ -26,7 +26,7 @@ In addition to creating an organized file structure, nizam allows developers to 
 > nizam standardizes project initialization and improves developer productivity from day one.
 
 - 📦 Install selected libraries seamlessly
-- 🔩Apply library specific configurations out of the box
+- 🔩 Apply library specific configurations out of the box
 - 🪄 Reduce repetitive manual setup
 - 💡 Automatically create essential project files
 - ⚡️ Speed up project initialization and focus on core development
