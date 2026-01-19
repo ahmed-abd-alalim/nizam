@@ -3,7 +3,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./github_assets/nizam-light.svg">
     <source media="(prefers-color-scheme: light)" srcset="./github_assets/nizam-dark.svg">
-    <img alt="vite logo" src="./github_assets/nizam-dark.svg" height="150">
+    <img alt="vite logo" src="./github_assets/nizam-dark.svg" width=400">
   </picture>
   <br>
     <h3 align="center">Smart setup for a ready to code Frontend project.</h3>
@@ -62,7 +62,7 @@ In addition to creating an organized file structure, nizam allows developers to 
 
 <p align="center">
   <picture>
-    <img alt="vite logo" src="./github_assets/nizam-home.png" height="350">
+    <img alt="vite logo" src="./github_assets/nizam-home.png" width="500">
   </picture>
 </p>
 
