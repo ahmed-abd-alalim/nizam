@@ -3,7 +3,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./github_assets/nizam-light.svg">
     <source media="(prefers-color-scheme: light)" srcset="./github_assets/nizam-dark.svg">
-    <img alt="vite logo" src="./github_assets/nizam-dark.svg" height="160">
+    <img alt="vite logo" src="./github_assets/nizam-dark.svg" height="150">
   </picture>
   <br>
     <h3 align="center">Smart setup for a ready to code Frontend project.</h3>
