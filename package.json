@@ -41,7 +41,7 @@
     "utility"
   ],
   "bin": {
-    "nizam": "dist/__main__.js"
+    "create-nizam": "dist/__main__.js"
   },
   "files": [
     "dist",
