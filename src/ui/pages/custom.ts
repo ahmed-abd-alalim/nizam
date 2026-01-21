@@ -10,16 +10,22 @@ type Option = {
   value: string;
   description?: string;
 };
+type local_user_options_type = (
+  | string[]
+  | [string, boolean]
+  | [string, string[]]
+)[];
 
 export async function Custom() {
   const app_data: resources_type = AppData;
   const ctx = useContext();
-  const user_options: (string[] | [string, boolean] | [string, string[]])[] =
-    [];
+  const user_options: local_user_options_type = [];
 
-  const is_react_app = user_options.find((n) =>
-    (n as string[])[1].includes("React + vite "),
-  );
+  const is_react_app = () => {
+    return user_options.some((item) =>
+      (item as string[])[1]?.startsWith("React + vite"),
+    );
+  };
 
   const append_hint_fun = (name_: string, hint_message: string) => {
     for (const group of Object.values(app_data)) {
@@ -49,7 +55,7 @@ export async function Custom() {
     ]);
     if (await check_is_Ok("CSS Framework")) {
       user_options.push([
-        "CSS_framework",
+        "css_framework",
         await rawlist_fun("Select a CSS framework:", [
           new Separator(chalk.gray("--- Popular Options ---")),
           ...app_data.css_framework.options,
@@ -74,7 +80,7 @@ export async function Custom() {
       ]);
     }
 
-    if (is_react_app)
+    if (is_react_app())
       if (await check_is_Ok("Routing Library")) {
         user_options.push([
           "routing_library",
@@ -89,7 +95,7 @@ export async function Custom() {
             "react_router_rout",
             await rawlist_fun("Select way:", [
               new Separator(chalk.gray("--- Popular Options ---")),
-              ...app_data.react_router_rout_ways.options,
+              ...app_data.react_router_rout.options,
             ]),
           ]);
         }

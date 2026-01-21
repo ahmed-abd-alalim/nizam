@@ -50,6 +50,11 @@ export async function Core() {
         value: "storage",
         description: "saves & manages app data",
       },
+      {
+        name: "sections",
+        value: "sections",
+        description: "contains reusable page sections",
+      },
     ],
     files: [
       new Separator(chalk.gray("--- Select the files you need ---")),

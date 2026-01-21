@@ -3,7 +3,7 @@ import { useContext } from "../../core/context/runtime.js";
 
 export async function customInstall(
   npx_params: string,
-  pkg_command_params: string
+  pkg_command_params: string,
 ) {
   const { full_project_path } = useContext();
   const pkj_installer = ["giget", "degit", "tiged"];
@@ -22,8 +22,8 @@ export async function customInstall(
         ],
         {
           cwd: full_project_path,
-          timeout: 60000,
-        }
+          timeout: 600000,
+        },
       );
       success = true;
       break;

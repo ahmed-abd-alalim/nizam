@@ -42,6 +42,6 @@ export async function CSSFrameworkReact() {
 
   await installDependencies({
     lib_list: lib_list,
-    user_option_library: user_options.CSS_framework,
+    user_option_library: user_options.css_framework,
   });
 }

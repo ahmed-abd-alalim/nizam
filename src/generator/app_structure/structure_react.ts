@@ -22,6 +22,7 @@ export async function structureReact() {
     "components",
     "utils",
     "storage",
+    "sections",
   ];
 
   const all_file_structure_names = [

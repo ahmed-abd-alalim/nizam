@@ -144,7 +144,7 @@
     },
     "description": "This section is for selecting the library that manages navigation and page routing in the project."
   },
-  "react_router_rout_ways": {
+  "react_router_rout": {
     "name": "React Router Rout Ways",
     "type": "single",
     "depended_on": "React Router",

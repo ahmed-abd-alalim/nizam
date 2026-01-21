@@ -28,7 +28,7 @@ export async function Bootstrap() {
   const bootstrap_text = await readFile(path_box.bootstrap_templates, "utf8");
   await appendFile(path_box.index_css_path, bootstrap_text);
   await nizamDocEditor({
-    title_params: user_options.CSS_framework,
+    title_params: user_options.css_framework,
     expla_params: `
 We have created a clear and ready made structure that you can use. you will find it inside \`index.css\` file.
 

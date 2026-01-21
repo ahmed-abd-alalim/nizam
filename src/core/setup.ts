@@ -57,11 +57,11 @@ export async function Setup() {
       operation_targit: user_options.app_structure,
     },
     {
-      operation_name: "CSS_framework",
+      operation_name: "css_framework",
       operation_fun: CSSFramework,
-      operation_des: `install and integrate ${user_options.CSS_framework}`,
+      operation_des: `install and integrate ${user_options.css_framework}`,
       operation_is_need: false,
-      operation_targit: user_options.CSS_framework,
+      operation_targit: user_options.css_framework,
     },
     {
       operation_name: "ui_library",

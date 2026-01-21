@@ -10,7 +10,7 @@
     "email": "ahmedabdalalim.3a@gmail.com",
     "url": "https://ahmedabdalalim.pages.dev"
   },
-  "homepage": "https://github.com/ahmed-abd-alalim/nizam",
+  "homepage": "https://nizam-17v.pages.dev/",
   "repository": {
     "type": "git",
     "url": "https://github.com/ahmed-abd-alalim/nizam.git"
@@ -55,8 +55,9 @@
     "format": "prettier --write ./src",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "copy:templates": "npx cpx \"src/templates/**/*.template\" dist/templates",
-    "build": "npm run clean && rollup -c --silent & npm run copy:templates",
-    "prepublishOnly": "npm run format && npm run lint && npm run build"
+    "build": "npm run clean &&  npm run copy:templates && rollup -c --silent",
+    "matchV": "node -e \"const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json')); const config=JSON.parse(fs.readFileSync('src/assets/config.json')); config.app_info.version=pkg.version; fs.writeFileSync('src/assets/config.json', JSON.stringify(config,null,2));\"",
+    "prepublishOnly": "npm run matchV && npm run format && npm run lint && npm run build"
   },
   "engines": {
     "node": ">=18"

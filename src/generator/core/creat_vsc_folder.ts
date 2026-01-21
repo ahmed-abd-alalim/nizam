@@ -19,7 +19,7 @@ export async function CreatVSCFolder() {
         },
       };
     }
-    if (user_options.CSS_framework === "Tailwind") {
+    if (user_options.css_framework === "Tailwind") {
       vsc_settings_json = {
         ...vsc_settings_json,
         "files.associations": {

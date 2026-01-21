@@ -36,8 +36,21 @@ import { Helmet } from 'react-helmet-async';
 const home = (
     <>
       <Helmet>
-        <title>home</title>
-        <link rel="" href="https://example.com/" />
+        <title></title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+
+        {/* Open Graph / Facebook / LinkedIn / WhatsApp */}
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="" />
+
+        {/* Twitter  */}
+        <meta name="twitter:url" content="" />
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:description" content="" />
+        <meta name="twitter:image" content="" />
       </Helmet>
       <h1>Hello World</h1>
     </>

@@ -4,7 +4,7 @@ export interface user_options_type {
   pkg_manager: string;
   js_framework: string;
   add_aliase: boolean;
-  CSS_framework: string;
+  css_framework: string;
   app_structure: string;
   folder_structure_names: string[];
   files_structure_names: string[];
@@ -27,7 +27,7 @@ export interface operation_state_type {
   js_framework: one_operation_state_type;
   creat_vsc_folder: one_operation_state_type;
   add_aliase: one_operation_state_type;
-  CSS_framework: one_operation_state_type;
+  css_framework: one_operation_state_type;
   app_structure: one_operation_state_type;
   ui_library: one_operation_state_type;
   icon_library: one_operation_state_type;
@@ -113,7 +113,7 @@ export interface resources_type {
     };
     description: string;
   };
-  react_router_rout_ways: {
+  react_router_rout: {
     name: string;
     type: string;
     depended_on: string;

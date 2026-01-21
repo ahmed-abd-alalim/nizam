@@ -5,8 +5,17 @@ import { exec } from "child_process";
 import util from "util";
 const execAsync = util.promisify(exec);
 import { useContext } from "../../core/context/runtime.js";
+// import { getPkgInfo } from "../../utils/pkg/get_pkg_info.js";
 
 export async function intro() {
+  const { pkg_is_installed } = useContext();
+  const cols = process.stdout.columns;
+  const pkg_list = ["npm", "bun", "pnpm", "yarn"];
+  // const [, get_nizam_new_v] = await getPkgInfo("create-nizam");
+  const get_nizam_new_v = false;
+  const get_nizam_current_v = app_info.app_info.version;
+  const is_new_v = String(get_nizam_new_v) !== String(get_nizam_current_v);
+
   console.clear();
 
   const lg_logo = chalk.yellowBright(`
@@ -22,6 +31,7 @@ export async function intro() {
     `v${app_info.app_info.version}`,
   )}
                                                          
+${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm install create-nizam) for make update.") : " "}
 `);
 
   const md_logo = chalk.yellowBright(`
@@ -37,6 +47,7 @@ export async function intro() {
     `v${app_info.app_info.version}`,
   )}
                                                    
+${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm install create-nizam) for make update.") : " "}
 `);
 
   const sm_logo = chalk.yellowBright(`
@@ -50,12 +61,10 @@ export async function intro() {
     `v${app_info.app_info.version}`,
   )}
                                            
+${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm install create-nizam) for make update.") : " "}
 `);
 
-  const { pkg_is_installed } = useContext();
-  const cols = process.stdout.columns;
   const view = cols && cols < 50 ? sm_logo : cols < 80 ? md_logo : lg_logo;
-  const pkg_list = ["npm", "bun", "pnpm", "yarn"];
 
   console.log(view);
   // eslint-disable-next-line no-async-promise-executor
@@ -90,6 +99,9 @@ export async function intro() {
       }
       i += Number((100 / pkg_list.length).toFixed(1));
       load();
+      if (is_new_v) {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+      }
       await new Promise((resolve) => setTimeout(resolve, 500));
     }
   });

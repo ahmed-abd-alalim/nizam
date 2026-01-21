@@ -42,7 +42,9 @@ export async function printMenu() {
 
   const allLines = [title, ...rows.map((r) => r.raw)];
 
-  const width = Math.max(...allLines.map((l) => l.length + 7));
+  const width = Math.max(
+    ...allLines.map((l) => l.length + (rows.length > 9 ? 9 : 8)),
+  );
   const line = "═".repeat(width);
   const line2 = "-".repeat(width);
 
@@ -55,12 +57,12 @@ export async function printMenu() {
   console.log(chalk.yellowBright(`╠${line}╣`));
 
   rows.forEach((row, i) => {
-    const padding = width - stripAnsi(row.raw).length - 5;
+    const padding = width - stripAnsi(row.raw).length;
     console.log(
-      `${chalk.yellowBright("║")} ${chalk.yellowBright("[")}${chalk.redBright(
+      `${chalk.yellowBright("║")}${chalk.yellowBright("[")}${chalk.redBright(
         i + 1,
       )}${chalk.yellowBright("]")} ${
-        row.colored + " ".repeat(padding)
+        row.colored + " ".repeat(padding - (i + 1 > 9 ? 5 : 4))
       }${chalk.yellowBright("║")}`,
     );
     if (rows.length - 1 === i) return;

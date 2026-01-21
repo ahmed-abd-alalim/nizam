@@ -9,10 +9,23 @@ export async function cleanFolder() {
 
   const remove_mark = async (dir: string) => {
     const items = await readdir(dir);
+    const IGNORE_FILES = new Set([
+      "NIZAM_DOC.md",
+      "package.json",
+      ".gitignore",
+      "README.md",
+      "tsconfig.app.json",
+      "tsconfig.json",
+      "tsconfig.node.json",
+      "index.html",
+      "eslint.config.js",
+      "public",
+    ]);
 
     for (const item of items) {
-      const fullPath = path.join(dir, item);
+      if (IGNORE_FILES.has(item)) continue;
 
+      const fullPath = path.join(dir, item);
       const stat = await lstat(fullPath);
 
       if (stat.isDirectory()) {

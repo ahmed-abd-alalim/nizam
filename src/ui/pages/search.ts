@@ -55,8 +55,8 @@ export async function Search() {
     if (section.type === "multi") {
       multi_options.push(
         (Object.keys(resources) as (keyof typeof resources)[]).find(
-          (k) => resources[k] === section
-        )!
+          (k) => resources[k] === section,
+        )!,
       );
     }
   });
@@ -76,7 +76,7 @@ export async function Search() {
       resources_refruns_data.push({
         name: section.name,
         key: (Object.keys(resources) as (keyof typeof resources)[]).find(
-          (k) => resources[k] === section
+          (k) => resources[k] === section,
         )!,
         options: section.options,
       });
@@ -114,7 +114,7 @@ export async function Search() {
       }
       // search about fixed options
       const unselect_fixed_value = fixed_options.find(
-        ([, values]: any) => !values.some((v: string) => answer.includes(v))
+        ([, values]: any) => !values.some((v: string) => answer.includes(v)),
       )?.[0];
       if (unselect_fixed_value) {
         return `just select at least one from ${unselect_fixed_value}`;
@@ -124,10 +124,10 @@ export async function Search() {
       const more_one_single_value = [...single_options, ...fixed_options].find(
         ([, h]: any) => {
           const selectedCount = h.filter((v: string) =>
-            answer.includes(v)
+            answer.includes(v),
           ).length;
           return selectedCount > 1;
-        }
+        },
       )?.[0];
       if (more_one_single_value) {
         return `just select only one from ${more_one_single_value}`;
@@ -151,7 +151,7 @@ export async function Search() {
             !choice.disabled &&
             choice.name.toLowerCase().includes(input.toLowerCase())
           );
-        })
+        }),
       );
     },
     theme: {
@@ -178,13 +178,13 @@ export async function Search() {
   const result = Object.entries(
     answers.reduce<Record<string, string[]>>((acc, answer) => {
       const resource = resources_refruns_data.find((r) =>
-        r.options.some((o: options_resources_type) => o.name === answer)
+        r.options.some((o: options_resources_type) => o.name === answer),
       );
       if (!resource) return acc;
       acc[resource.key] ??= [];
       acc[resource.key].push(answer);
       return acc;
-    }, {})
+    }, {}),
   );
 
   const result_filter = result.map((s) => {

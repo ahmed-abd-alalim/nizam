@@ -10,9 +10,9 @@ export async function CSSFramework() {
       await CSSFrameworkReact();
     }
 
-    operation_state.CSS_framework.status = "success";
+    operation_state.css_framework.status = "success";
   } catch (err: any) {
-    operation_state.CSS_framework.status = "fatal";
-    operation_state.CSS_framework.error_message = extractMainMessage(err);
+    operation_state.css_framework.status = "fatal";
+    operation_state.css_framework.error_message = extractMainMessage(err);
   }
 }
