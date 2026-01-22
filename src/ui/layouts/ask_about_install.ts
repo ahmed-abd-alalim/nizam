@@ -41,6 +41,7 @@ ${user_options.pkg_manager} install
       default: false,
       theme: question_theme,
     });
+
     if (is_ok) {
       process.stdout.write("\x1b[1A\x1b[2K");
       await operations(install, "install_all_packages", "Install all packages");

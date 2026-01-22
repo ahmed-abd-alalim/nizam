@@ -5,9 +5,9 @@ import stripAnsi from "strip-ansi";
 
 export async function printMenu() {
   const title = "YOUR SELECTED OPTIONS";
-  const { user_options } = useContext();
+  const ctx = useContext();
 
-  const rows = Object.entries(user_options)
+  const rows = Object.entries(ctx.user_options)
     .filter(
       ([, value]) =>
         value !== null &&
@@ -72,13 +72,18 @@ export async function printMenu() {
   console.log(chalk.yellowBright(`╚${line}╝`));
 
   await input({
-    message: `${chalk.yellowBright("\n[!] Press the Enter key to continue.")}`,
+    message: `${chalk.yellowBright("\n[!] Press the Enter key to continue or (")}${chalk.redBright("q + Enter")}${chalk.yellowBright(") to go back to home.")}`,
     theme: {
       prefix: {
         idle: ``,
         done: ``,
       },
     },
+    validate: (inbut) => {
+      if (inbut.toLowerCase() === "q") {
+        ctx.reset_menu = true;
+      }
+      return true;
+    },
   });
-  process.stdout.write("\x1b[1A\x1b[2K");
 }

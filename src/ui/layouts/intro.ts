@@ -1,11 +1,13 @@
 import chalk from "chalk";
 import ora from "ora";
-import app_info from "../../assets/config.json" with { type: "json" };
+import dns from "dns/promises";
 import { exec } from "child_process";
 import util from "util";
 const execAsync = util.promisify(exec);
+
 import { useContext } from "../../core/context/runtime.js";
 // import { getPkgInfo } from "../../utils/pkg/get_pkg_info.js";
+import app_info from "../../assets/config.json" with { type: "json" };
 
 export async function intro() {
   const { pkg_is_installed } = useContext();
@@ -15,8 +17,6 @@ export async function intro() {
   const get_nizam_new_v = false;
   const get_nizam_current_v = app_info.app_info.version;
   const is_new_v = String(get_nizam_new_v) !== String(get_nizam_current_v);
-
-  console.clear();
 
   const lg_logo = chalk.yellowBright(`
             ░▒▒▒                                         
@@ -64,8 +64,16 @@ ${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm
 ${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm install create-nizam) for make update.") : " "}
 `);
 
-  const view = cols && cols < 50 ? sm_logo : cols < 80 ? md_logo : lg_logo;
+  console.clear();
 
+  try {
+    await dns.lookup("google.com");
+  } catch {
+    console.error(chalk.redBright("\n❌ No internet connection"));
+    process.exit(1);
+  }
+
+  const view = cols && cols < 50 ? sm_logo : cols < 80 ? md_logo : lg_logo;
   console.log(view);
   // eslint-disable-next-line no-async-promise-executor
   await new Promise<void>(async (resolve) => {
@@ -100,15 +108,18 @@ ${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm
       i += Number((100 / pkg_list.length).toFixed(1));
       load();
       if (is_new_v) {
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await new Promise((resolve) => setTimeout(resolve, 1500));
       }
       await new Promise((resolve) => setTimeout(resolve, 500));
     }
   });
 
   if (pkg_is_installed.length === 0) {
-    throw new Error(
-      "Can't find any package manager for use it. install any one and try again.",
+    console.error(
+      chalk.redBright(
+        "\n❌ Can't find any package manager for use it. install any one and try again.",
+      ),
     );
+    process.exit(1);
   }
 }

@@ -7,7 +7,7 @@ export async function getPkgInfo(pkg_name: string): Promise<string[]> {
   );
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch version for ${pkg_name}`);
+    throw `Failed to fetch version for ${pkg_name}`;
   }
 
   const npm_json = await res.json();

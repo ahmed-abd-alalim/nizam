@@ -45,6 +45,7 @@ export interface execution_context_type {
   full_project_path: string;
   nizam_templates_path: string;
   pkg_is_installed: string[];
+  reset_menu: boolean;
   user_options: user_options_type;
   operation_state: operation_state_type;
 }

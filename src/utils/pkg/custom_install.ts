@@ -38,6 +38,6 @@ export async function customInstall(
   }
 
   if (!success) {
-    throw new Error("All installers failed");
+    throw "❌ All installers failed";
   }
 }

@@ -9,6 +9,7 @@ export function createContext(): execution_context_type {
     full_project_path: "",
     nizam_templates_path: "",
     pkg_is_installed: [],
+    reset_menu: false,
     user_options: {
       project_path: "",
       project_name: "",

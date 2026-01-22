@@ -15,7 +15,7 @@ import { execSync } from "child_process";
 import chalk from "chalk";
 import { Setup } from "../core/setup.js";
 import { createContext } from "../core/context/create.js";
-import { startProject } from "../core/context/runtime.js";
+import { startProject, resetContext } from "../core/context/runtime.js";
 import { say } from "../ui/index.js";
 
 async function main() {
@@ -38,8 +38,18 @@ async function main() {
     clearConsole();
 
     await printMenu();
+    if (ctx.reset_menu) {
+      await resetContext();
+      ctx.reset_menu = false;
+      return;
+    }
+
+    clearConsole();
+    sectionBox("Installation".toUpperCase());
     await Setup();
     await askAboutInstall();
+    clearConsole();
+    process.exit(0);
   };
 
   const custom_mode_colle = async () => {
@@ -50,8 +60,18 @@ async function main() {
     clearConsole();
 
     await printMenu();
+    if (ctx.reset_menu) {
+      await resetContext();
+      ctx.reset_menu = false;
+      return;
+    }
+
+    clearConsole();
+    sectionBox("Installation".toUpperCase());
     await Setup();
     await askAboutInstall();
+    clearConsole();
+    process.exit(0);
   };
 
   const help_colle = async () => {
@@ -76,10 +96,10 @@ async function main() {
       switch (ctx.start_menu_options) {
         case "Browse Mode":
           await search_mode_colle();
-          return;
+          break;
         case "OneShot Mode":
           await custom_mode_colle();
-          return;
+          break;
         case "Help":
           await help_colle();
           break;
