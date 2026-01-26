@@ -6,15 +6,14 @@ import util from "util";
 const execAsync = util.promisify(exec);
 
 import { useContext } from "../../core/context/runtime.js";
-// import { getPkgInfo } from "../../utils/pkg/get_pkg_info.js";
+import { getPkgInfo } from "../../utils/pkg/get_pkg_info.js";
 import app_info from "../../assets/config.json" with { type: "json" };
 
 export async function intro() {
   const { pkg_is_installed } = useContext();
   const cols = process.stdout.columns;
   const pkg_list = ["npm", "bun", "pnpm", "yarn"];
-  // const [, get_nizam_new_v] = await getPkgInfo("create-nizam");
-  const get_nizam_new_v = false;
+  const [, get_nizam_new_v] = await getPkgInfo("create-nizam");
   const get_nizam_current_v = app_info.app_info.version;
   const is_new_v = String(get_nizam_new_v) !== String(get_nizam_current_v);
 

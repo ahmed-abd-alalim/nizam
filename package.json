@@ -1,5 +1,5 @@
 {
-  "name": "nizam",
+  "name": "create-nizam",
   "version": "1.0.0",
   "preferGlobal": true,
   "description": "A Smart command-line interface with no presets for creating a modern architecture",
