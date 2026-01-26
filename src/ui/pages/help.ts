@@ -10,45 +10,45 @@ export async function help() {
 
   console.log(
     `${chalk.yellowBright("[")}${chalk.redBright("#")}${chalk.yellowBright(
-      "]== Explanation of all questions and their options in OneShot Mode:"
-    )}`
+      "]== Explanation of all questions and their options in OneShot Mode:",
+    )}`,
   );
   console.log(chalk.yellowBright("|"));
   for (const [i, section] of app_data_value.entries()) {
     console.log(
       chalk.yellowBright(
         `[${chalk.redBright(i)}]==========[ ${chalk.redBright(
-          section.name
-        )} ]==========`
-      )
+          section.name,
+        )} ]==========`,
+      ),
     );
     console.log(chalk.yellowBright("|"));
     console.log(
       `${chalk.yellowBright(
-        `|=(${chalk.gray("options")})=>`
+        `|=(${chalk.gray("options")})=>`,
       )} ${chalk.greenBright(
         section.options
           .map(
             (opt: { name: string; value: string }, i: number) =>
               `${opt.name}${
                 i + 1 === section.options.length ? "" : chalk.yellowBright(",")
-              }`
+              }`,
           )
-          .join(" ")
-      )}`
+          .join(" "),
+      )}`,
     );
     console.log(chalk.yellowBright("|"));
     console.log(
       `${chalk.yellowBright(
-        `|=(${chalk.gray("description")})=>`
-      )} ${chalk.yellowBright(section.description)}\n`
+        `|=(${chalk.gray("description")})=>`,
+      )} ${chalk.yellowBright(section.description)}\n`,
     );
   }
 
   while (!back) {
     await input({
       message: `\n[${chalk.redBright("!")}] Press the ${chalk.bgRedBright(
-        "Enter key"
+        "Enter key",
       )} to return to the home menu.`,
       theme: {
         prefix: {

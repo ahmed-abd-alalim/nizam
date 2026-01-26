@@ -17,7 +17,7 @@ export function sectionBox(section_name: string) {
   console.log(chalk.yellowBright(`✦ `) + chalk.bold.green(`${sideHashes}╮`));
   // console.log(chalk.green(`¦ ${empty_line} ¦`));
   console.log(
-    `${chalk.green(`¦ `)}${chalk.yellowBright.bold(line)}${chalk.green(`  ¦`)}`
+    `${chalk.green(`¦ `)}${chalk.yellowBright.bold(line)}${chalk.green(`  ¦`)}`,
   );
   // console.log(chalk.green(`¦ ${empty_line} ¦`));
   console.log(chalk.bold.green(`╰${sideHashes}`) + chalk.yellowBright(` ✦`));

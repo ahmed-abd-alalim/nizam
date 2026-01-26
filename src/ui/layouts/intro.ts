@@ -30,7 +30,7 @@ export async function intro() {
     `v${app_info.app_info.version}`,
   )}
                                                          
-${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm install create-nizam) for make update.") : " "}
+${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm install -g create-nizam) for make update.") : " "}
 `);
 
   const md_logo = chalk.yellowBright(`
@@ -46,7 +46,7 @@ ${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm
     `v${app_info.app_info.version}`,
   )}
                                                    
-${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm install create-nizam) for make update.") : " "}
+${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm install -g create-nizam) for make update.") : " "}
 `);
 
   const sm_logo = chalk.yellowBright(`
@@ -60,7 +60,7 @@ ${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm
     `v${app_info.app_info.version}`,
   )}
                                            
-${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm install create-nizam) for make update.") : " "}
+${is_new_v ? chalk.red("[!] There is a new version with more features. used (npm install -g create-nizam) for make update.") : " "}
 `);
 
   console.clear();
