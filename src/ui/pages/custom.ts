@@ -49,7 +49,7 @@ export async function Custom() {
     user_options.push([
       "js_framework",
       await rawlist_fun("Select a js framework:", [
-        new Separator(chalk.gray("--- Popular Options ---")),
+        new Separator(chalk.gray("--- typing the number or select it ---")),
         ...app_data.js_framework.options,
       ]),
     ]);
@@ -57,7 +57,7 @@ export async function Custom() {
       user_options.push([
         "css_framework",
         await rawlist_fun("Select a CSS framework:", [
-          new Separator(chalk.gray("--- Popular Options ---")),
+          new Separator(chalk.gray("--- typing the number or select it ---")),
           ...app_data.css_framework.options,
         ]),
       ]);
@@ -69,7 +69,7 @@ export async function Custom() {
         await checkbox_fun(
           "Select Library:",
           [
-            new Separator(chalk.gray("--- Popular Options ---")),
+            new Separator(chalk.gray("--- popular options ---")),
             ...app_data.ui_library.options,
           ],
           (value: string[]) => {
@@ -85,7 +85,7 @@ export async function Custom() {
         user_options.push([
           "routing_library",
           await rawlist_fun("Select Library:", [
-            new Separator(chalk.gray("--- Popular Options ---")),
+            new Separator(chalk.gray("--- typing the number or select it ---")),
             ...app_data.routing_library.options,
           ]),
         ]);
@@ -94,7 +94,9 @@ export async function Custom() {
           user_options.push([
             "react_router_rout",
             await rawlist_fun("Select way:", [
-              new Separator(chalk.gray("--- Popular Options ---")),
+              new Separator(
+                chalk.gray("--- typing the number or select it ---"),
+              ),
               ...app_data.react_router_rout.options,
             ]),
           ]);
@@ -105,7 +107,7 @@ export async function Custom() {
       user_options.push([
         "state_management",
         await rawlist_fun("Select way:", [
-          new Separator(chalk.gray("--- Popular Options ---")),
+          new Separator(chalk.gray("--- typing the number or select it ---")),
           ...app_data.state_management.options,
         ]),
       ]);
@@ -126,7 +128,7 @@ export async function Custom() {
         await checkbox_fun(
           "Select Library:",
           [
-            new Separator(chalk.gray("--- Popular Options ---")),
+            new Separator(chalk.gray("--- popular options ---")),
             ...app_data.icon_library.options,
           ],
           (value: string[]) => {
@@ -141,7 +143,7 @@ export async function Custom() {
       user_options.push([
         "head_management",
         await rawlist_fun("Select Library:", [
-          new Separator(chalk.gray("--- Popular Options ---")),
+          new Separator(chalk.gray("--- typing the number or select it ---")),
           ...app_data.head_management.options,
         ]),
       ]);
@@ -151,7 +153,7 @@ export async function Custom() {
       user_options.push([
         "data_fetching",
         await rawlist_fun("Select Library:", [
-          new Separator(chalk.gray("--- Popular Options ---")),
+          new Separator(chalk.gray("--- typing the number or select it ---")),
           ...app_data.data_fetching.options,
         ]),
       ]);

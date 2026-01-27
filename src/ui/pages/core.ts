@@ -17,11 +17,11 @@ export async function Core() {
 
   const nizam_choices = {
     pkg_manager: [
-      new Separator(chalk.gray("--- Available to you ---")),
+      new Separator(chalk.gray("--- typing the number or select it ---")),
       ...ctx.pkg_is_installed,
     ],
     structure_method: [
-      new Separator(chalk.gray("--- Available methods ---")),
+      new Separator(chalk.gray("--- typing the number or select it ---")),
       "nizam method",
       "custom method",
     ],
