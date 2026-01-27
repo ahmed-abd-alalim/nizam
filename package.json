@@ -1,5 +1,5 @@
 {
-  "name": "create-nizam",
+  "name": "create-nizam-app",
   "version": "1.0.0",
   "preferGlobal": true,
   "description": "A Smart command-line interface with no presets for creating a modern architecture",
@@ -41,7 +41,7 @@
     "utility"
   ],
   "bin": {
-    "create-nizam": "dist/__main__.js"
+    "create-nizam-app": "dist/__main__.js"
   },
   "files": [
     "dist",

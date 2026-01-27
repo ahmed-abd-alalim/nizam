@@ -10,8 +10,8 @@
 </p>
 <br/>
 <p align="center">
-  <img src="https://img.shields.io/npm/v/create-nizam" alt="npm version" />
-  <img src="https://img.shields.io/npm/l/create-nizam" alt="license" />
+  <img src="https://img.shields.io/npm/v/create-nizam-app" alt="npm version" />
+  <img src="https://img.shields.io/npm/l/create-nizam-app" alt="license" />
   <img src="https://img.shields.io/github/stars/ahmed-abd-alalim/nizam?style=social" alt="GitHub stars" />
 </p>
 <br/>
@@ -83,7 +83,7 @@ In addition to creating an organized file structure, nizam allows developers to 
 ##### using npx:
 
 ```bash
-npx create-nizam
+npx create-nizam-app
 ```
 
 <details>
@@ -91,11 +91,11 @@ npx create-nizam
 <br/>
 
 ```bash
-npm i -g create-nizam
+npm i -g create-nizam-app
 ```
 
 ```bash
-create-nizam
+create-nizam-app
 ```
 
 </details>
@@ -105,11 +105,11 @@ create-nizam
 <br/>
 
 ```bash
-bun install -g create-nizam
+bun install -g create-nizam-app
 ```
 
 ```bash
-bun run create-nizam
+bun run create-nizam-app
 ```
 
 </details>
@@ -119,11 +119,11 @@ bun run create-nizam
 <br/>
 
 ```bash
-yarn global add create-nizam
+yarn global add create-nizam-app
 ```
 
 ```bash
-yarn create-nizam
+yarn create-nizam-app
 ```
 
 </details>
@@ -133,11 +133,11 @@ yarn create-nizam
 <br/>
 
 ```bash
-pnpm add -g create-nizam
+pnpm add -g create-nizam-app
 ```
 
 ```bash
-pnpm create-nizam
+pnpm create-nizam-app
 ```
 
 </details>
