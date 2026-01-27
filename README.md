@@ -12,7 +12,7 @@
 <p align="center">
   <img src="https://img.shields.io/npm/v/create-nizam-app" alt="npm version" />
   <img src="https://img.shields.io/npm/l/create-nizam-app" alt="license" />
-  <img src="https://img.shields.io/github/stars/ahmed-abd-alalim/nizam?style=social" alt="GitHub stars" />
+  <!-- <img src="https://img.shields.io/github/stars/ahmed-abd-alalim/nizam?style=social" alt="GitHub stars" /> -->
 </p>
 <br/>
 <br/>
