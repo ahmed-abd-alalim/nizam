@@ -21,4 +21,7 @@ export function CorePaths() {
   const __dirname = path.dirname(__filename);
   const TEMPLATES_DIR = path.resolve(__dirname, "templates");
   ctx.nizam_templates_path = TEMPLATES_DIR;
+
+  const media_DIR = path.resolve(__dirname, "media");
+  ctx.nizam_media_path = media_DIR;
 }

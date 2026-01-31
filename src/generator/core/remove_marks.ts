@@ -1,7 +1,7 @@
-import { readFile, writeFile, readdir, lstat } from "./fs.js";
-import { useContext } from "../core/context/runtime.js";
+import { readFile, writeFile, readdir, lstat } from "../../utils/fs.js";
+import { useContext } from "../../core/context/runtime.js";
 import path from "path";
-import { extractMainMessage } from "../utils/filter_error_message.js";
+import { extractMainMessage } from "../../utils/filter_error_message.js";
 
 export async function cleanFolder() {
   const { full_project_path, operation_state } = useContext();
@@ -11,6 +11,7 @@ export async function cleanFolder() {
     const items = await readdir(dir);
     const IGNORE_FILES = new Set([
       "NIZAM_DOC.md",
+      "nizam_doc.html",
       "package.json",
       ".gitignore",
       "README.md",

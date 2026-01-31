@@ -32,7 +32,7 @@ In addition to creating an organized file structure, nizam allows developers to 
 - 💡 Automatically create essential project files
 - ⚡️ Speed up project initialization and focus on core development
 - 🛠️ Generate a scalable and well organized Frontend project structure
-- 📄 After completing the build, you will find a `NIZAM_DOC.md` file containing instructions and docs link for libraries you selected.
+- 📄 After completing the build, you will find a `nizam_doc.html` file containing instructions and docs link for libraries you selected.
 
 ## All of this in one place
 

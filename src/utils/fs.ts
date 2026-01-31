@@ -15,3 +15,4 @@ export const emptyDir = fs.emptyDir;
 export const readJson = fs.readJson;
 export const writeJson = fs.writeJson;
 export const outputJson = fs.outputJson;
+export const copy = fs.copy;

@@ -40,6 +40,7 @@ export const keys = [
   "api_http_file_path",
   "api_fetcher_file_path",
   "api_axios_fle_path",
+  "nizam_doc_html",
 
   "jsconfig_app_template",
   "vsc_settings_templates",
@@ -203,6 +204,7 @@ function pathBox(): path_box_type {
       `api`,
       `axios.${js_or_ts}`,
     ),
+    nizam_doc_html: path.resolve(full_project_path, "public", "nizam_doc.html"),
 
     // nizam-main
     jsconfig_app_template: path.resolve(

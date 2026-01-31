@@ -9,6 +9,7 @@ import {
   pathExists,
   readJson,
   writeJson,
+  copy,
 } from "../../../utils/fs.js";
 import { useContext } from "../../../core/context/runtime.js";
 import { nizamDocEditor } from "../../../utils/nizam_doc_editor.js";
@@ -17,7 +18,7 @@ import PathBox from "../../../assets/path/path_react.js";
 import type { resources_type } from "../../../assets/type.js";
 
 export async function ReactFiles() {
-  const { user_options } = useContext();
+  const { user_options, nizam_media_path } = useContext();
   const { js_framework }: resources_type = appData;
   const path_box = PathBox();
   const index_title = `<title>nizam - add your website name (${user_options.project_name}) here</title>`;
@@ -60,6 +61,7 @@ export async function ReactFiles() {
   // clean public folder
   await ensureDir(path_box.public_path);
   await emptyDir(path_box.public_path);
+  await copy(nizam_media_path, path_box.public_path, { overwrite: true });
 
   // edit title in index.html
   const html = await readFile(path_box.index_html_path, "utf8");

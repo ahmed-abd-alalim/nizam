@@ -37,6 +37,7 @@ export interface operation_state_type {
   data_fetching: one_operation_state_type;
   install_all_packages: one_operation_state_type;
   clean_folder_mark: one_operation_state_type;
+  build_nizam_doc_html: one_operation_state_type;
 }
 
 export interface execution_context_type {
@@ -44,6 +45,7 @@ export interface execution_context_type {
   start_menu_options: string;
   full_project_path: string;
   nizam_templates_path: string;
+  nizam_media_path: string;
   pkg_is_installed: string[];
   reset_menu: boolean;
   user_options: user_options_type;

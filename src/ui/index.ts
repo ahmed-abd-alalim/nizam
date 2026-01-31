@@ -5,6 +5,7 @@ export { sectionBox } from "./layouts/section_box.js";
 export { intro } from "./layouts/intro.js";
 export { printMenu } from "./layouts/print_menu.js";
 export { askAboutInstall } from "./layouts/ask_about_install.js";
+export { finalInstructure } from "./layouts/final_instructure.js";
 
 export { Core } from "./pages/core.js";
 export { Custom } from "./pages/custom.js";

@@ -10,6 +10,7 @@ import {
   Search,
   printMenu,
   askAboutInstall,
+  finalInstructure,
 } from "../ui/index.js";
 import { execSync } from "child_process";
 import chalk from "chalk";
@@ -22,7 +23,7 @@ async function main() {
   const ctx = createContext();
   startProject(ctx);
 
-  const clearConsole = () => {
+  const clearConsole = async () => {
     if (process.platform === "win32") {
       execSync("cls", { stdio: "inherit" });
     } else {
@@ -31,11 +32,11 @@ async function main() {
   };
 
   const search_mode_colle = async () => {
-    clearConsole();
+    await clearConsole();
     sectionBox("Browse Mode".toUpperCase());
     await Search();
     await Core();
-    clearConsole();
+    await clearConsole();
 
     await printMenu();
     if (ctx.reset_menu) {
@@ -44,20 +45,22 @@ async function main() {
       return;
     }
 
-    clearConsole();
+    await clearConsole();
     sectionBox("Installation".toUpperCase());
     await Setup();
     await askAboutInstall();
-    clearConsole();
+    await clearConsole();
+    sectionBox("nizam success".toUpperCase());
+    await finalInstructure();
     process.exit(0);
   };
 
   const custom_mode_colle = async () => {
-    clearConsole();
+    await clearConsole();
     sectionBox("OneShot Mode".toUpperCase());
     await Core();
     await Custom();
-    clearConsole();
+    await clearConsole();
 
     await printMenu();
     if (ctx.reset_menu) {
@@ -66,11 +69,13 @@ async function main() {
       return;
     }
 
-    clearConsole();
+    await clearConsole();
     sectionBox("Installation".toUpperCase());
     await Setup();
     await askAboutInstall();
-    clearConsole();
+    await clearConsole();
+    sectionBox("nizam success".toUpperCase());
+    await finalInstructure();
     process.exit(0);
   };
 

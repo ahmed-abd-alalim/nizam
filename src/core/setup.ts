@@ -15,8 +15,9 @@ import {
   StateManagement,
   HeadManagement,
   DataFetching,
+  cleanFolder,
+  BuildDocPage,
 } from "../generator/index.js";
-import { cleanFolder } from "../utils/remove_marks.js";
 
 export async function Setup() {
   const { operation_state, user_options } = useContext();
@@ -109,6 +110,13 @@ export async function Setup() {
       operation_name: "clean_folder_mark",
       operation_fun: cleanFolder,
       operation_des: `preparing the file for use`,
+      operation_is_need: true,
+      operation_targit: true,
+    },
+    {
+      operation_name: "build_nizam_doc_html",
+      operation_fun: BuildDocPage,
+      operation_des: `build nizam_doc.html page`,
       operation_is_need: true,
       operation_targit: true,
     },

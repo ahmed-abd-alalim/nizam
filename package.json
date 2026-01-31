@@ -1,6 +1,6 @@
 {
   "name": "create-nizam-app",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "preferGlobal": true,
   "description": "A Smart command-line interface with no presets for creating a modern architecture",
   "type": "module",
@@ -49,13 +49,15 @@
   ],
   "scripts": {
     "watch:templates": "npx cpx \"src/templates/**/*.template\" dist/templates --watch",
+    "watch:media": "npx cpx \"src/media/**\" dist/media --watch",
     "watch:rollup": "rollup -c -w --silent",
     "dev": "npm-run-all --parallel watch:*",
     "lint": "eslint ./src",
     "format": "prettier --write ./src",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "copy:templates": "npx cpx \"src/templates/**/*.template\" dist/templates",
-    "build": "npm run clean &&  npm run copy:templates && rollup -c --silent",
+    "copy:media": "npx cpx \"src/media/**\" dist/media",
+    "build": "npm run clean &&  npm-run-all --parallel copy:* && rollup -c --silent",
     "matchV": "node -e \"const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json')); const config=JSON.parse(fs.readFileSync('src/assets/config.json')); config.app_info.version=pkg.version; fs.writeFileSync('src/assets/config.json', JSON.stringify(config,null,2));\"",
     "prepublishOnly": "npm run matchV && npm run format && npm run lint && npm run build"
   },
@@ -87,6 +89,7 @@
     "fuse.js": "^7.1.0",
     "inquirer": "^13.2.0",
     "inquirer-checkbox-plus-plus": "^1.1.1",
+    "marked": "^17.0.1",
     "ora": "^9.0.0",
     "strip-json-comments": "^5.0.3"
   }
