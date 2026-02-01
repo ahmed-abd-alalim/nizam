@@ -66,7 +66,7 @@ In addition to creating an organized file structure, nizam allows developers to 
 
 <p align="center">
   <picture>
-    <img alt="nizam logo" src="./github_assets/nizam-home.png" width="500">
+    <img alt="nizam logo" src="./github_assets/nizam-home.webp" width="500">
   </picture>
 </p>
 
@@ -81,6 +81,20 @@ In addition to creating an organized file structure, nizam allows developers to 
 ### 🚨 Help
 
 - it provides you with support and guidance, with an explanation of each question and the options that will be displayed, to make it easier to understand and use the tool.
+
+## nizam HTML documentation page
+
+<p align="center">
+  <picture>
+    <img alt="nizam doc" src="./github_assets/doc.webp" width="800">
+  </picture>
+</p>
+
+### What does it offer?
+
+- a simplified explanation of each library
+- instructions for using the library according to its official website
+- official Documentation Links
 
 ## Get started with nizam
 
