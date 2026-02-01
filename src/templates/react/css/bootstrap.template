@@ -1,5 +1,3 @@
-
-
 /* ----------------------------------- *\
   #index.css
 \* ----------------------------------- */
@@ -12,37 +10,31 @@
   #CUSTOM PROPERTY
 \* ----------------------------------- */
 :root {
-
   /**
    * colors
    */
-  --color-name: value;
+  --color-white: white;
 
   /**
    * typography
    */
-  --ff-name: value;
-
-  --fs-num: value;
-
-  --fw-size: value;
+  --font-sans: sans-serif;
 
   /**
    * shadow
    */
-  --shadow: value;
+  /* --shadow: value; */
 
   /**
    * radius
    */
-  --radius-num: value;
+  /* --radius-num: value; */
 
   /**
    * transition
    */
-  --transition-name: value;
+  /* --transition-name: value; */
 }
-
 
 /* ----------------------------------- *\
   #RESET
@@ -55,17 +47,23 @@
   padding: 0;
   box-sizing: border-box;
 }
-li { list-style: none; }
+li {
+  list-style: none;
+}
 a,
 img,
 span,
 button,
-ion-icon { display: block; }
+ion-icon {
+  display: block;
+}
 a {
   color: inherit;
   text-decoration: none;
 }
-img { height: auto; }
+img {
+  height: auto;
+}
 input,
 button {
   background: none;
@@ -74,54 +72,59 @@ button {
   color: inherit;
 }
 input,
-table { width: 100%; }
-button { cursor: pointer; }
-ion-icon { pointer-events: none; }
+table {
+  width: 100%;
+}
+button {
+  cursor: pointer;
+}
+ion-icon {
+  pointer-events: none;
+}
 html {
   font-family: var(--ff-name);
-  font-size: value;
+  /* font-size: value; */
   scroll-behavior: smooth;
 }
 body {
-  background-color: var(--color-name);
-  color: var(--color-name);
-  font-size: value;
-  line-height: value;
+  background-color: var(--color-white);
+  color: var(--color-white);
+  /* font-size: value;
+  line-height: value; */
 }
 
 /**
 * scrollbar
 */
- /*
+/*
 body.active { overflow-y: hidden; }
 :focus-visible { outline-offset: value; }
 ::-webkit-scrollbar { width: value; }
-::-webkit-scrollbar-track { background-color: var(--color-name); }
-::-webkit-scrollbar-thumb { background-color: var(--color-name); }
-::-webkit-scrollbar-thumb:hover { background-color: var(--color-name); }
+::-webkit-scrollbar-track { background-color: var(--color-white); }
+::-webkit-scrollbar-thumb { background-color: var(--color-white); }
+::-webkit-scrollbar-thumb:hover { background-color: var(--color-white); }
 */
-
 
 /* ----------------------------------- *\
   #MEDIA QUERIES
 \* ----------------------------------- */
 
-@media (min-width: 640px) { 
-    /* Mobile */
+@media (min-width: 640px) {
+  /* Mobile */
 }
 
-@media (min-width: 768px) { 
-    /* tablets */
+@media (min-width: 768px) {
+  /* tablets */
 }
 
 @media (min-width: 1024px) {
-    /* laptops */
- }
+  /* laptops */
+}
 
 @media (min-width: 1280px) {
-    /* desktops */
- }
+  /* desktops */
+}
 
 @media (min-width: 1536px) {
-    /* large monitors */
- }
+  /* large monitors */
+}
