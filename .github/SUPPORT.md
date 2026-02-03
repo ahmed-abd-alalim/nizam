@@ -2,6 +2,8 @@
 
 We are here to help! If you encounter any issues or need assistance, please follow the instructions below.
 
+<br>
+
 ## A different way to get support
 
 ### 1. Check the Documentation
@@ -31,9 +33,13 @@ If your question is private or sensitive, you can reach the support team at: `ah
 - My LinkedIn: [linkedin.com](https://www.linkedin.com/in/ahmed-abd-alalim-286768299/)
 - My WebSite: [ahmedabdalalim.pages.dev](https://ahmedabdalalim.pages.dev/)
 
+<br>
+
 ## Response Time
 
 We aim to respond to issues within **48 hours**. Please be patient if our response is delayed.
+
+<br>
 
 ## Contribution Support
 
