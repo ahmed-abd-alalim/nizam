@@ -18,18 +18,19 @@ import { Setup } from "../core/setup.js";
 import { createContext } from "../core/context/create.js";
 import { startProject, resetContext } from "../core/context/runtime.js";
 import { say } from "../ui/index.js";
+import { removeAppFolder } from "../utils/remove_app_folder.js";
+
+const clearConsole = async () => {
+  if (process.platform === "win32") {
+    execSync("cls", { stdio: "inherit" });
+  } else {
+    execSync("clear", { stdio: "inherit" });
+  }
+};
 
 async function main() {
   const ctx = createContext();
   startProject(ctx);
-
-  const clearConsole = async () => {
-    if (process.platform === "win32") {
-      execSync("cls", { stdio: "inherit" });
-    } else {
-      execSync("clear", { stdio: "inherit" });
-    }
-  };
 
   const search_mode_colle = async () => {
     await clearConsole();
@@ -123,5 +124,11 @@ async function main() {
     process.exit(1);
   }
 }
+
+process.on("SIGINT", async () => {
+  await removeAppFolder();
+  await clearConsole();
+  process.exit(0);
+});
 
 main();
