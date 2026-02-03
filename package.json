@@ -1,6 +1,6 @@
 {
   "name": "create-nizam-app",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "preferGlobal": true,
   "description": "A Smart command-line interface with no presets for creating a modern architecture",
   "type": "module",
