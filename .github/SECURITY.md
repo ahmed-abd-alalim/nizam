@@ -9,6 +9,8 @@ We currently support the latest version of this project.
 | Latest  | ✅        |
 | Older   | ❌        |
 
+<br>
+
 ## Reporting a Vulnerability
 
 If you find a security vulnerability, please report it **privately** using GitHub’s **Security Advisories**.
@@ -19,6 +21,8 @@ If you find a security vulnerability, please report it **privately** using GitHu
 - Or email us directly: `ahmedabdalalim.3a@gmail.com`
 
 ⚠️ Do **not** open public issues for security vulnerabilities.
+
+<br>
 
 ## Response Time
 
