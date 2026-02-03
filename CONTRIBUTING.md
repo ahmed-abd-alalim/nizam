@@ -11,6 +11,8 @@ To contribute, please follow these steps:
 3. Make your changes and ensure that the code passes all tests.
 4. Submit a pull request describing your changes and their benefits.
 
+<br>
+
 ## nizam Setup
 
 ### To develop the core nizam package:
@@ -40,6 +42,8 @@ To contribute, please follow these steps:
      ```bash
      create-nizam-app
      ```
+
+<br>
 
 ## Pull Request Guidelines
 
