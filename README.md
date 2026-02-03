@@ -160,6 +160,10 @@ pnpm create-nizam-app
 
 </details>
 
+## Support
+
+Read the [SUPPORT.md](./.github/SUPPORT.md) file
+
 ## Project License
 
 Copyright (c) Ahmed Abd Alalim. All rights reserved.
